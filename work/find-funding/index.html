@@ -47,8 +47,10 @@ p+p{margin-top:20px}
 @media (max-width:900px){.hero-head .claim{white-space:normal}}
 .hero-head .dates{margin-top:14px;color:var(--muted)}
 .live{font-family:var(--mono);font-size:13px;line-height:20px;white-space:nowrap;padding-top:14px}
-.hero .frame{flex:1;min-height:0;display:flex}
+.hero .frame{flex:1;min-height:0;display:flex;position:relative}
 .hero .frame img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.hero .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#fff}
+.premise{font-size:17px;line-height:26px;color:var(--ink);margin-top:10px;max-width:640px;white-space:normal}
 .hero .cap{margin-top:12px}
 
 /* 3 design system strip */
@@ -59,7 +61,8 @@ p+p{margin-top:20px}
 .ds-intro{max-width:var(--prose);margin-bottom:48px}
 .why{font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted);margin-top:4px}
 .hv{border:1.5px dotted var(--muted);border-radius:6px;padding:1px 6px}
-.spec{margin-top:56px;display:grid;grid-template-columns:120px auto 1fr;column-gap:32px;row-gap:14px;align-items:baseline;color:#1c1c1c}
+.type{margin-top:72px}
+.spec{display:grid;grid-template-columns:120px auto 1fr;column-gap:32px;row-gap:14px;align-items:baseline;color:#1c1c1c}
 .spec .why{margin-top:0}
 .spec .mono{color:var(--muted)}
 .cards{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
@@ -86,8 +89,6 @@ blockquote{border-left:2px solid var(--violet);padding-left:20px;margin-top:24px
 .evidence{margin-top:64px}
 .evidence img{width:100%}
 
-/* 6 hard call */
-.call p{font-size:19px;line-height:30px}
 
 /* 7 footer */
 footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64px}
@@ -113,7 +114,6 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   .blk{gap:24px}
   .blk+.blk{margin-top:64px}
   .ds{padding:56px 0}
-  .call p{font-size:18px;line-height:28px}
 }
 
 /* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
@@ -124,6 +124,34 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 /* the logic, stated: one plain sentence in her voice where a decision showed no reason */
 .logic{color:var(--ink)}
 @media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+/* spacing pass: one scale */
+/* desktop 160 section / 120 block / 64 group / 40 element / 24 note / 16 caption
+   mobile   96 section /  80 block / 48 group / 40 element / 24 note / 16 caption */
+:root{--s1:160px;--s2:120px;--s3:64px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+h2{margin-bottom:var(--s5)}
+.cap{margin-top:var(--s6)}
+.cap+.logic,.cap+p:not(.cap):not(.why){margin-top:var(--s5)}
+.hers{margin-top:var(--s4)}
+.ds{padding:var(--s2) 0}
+section.ds,.ds+section,.ds+footer{margin-top:var(--s3)}
+.ds-intro{margin-bottom:var(--s3)}
+.blk+.blk,.mech+.mech{margin-top:var(--s2)}
+.hand{margin:var(--s4) 0 12px}
+.hand:first-child{margin-top:0}
+.hand.after{margin:var(--s5) 0 0}
+.hand+.hers,.hand+p,.hand+blockquote{margin-top:0}
+footer,footer.wide{margin-top:var(--s1);padding-top:var(--s3);padding-bottom:var(--s2)}
+footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
+.nav{margin-top:var(--s3)}
+@media (max-width:760px){
+  :root{--s1:96px;--s2:80px;--s3:48px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+  .blk,.mech{row-gap:var(--s4)}
+  .cards{row-gap:var(--s3)}
+  .nav{flex-wrap:wrap;gap:var(--s6) var(--s5)}
+}
+.type{margin-top:var(--s3)}
+.cards{margin-top:var(--s3)}
+.evidence{margin-top:var(--s3)}
 </style>
 </head>
 <body class="no-js">
@@ -133,12 +161,13 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   <div class="hero-head">
     <div>
       <h1>find funding</h1>
-      <p class="claim">i'm cofounder &amp; cpo. i designed the product and made it agentic.</p>
+      <p class="premise">Find Funding matches small businesses with the grants and loans they qualify for. It's agentic: it reads your documents, builds your profile, and plans your applications.</p>
+      <p class="claim">i'm the design engineer, cpo &amp; cofounder. i designed the product, built the front end, and made it agentic.</p>
     </div>
     <a class="live" href="https://findfunding.ai" rel="noopener">visit live ↗ findfunding.ai</a>
   </div>
-  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live findfunding.ai landing page: Funding shouldn't depend on who you know." width="2880" height="1800"></div>
-  <p class="cap">live product, findfunding.ai landing page</p>
+  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live findfunding.ai landing page: Funding shouldn't depend on who you know." width="2880" height="1800"><iframe data-src="https://findfunding.ai" title="findfunding.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer"></iframe></div>
+  <p class="cap">live product, findfunding.ai, scroll inside it</p>
 </header>
 
 <!-- 2. the problem -->
@@ -153,11 +182,11 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   <div class="wide">
     <h2>the system</h2>
     <div class="ds-intro">
-      <p class="intro">I wrote the system down as a few decisions that carry the whole product. Size carries hierarchy, colour has one job per surface, and an unknown always stays unknown. The canon says it in one line:</p>
+      <p class="intro">I wrote the system down as a few decisions that carry the whole product. Size carries hierarchy, color has one job per surface, and an unknown always stays unknown. The canon says it in one line:</p>
       <blockquote><p>"At rest a card or row holds: title (16/600), one sentence-case meta line, a summary clamped to two lines, and at most one status element plus the fixed metrics."</p></blockquote>
       <div class="hers">the feeling i designed for, in one sentence: you should feel capable here, not audited.</div>
     </div>
-    <span class="hand r2">one job per colour, per surface</span>
+    <span class="hand r2">one job per color, per surface</span>
     <div class="sw">
       <div><div style="background:#7668FF"></div><p>violet #7668FF</p><p class="why">the working accent and the logo pixel: one filled accent per surface keeps it calm</p></div>
       <div><div style="background:#dbf570"></div><p>lime #dbf570</p><p class="why">brand energy, violet's partner; it also marks Known, so it means something</p></div>
@@ -165,13 +194,15 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
       <div><div style="background:#ffffff"></div><p>surface #ffffff</p><p class="why">cards sit one step up from the canvas; no shadows needed to separate them</p></div>
       <div><div style="background:#1c1c1c"></div><p>ink #1c1c1c</p><p class="why">near-black, never pure; "no yellow, blue, mint or lilac" anywhere else</p></div>
     </div>
-    <span class="hand r3 after">size does the shouting, not weight</span>
-    <div class="spec">
+    <div class="type">
+    <span class="hand r3">size does the shouting, not weight</span>
+    <div class="spec" style="margin-top:0">
       <span class="mono">28 · title</span><span style="font-size:28px;line-height:34px">Funding that could fit</span><span class="why">size carries hierarchy, not weight or decoration</span>
       <span class="mono">16 · body</span><span style="font-size:16px;line-height:24px">Ranked by the published rules you already meet.</span><span class="why">one reading size for everything a person decides on</span>
       <span class="mono">14 · label</span><span style="font-size:14px;line-height:20px">Legal name</span><span class="why">labels and helpers, quieter than what they label</span>
       <span class="mono">12 · caption</span><span style="font-size:12px;line-height:18px">Read from page 2 of your 2025 tax return</span><span class="why">provenance: small, but always there</span>
       <span class="mono">family</span><span style="font-size:16px;line-height:24px">Instrument Sans, and only Instrument Sans</span><span class="why">one typeface, used with conviction. the warmth lives in the letterforms, so the interface never has to perform friendliness.</span>
+    </div>
     </div>
     <div class="cards">
       <div>
@@ -192,7 +223,7 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 
 <!-- 4. making it agentic: the spine of the page -->
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 56px;max-width:var(--prose)">
+  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>making it agentic</h2>
     <p class="intro">The usual shape of a funding tool is forms and lists. You type your business into thirty fields, then scroll a catalog. I wanted the opposite: the product does the reading, and you do the deciding.</p>
     <div class="hers">the forms-and-lists version asked owners to retype what their own documents already said. that was the moment: the product should do the reading. i took a product and made it agentic.</div>
@@ -217,13 +248,6 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   </div>
 </section>
 
-<!-- 5. the hard call: one slim closing beat -->
-<section class="prose call">
-  <h2>the hard call</h2>
-  <span class="hand r2">never approve your own work</span>
-  <p>My profile redesign collided with newer work that was already live. The deploy gate flagged it, and it was right to. Mine had a real case: it shows a failed load where the live one hides it. But it was my own work, and I'm the worst person to approve it. So I shipped the system, tokens, cards, onboarding, login, dashboard, and parked my profile for proper design review, both versions side by side.</p>
-  <div class="hers">i shipped everything uncontested the same day and parked my own redesign for review. it stung. but i'd just built a whole product on the rule that your saved word beats the machine's suggestion — approving my own replacement of live work would have broken that same rule.</div>
-</section>
 
 <!-- 7. footer -->
 <footer class="wide">
@@ -238,8 +262,17 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 
 <script>
 document.body.classList.remove('no-js');
+/* live embed: src set only when the hero frame nears view; reduced motion keeps the capture */
+(() => {
+  const f = document.querySelector('.hero iframe[data-src]'); if (!f) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { f.remove(); return; }
+  const go = () => { f.src = f.dataset.src; f.addEventListener('load', () => { const im = f.parentNode.querySelector('img'); if (im) im.style.visibility = 'hidden'; }, { once: true }); };
+  if ('IntersectionObserver' in window) { const o = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { o.disconnect(); go(); } }, { rootMargin: '400px 0px' }); o.observe(f); } else go();
+})();
+
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
 document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 </script>
+<script src="../case-chrome.js" data-notebook="../../index.html#work-index" data-next="../intranest/index.html" data-next-name="intranest"></script>
 </body>
 </html>

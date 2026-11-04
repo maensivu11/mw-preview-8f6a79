@@ -680,12 +680,12 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
   var frame=modal.querySelector('[data-wi-frame]');
   var timer=0;
   var run=0;
-  function openWorkIndex(){
+  function openWorkIndex(instant){
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var mobile=window.matchMedia('(max-width:600px)').matches;
     var root=mobile?'assets/tabletop/mobile/':'assets/tabletop/';
     var spread='assets/tabletop/open-comp-blank.png';
-    var frames=reduce?[spread]:[root+'book-closed.png',root+'book-slightly-open.png',root+'book-half-open.png',spread];
+    var frames=(reduce||instant===true)?[spread]:[root+'book-closed.png',root+'book-slightly-open.png',root+'book-half-open.png',spread];
     var mine=++run,step=0;
     clearTimeout(timer);closing=false;frame.style.transform='';
     stage.classList.remove('is-open','is-leaving');
@@ -781,5 +781,5 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
   });
   function fromHash(){if(window.location.hash==='#work-index')openWorkIndex();}
   window.addEventListener('hashchange',fromHash);
-  fromHash();
+  if(window.location.hash==='#work-index')openWorkIndex(true);
 })();

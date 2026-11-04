@@ -40,13 +40,14 @@ p+p{margin-top:20px}
 .no-js .art{opacity:1;transform:none}
 
 /* 1 hero: the journal on its own paper */
-.hero{min-height:100vh;display:flex;flex-direction:column;padding:40px var(--pad) 40px}
+.hero{display:flex;flex-direction:column;padding:40px var(--pad) 40px}
 .hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:32px}
 .hero-head .claim{font-size:22px;line-height:32px;margin-top:12px}
 .live{font-family:var(--mono);font-size:13px;line-height:20px;white-space:nowrap;padding-top:14px}
-.hero .frame{flex:1;min-height:0;display:flex;background:var(--paper)}
-.hero .frame img{width:100%;height:100%;object-fit:contain;padding:40px 0}
-.hero .cap{margin-top:12px}
+.hero .frame{flex:none;width:min(100%,420px);margin:0 auto;display:flex;background:var(--paper)}
+.hero .frame img{width:100%;height:auto}
+.hero .cap{margin-top:12px;text-align:center}
+.framing{max-width:560px;margin:32px auto 0;font-size:19px;line-height:31px;text-align:center}
 
 /* 2 manifesto */
 .manifesto p{font-size:19px;line-height:31px}
@@ -90,8 +91,8 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   .hero{min-height:auto}
   .hero-head{flex-direction:column}
   .live{padding-top:0}
-  .hero .frame{flex:none}
-  .hero .frame img{height:auto;padding:20px 0}
+  .hero .frame{width:78%}
+  .framing{font-size:17px;line-height:28px}
   .blk{grid-template-columns:1fr;gap:24px}
   .blk+.blk{margin-top:64px}
   .reel{grid-template-columns:repeat(2,1fr);padding:16px}
@@ -108,6 +109,33 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 .hand.after{margin:14px 0 0}
 .logic{color:var(--ink)}
 @media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+/* spacing pass: one scale */
+/* desktop 160 section / 120 block / 64 group / 40 element / 24 note / 16 caption
+   mobile   96 section /  80 block / 48 group / 40 element / 24 note / 16 caption */
+:root{--s1:160px;--s2:120px;--s3:64px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+h2{margin-bottom:var(--s5)}
+.cap{margin-top:var(--s6)}
+.cap+.logic,.cap+p:not(.cap):not(.why){margin-top:var(--s5)}
+.hers{margin-top:var(--s4)}
+.ds{padding:var(--s2) 0}
+section.ds,.ds+section,.ds+footer{margin-top:var(--s3)}
+.ds-intro{margin-bottom:var(--s3)}
+.blk+.blk,.mech+.mech{margin-top:var(--s2)}
+.hand{margin:var(--s4) 0 12px}
+.hand:first-child{margin-top:0}
+.hand.after{margin:var(--s5) 0 0}
+.hand+.hers,.hand+p,.hand+blockquote{margin-top:0}
+footer,footer.wide{margin-top:var(--s1);padding-top:var(--s3);padding-bottom:var(--s2)}
+footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
+.nav{margin-top:var(--s3)}
+@media (max-width:760px){
+  :root{--s1:96px;--s2:80px;--s3:48px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+  .blk,.mech{row-gap:var(--s4)}
+  .cards{row-gap:var(--s3)}
+  .nav{flex-wrap:wrap;gap:var(--s6) var(--s5)}
+}
+.framing{margin-top:var(--s4)}
+.hers+p{margin-top:var(--s4)}
 </style>
 </head>
 <body class="no-js">
@@ -123,6 +151,7 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   </div>
   <div class="frame art"><img src="assets/00-journal-cover.jpg" alt="A black and white composition book. The label reads Composition Book, name: Mikaela Maensivu, written in a child's hand, and Journal underneath." width="1200" height="1600"></div>
   <p class="cap">the cover the site opens on, my composition book, name written by me as a kid</p>
+  <p class="framing">this is my real painting in the backdrop, my real childhood journal with my real drawings to show i have always been creative, and the video inside it i designed. it also has my own handwriting.</p>
 </header>
 
 <!-- 2. the manifesto -->
@@ -135,13 +164,14 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   <div class="hers"><span class="hv">[her voice: my taste, in one line]</span></div>
   <p>so i didn't use a template, a site builder or a framework. index.html, styles.css and script.js are written by hand, line by line. i'm not avoiding tools to make a point. if i say i care about craft, the site is where you can check, and view-source is part of the portfolio.</p>
   <p>the handwriting is mine too. B-McE isn't a font i picked from a list. it's my own handwriting, turned into a typeface, and it's the hand you see in the margins of every page here. the composition book is the journal i kept as a kid, with my name on the cover in the same hand, only younger. the yellow highlights were traced over my own ink, stroke by stroke.</p>
+  <p>this is to showcase my skills. we also have a voice agent in my voice.</p>
   <p>i want it to feel human and authentic, like someone took their time, because someone did. you can't fake that with a prompt. you can only spend it.</p>
   <div class="hers"><span class="hv">[her voice: the closing line]</span></div>
 </section>
 
 <!-- 3. how it's made -->
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 56px;max-width:var(--prose)">
+  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>how it's made</h2>
     <p class="intro">there are three pieces of mechanics. each one is small, each one is real, and each one only works because i did it by hand.</p>
   </div>
@@ -211,10 +241,10 @@ Promise.all(frames.map(<span class="k">function</span>(src){<span class="k">var<
 <section class="ds">
   <div class="wide">
     <h2>the system</h2>
-    <p class="intro" style="max-width:var(--prose);margin-bottom:48px">four materials, and every one of them is something you could hold.</p>
+    <p class="intro" style="max-width:var(--prose);margin-bottom:var(--s3)">four materials, and every one of them is something you could hold.</p>
     <span class="hand r2">paper, ink, my hand</span>
     <div class="sw">
-      <div><div class="chip" style="background:#FBF6EA"></div><p>paper #FBF6EA</p><p class="why">warm, not white: the colour of a page that's been kept, not printed</p></div>
+      <div><div class="chip" style="background:#FBF6EA"></div><p>paper #FBF6EA</p><p class="why">warm, not white: the color of a page that's been kept, not printed</p></div>
       <div><div class="chip" style="background:#22303a"></div><p>ink #22303a</p><p class="why">blue-black ballpoint, never pure black, because no pen is</p></div>
       <div><div class="chip" style="background:#FBF6EA;font-family:'B-McE',cursive;font-size:34px;color:#22303a">mikaela</div><p>B-McE</p><p class="why">my own handwriting as a typeface: the margins speak in my hand</p></div>
       <div><div class="chip" style="background:#FBF6EA;font-family:'Caveat',cursive;font-weight:500;font-size:30px;color:#22303a">open me</div><p>Caveat</p><p class="why">the quick hand for small ui hints, so the margins stay mine</p></div>
@@ -237,5 +267,6 @@ document.body.classList.remove('no-js');
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
 document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 </script>
+<script src="../case-chrome.js" data-notebook="../../index.html#work-index" data-prev="../winged-max/index.html" data-prev-name="winged max"></script>
 </body>
 </html>

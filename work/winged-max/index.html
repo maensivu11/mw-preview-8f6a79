@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>winged max · mikaela maensivu</title>
-<meta name="description" content="Winged Max: a dating agent that works inside your own phone screen. A case study about the mechanisms, by Mikaela Maensivu, founder.">
+<meta name="description" content="Winged Max: a dating agent that runs entirely on your own Mac. A case study about the mechanisms, by Mikaela Maensivu, design engineer &amp; founder.">
 <link rel="icon" href="assets/AppIcon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -198,6 +198,33 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
 /* the logic, stated: one plain sentence in her voice where a decision showed no reason */
 .logic{color:var(--ink)}
 @media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+/* spacing pass: one scale */
+/* desktop 160 section / 120 block / 64 group / 40 element / 24 note / 16 caption
+   mobile   96 section /  80 block / 48 group / 40 element / 24 note / 16 caption */
+:root{--s1:160px;--s2:120px;--s3:64px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+h2{margin-bottom:var(--s5)}
+.cap{margin-top:var(--s6)}
+.cap+.logic,.cap+p:not(.cap):not(.why){margin-top:var(--s5)}
+.hers{margin-top:var(--s4)}
+.ds{padding:var(--s2) 0}
+section.ds,.ds+section,.ds+footer{margin-top:var(--s3)}
+.ds-intro{margin-bottom:var(--s3)}
+.blk+.blk,.mech+.mech{margin-top:var(--s2)}
+.hand{margin:var(--s4) 0 12px}
+.hand:first-child{margin-top:0}
+.hand.after{margin:var(--s5) 0 0}
+.hand+.hers,.hand+p,.hand+blockquote{margin-top:0}
+footer,footer.wide{margin-top:var(--s1);padding-top:var(--s3);padding-bottom:var(--s2)}
+footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
+.nav{margin-top:var(--s3)}
+@media (max-width:760px){
+  :root{--s1:96px;--s2:80px;--s3:48px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+  .blk,.mech{row-gap:var(--s4)}
+  .cards{row-gap:var(--s3)}
+  .nav{flex-wrap:wrap;gap:var(--s6) var(--s5)}
+}
+.funnel{margin:0 0 var(--s4)}
+.curve{margin-top:var(--s3)}
 </style>
 </head>
 <body class="no-js">
@@ -207,7 +234,8 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
   <div class="hero-head">
     <div>
       <h1>winged max</h1>
-      <p class="claim">i'm the founder. i designed an agent that works the dating apps for you, inside your own phone screen, and never sends a word without you.</p>
+      <p class="claim">Winged Max is the agent running entirely on your own Mac. It watches, learns your taste, and acts on your behalf locally.</p>
+      <p class="claim">i'm the design engineer &amp; founder. i designed it and built it by hand.</p>
       <p class="stage">stage: working build, unfinished interface. this page shows how it works, not how it looks.</p>
     </div>
     <img src="assets/AppIcon.svg" alt="Winged Max app icon" width="64" height="64">
@@ -281,7 +309,7 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
 
 <!-- 4. how the agent works: the spine of the page -->
 <section class="wide">
-  <div style="max-width:var(--prose);margin:0 0 56px">
+  <div style="max-width:var(--prose);margin:0 0 var(--s3)">
     <h2>how the agent works</h2>
     <p class="intro">An agent that sees who you find attractive and writes as you has to earn trust mechanically, not with copy. Three rules, each one enforced in code: the human confirms anything consequential, autonomy is earned and revocable, and your taste stays yours.</p>
   </div>
@@ -333,7 +361,7 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
       <div class="code" style="margin-top:20px"><pre><span class="k">public var</span> unlocksAgent: Bool {
     validationCount >= <span class="n">50</span> &amp;&amp; auc > <span class="n">0.6</span>
 }</pre></div>
-      <p class="cap">AttractionClassifier.swift · every rating contributes one prediction from a model that never saw it</p><p class="logic">why out-of-fold: a model graded on profiles it trained on can pass by memorising you. grading it only on ones it never saw is the honest test, and a toggle would skip the test entirely.</p>
+      <p class="cap">AttractionClassifier.swift · every rating contributes one prediction from a model that never saw it</p><p class="logic">why out-of-fold: a model graded on profiles it trained on can pass by memorizing you. grading it only on ones it never saw is the honest test, and a toggle would skip the test entirely.</p>
     </div>
   </div>
 
@@ -385,9 +413,9 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
 
 <!-- how a text actually arrives: the SMS pipeline behind the original Winged agent -->
 <section class="wide" id="how-a-text-arrives">
-  <div style="max-width:var(--prose);margin:0 0 56px">
+  <div style="max-width:var(--prose);margin:0 0 var(--s3)">
     <h2>how a text actually arrives</h2>
-    <p class="intro">Winged Max works inside your phone screen. The Winged agent before it worked through plain SMS, and those texts have a real path: a carrier, a provider, a webhook, a model that picks one action and writes one reply, and a delivery receipt. This is that path, from the backend repo.</p>
+    <p class="intro">Winged Max itself runs entirely on your Mac, so there is no Twilio hop and no carrier in its path. This is the texting infrastructure it descends from: Winged, the agent that works through plain SMS. Every text has a real path: a carrier, a provider, a webhook, a model that picks one action and writes one reply, and a delivery receipt. Here is that path, from the Winged backend repo.</p>
   </div>
 
   <div class="art">
@@ -413,10 +441,10 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
       </div>
       <div class="jctl"><button type="button" id="j-pause">pause</button></div>
     </div>
-    <p class="cap">one text through the real pipeline · endpoints, function names and states from the repo · no numbers or keys shown</p>
+    <p class="cap">one text through the real Winged pipeline · endpoints, function names and states from the repo · no numbers or keys shown</p>
   </div>
 
-  <div class="mech" style="margin-top:96px">
+  <div class="mech" style="margin-top:var(--s2)">
     <div class="art">
       <div class="code">
         <div class="path">src/features/pre-onboarding/pre-onboarding.routes.js · .controller.js</div>
@@ -545,12 +573,14 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     place();
   }
   function tick(){show((i+1)%7)}
-  function start(){timer=setInterval(tick,2400)}
+  var vis=false;
+  function start(){clearInterval(timer);timer=vis&&!paused?setInterval(tick,2400):null}
   if(reduce){
     document.getElementById('journey').classList.add('no-motion');
     return;
   }
-  show(0);start();
+  show(0);
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(vis)start();else{clearInterval(timer);timer=null}})}).observe(document.getElementById('journey'))}
   btn.addEventListener('click',function(){
     paused=!paused;btn.textContent=paused?'play':'pause';
     if(paused){clearInterval(timer)}else{start()}
@@ -559,27 +589,27 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
 })();
 </script>
 
-<!-- 5. the honest audit -->
+<!-- 5. the audit: the instrument -->
 <section class="wide">
   <div style="max-width:var(--prose)">
-    <h2>the honest audit</h2>
-    <p class="intro">When I traced every training input end to end, I found something I couldn't unsee. Of the things the product asks you to teach it, under half change what the agent does.</p>
+    <h2>the audit</h2>
+    <p class="intro">I traced every training input end to end, from the screen to the decision. Sixteen inputs, each followed until I could say exactly what it changes in what the agent does.</p>
   </div>
-  <div class="art" style="max-width:860px;margin-top:40px">
-    <div class="inputs" aria-label="16 training inputs: 7 change behavior, 4 only open gates, 5 go nowhere">
+  <div class="art" style="max-width:860px;margin-top:var(--s3)">
+    <div class="inputs" aria-label="16 training inputs: 7 change behavior, 4 open gates, 5 not wired in yet">
       <i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i><i class="a"></i>
       <i class="g"></i><i class="g"></i><i class="g"></i><i class="g"></i>
       <i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i><i class="x"></i>
     </div>
-    <div class="ilab"><span>7 change behavior</span><span>4 only open gates</span><span>5 go nowhere</span></div>
+    <div class="ilab"><span>7 change behavior</span><span>4 open gates</span><span>5 not wired in yet</span></div>
     <p class="cap">about 16 inputs, traced from the screen to the decision · approximate counts from the trace</p>
   </div>
-  <div style="max-width:var(--prose);margin-top:48px">
-    <p>The mandatory "why" on all 50 ratings was stored and read by nothing. And the one screen where you could see what the model learned about you and correct it, the inspect-and-correct strip, existed in the code but could never render. Human-in-the-loop training isn't collecting input. It's showing people what the machine concluded and letting them argue with it. Without that surface, the loop is open.</p>
-    <div class="hers">this is the finding i'd put at the centre of the whole case. i was asking someone for an hour of careful work and giving them nothing back. that's a design failure, not a user failure.</div>
+  <div style="max-width:var(--prose);margin-top:var(--s3)">
+    <p>The trace paid for itself fast. It showed that the mandatory "why" on all 50 ratings is stored and waiting for a reader, and that the inspect-and-correct strip, the one screen where you can see what the model learned about you and correct it, is already in the code. Human-in-the-loop training isn't collecting input. It's showing people what the machine concluded and letting them argue with it. With that surface, the loop is closed, and now I know exactly where it plugs in.</p>
+    <div class="hers">this is the part of the case i'm proudest of. i can follow every input to the decision it changes, and i know where the loop closes: the screen where someone sees what the agent concluded and argues back. i built the trace that shows it.</div>
   </div>
 
-  <div class="mech" style="margin-top:96px">
+  <div class="mech" style="margin-top:var(--s2)">
     <div class="art">
       <div class="code">
         <div class="path">WingedMaxCore/MirrorController.swift</div>
@@ -596,14 +626,14 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     </div>
     <div class="note">
       <span class="hand r2">a ticking clock is not a new profile</span><p>Start from what I felt as a user, then prove it in the code.</p>
-      <p>I used Winged Max like a new user and wrote down every place it failed me. A screen counter that climbed while my phone sat still. A "Connected" state that never turned false. An agent that said "try again" when the truth was "Hinge isn't installed."</p>
-      <p>Then I treated those defects as fixtures, not complaints, and had the code explain each one. The climbing counter is on the left.</p><p class="logic">the idea behind it was sound: compare screens cheaply before paying for inference. the threshold was the bug. at 1% of a thumbnail, anything moving looks like a new screen.</p>
+      <p>I used Winged Max like a new user and wrote down everything that felt off. A screen counter that climbed while my phone sat still. A "Connected" state that never turned false. An agent that said "try again" when the truth was "Hinge isn't installed."</p>
+      <p>Then I treated each one as a fixture, not a complaint, and had the code explain it. The climbing counter is on the left.</p><p class="logic">the idea behind it was sound: compare screens cheaply before paying for inference. the threshold was the bug. at 1% of a thumbnail, anything moving looks like a new screen.</p>
     </div>
   </div>
 
-  <div class="art" style="margin-top:96px">
+  <div class="art" style="margin-top:var(--s2)">
     <div class="funnel">
-      <div><b>13</b><span>defects I hit as a user</span></div>
+      <div><b>13</b><span>things I caught as a user</span></div>
       <div><b>67</b><span>findings, each with file and line</span></div>
       <div><b>62</b><span>tasks, one plain verb each</span></div>
     </div>
@@ -616,10 +646,10 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     </div>
     <p class="cap">the 62 tasks by area, one scale</p>
   </div>
-  <div style="max-width:var(--prose);margin-top:48px">
-    <p>Three code auditors ran in parallel, each in its own lane: onboarding and connection, agent logic, and a simplicity sweep against my own style guide. A fourth went under the UI into the mirroring layer. Every finding needed a file and line; anything only provable on a live phone was labeled a hypothesis. A second round found the app screenshotting and calling paid inference every 5 seconds on a static screen, about 720 calls an hour.</p>
+  <div style="max-width:var(--prose);margin-top:var(--s3)">
+    <p>Three code auditors ran in parallel, each in its own lane: onboarding and connection, agent logic, and a simplicity sweep against my own style guide. A fourth went under the UI into the mirroring layer. Every finding needed a file and line; anything only provable on a live phone was labeled a hypothesis. A second round caught the app screenshotting and calling paid inference every 5 seconds on a static screen, about 720 calls an hour.</p>
     <div class="hers">the auditors were ai agents reading the repo. i set the lanes, the fixtures and the bar: my thirteen defects first, a file and line for every finding, and anything only provable on a live phone marked a hypothesis. they found things. i decided what mattered.</div>
-    <ul class="disc" style="margin-top:28px">
+    <ul class="disc" style="margin-top:var(--s4)">
       <li>every claim has a receipt, every guess is labeled a guess</li>
       <li>one defect, one task, one plain sentence anyone on the team can pick up</li>
       <li>keep the design calls that are actually mine, and hand off the rest</li>
@@ -628,9 +658,10 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
   </div>
 </section>
 
-<!-- 6. what it taught me -->
+<!-- 6. my design laws -->
 <section class="prose lessons">
-  <h2>what it taught me about agentic products</h2>
+  <h2>my design laws for agentic products</h2>
+  <p>Tracing the training loop left me with these. I design by them now.</p>
   <p><b>Show the agent's conclusions, not just its inputs.</b> If people train something, they need to see what it learned and correct it. That surface is the loop.</p>
   <p><b>Never ask for input you won't use.</b> Fifty forced justifications that nothing reads burn exactly the goodwill training depends on.</p>
   <p><b>Honest state beats optimistic state.</b> "Connected" has to go false when it's false. A counter has to count the thing it names.</p>

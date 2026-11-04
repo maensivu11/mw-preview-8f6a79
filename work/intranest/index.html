@@ -45,8 +45,10 @@ blockquote{border-left:2px solid var(--in-accent);padding-left:20px;margin-top:2
 .hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:32px}
 .hero-head .claim{font-size:22px;line-height:32px;margin-top:12px;max-width:600px}
 .live{font-family:var(--mono);font-size:13px;line-height:20px;white-space:nowrap;padding-top:14px}
-.hero .frame{flex:1;min-height:0;display:flex}
+.hero .frame{flex:1;min-height:0;display:flex;position:relative}
 .hero .frame img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.hero .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#0b0c14}
+.premise{font-size:17px;line-height:26px;color:var(--ink);margin-top:10px;max-width:640px}
 
 /* system strip */
 .ds{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:80px 0}
@@ -105,9 +107,37 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 .hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#3a3f9e;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
 .hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
 .hand.after{margin:14px 0 0}
+.hand.inrow{margin:18px 0 10px 80px}
+@media (max-width:760px){.hand.inrow{margin-left:0}}
 /* the logic, stated: one plain sentence in her voice where a decision showed no reason */
 .logic{color:var(--ink)}
 @media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+/* spacing pass: one scale */
+/* desktop 160 section / 120 block / 64 group / 40 element / 24 note / 16 caption
+   mobile   96 section /  80 block / 48 group / 40 element / 24 note / 16 caption */
+:root{--s1:160px;--s2:120px;--s3:64px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+h2{margin-bottom:var(--s5)}
+.cap{margin-top:var(--s6)}
+.cap+.logic,.cap+p:not(.cap):not(.why){margin-top:var(--s5)}
+.hers{margin-top:var(--s4)}
+.ds{padding:var(--s2) 0}
+section.ds,.ds+section,.ds+footer{margin-top:var(--s3)}
+.ds-intro{margin-bottom:var(--s3)}
+.blk+.blk,.mech+.mech{margin-top:var(--s2)}
+.hand{margin:var(--s4) 0 12px}
+.hand:first-child{margin-top:0}
+.hand.after{margin:var(--s5) 0 0}
+.hand+.hers,.hand+p,.hand+blockquote{margin-top:0}
+footer,footer.wide{margin-top:var(--s1);padding-top:var(--s3);padding-bottom:var(--s2)}
+footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
+.nav{margin-top:var(--s3)}
+@media (max-width:760px){
+  :root{--s1:96px;--s2:80px;--s3:48px;--s4:40px;--s5:24px;--s6:16px;--gap:var(--s1)}
+  .blk,.mech{row-gap:var(--s4)}
+  .cards{row-gap:var(--s3)}
+  .nav{flex-wrap:wrap;gap:var(--s6) var(--s5)}
+}
+.status{margin-top:var(--s4)}
 </style>
 </head>
 <body class="no-js">
@@ -116,12 +146,13 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   <div class="hero-head">
     <div>
       <h1>intranest</h1>
-      <p class="claim">i'm co-founder &amp; cpo. i designed the indigo ink system and every product surface: 110 requirements, one calm screen.</p>
+      <p class="premise">IntraNest turns the paperwork of CMMC certification for defense contractors into a guided, agentic experience: the agent reads and drafts, a person confirms.</p>
+      <p class="claim">i'm the design engineer, cpo &amp; co-founder. i designed the entire product and made it agentic: 110 requirements, one calm screen.</p>
     </div>
     <a class="live" href="https://intranest.ai" rel="noopener">visit live ↗ intranest.ai</a>
   </div>
-  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live intranest.ai landing page: Get to CMMC Level 2 without the six-figure consultant, beside the glyph globe." width="2880" height="1800"></div>
-  <p class="cap">live product, intranest.ai landing page</p>
+  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live intranest.ai landing page: Get to CMMC Level 2 without the six-figure consultant, beside the glyph globe." width="2880" height="1800"><iframe data-src="https://intranest.ai" title="intranest.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe></div>
+  <p class="cap">live product, intranest.ai, scroll inside it</p>
 </header>
 
 <section class="prose">
@@ -136,20 +167,20 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   <div class="wide">
     <h2>the system</h2>
     <div class="ds-intro">
-      <p class="intro">Compliance software usually looks like government software: grey tables, traffic-light badges, forty buttons on one screen. I built the system first. It's called Indigo Ink, and it's binding for everything we make.</p>
+      <p class="intro">Compliance software usually looks like government software: gray tables, traffic-light badges, forty buttons on one screen. I built the system first. It's called Indigo Ink, and it's binding for everything we make.</p>
       <div class="hers">dana didn't choose this job. the least the product can do is not look like a penalty. a calm screen is a way of respecting the person doing the work, so i made the product look like a modern one that happens to do compliance.</div>
     </div>
     <span class="hand r2">depth, not borders. one fill.</span>
-    <div class="tok"><div class="chip" style="background:#0b0c14;border:1px solid var(--line)"></div><span class="name">ground #0b0c14</span><span class="why">indigo-tinted near-black, not grey: a navy night the whole product, deck and site share</span></div>
+    <div class="tok"><div class="chip" style="background:#0b0c14;border:1px solid var(--line)"></div><span class="name">ground #0b0c14</span><span class="why">indigo-tinted near-black, not gray: a navy night the whole product, deck and site share</span></div>
     <div class="tok"><div class="chip" style="background:#14151f"></div><span class="name">surface #14151f · #1d1f2c</span><span class="why">three steps of depth instead of strokes: cards never get a border</span></div>
     <div class="tok"><div class="chip" style="background:#5a63e8"></div><span class="name">accent #5a63e8</span><span class="why">the only fill: a primary action stands out by being the only filled one, not by being big</span></div>
+    <span class="hand r1 inrow">red and green shout</span>
     <div class="tok"><div class="chip" style="background:#191b36"></div><span class="name">status = indigo depth</span><span class="why">never red/green: they shout, and compliance people are shouted at enough</span></div>
     <div class="tok"><div class="chip" style="background:#d583c2"></div><span class="name">plum #d583c2</span><span class="why">the one non-indigo hue, reserved for expired or blocked, so it is never ignored</span></div>
     <div class="tok"><div class="chip" style="background:#14151f">Aa</div><span class="name">Geist, 11 → 48</span><span class="why">one family, one scale: size carries the hierarchy, not a second typeface · mono only for hashes and control IDs</span></div>
     <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:10px">AC311</div><span class="name">glyph globe</span><span class="why">land typed from the 110 requirement IDs: a planet from far, the actual work up close</span></div>
     <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:11px">150</div><span class="name">motion 150/200/350/700</span><span class="why">each motion shows one fact changing; nothing moves only for show</span></div>
     <div class="tok"><div class="chip" style="background:#14151f;font-size:13px">no “we”</div><span class="name">voice</span><span class="why">plain and calm; never "certified" or "guaranteed": a tool can't promise an assessment</span></div>
-    <span class="hand r1 after">red and green shout</span>
     <div class="status" aria-label="Status chips rendered in Indigo Ink tokens">
       <span style="background:#5a63e8">Needs you</span>
       <span style="background:#191b36;color:#9aa2ff">In progress</span>
@@ -162,18 +193,18 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 </section>
 
 <section class="wide motion">
-  <div class="prose" style="padding:0;margin:0 0 40px;max-width:var(--prose)">
+  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>in motion</h2>
     <p>The landing page's signature is the glyph globe. The land isn't painted, it's typed: the character stream is the 110 requirement IDs strung together, AC311 through SI3147.</p>
     <span class="hand r3 after">the texture is the work</span>
     <div class="hers">the texture had to be the work itself, so the requirement ids became the land. from far away it's a planet with an indigo rim. up close it's the actual job, 110 lines of it.</div>
   </div>
   <div class="art"><div class="frame"><canvas id="globe" aria-label="A dark sphere turning slowly, its surface written in CMMC requirement IDs"></canvas><div class="hud"><span class="pulse"></span>next step · AC311</div></div>
-  <p class="cap">live recreation, canvas · simplified: the id stream wraps the whole sphere, no land mask</p></div>
+  <p class="cap">live recreation, canvas · drawn after the site's own globe script; the id stream wraps the whole sphere</p></div>
 </section>
 
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 56px;max-width:var(--prose)">
+  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>agent-first</h2>
     <p class="intro">The first dashboards were normal dashboards: charts, a score, an ask box tucked in the corner. I rejected them. My ruling was that the full agentic product is the MVP. The agent reads and drafts; a person confirms every decision someone has to answer for.</p>
     <div class="hers">a dashboard with a chatbot in the corner is still a human-driven product, and that's the one i didn't want to build. so the call was: the full agent is the mvp, not a later stage. it does the reading and the drafting. the person keeps every decision somebody has to answer for.</div>
@@ -211,7 +242,7 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 </section>
 
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 40px;max-width:var(--prose)">
+  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>the deck, as proof of the system</h2>
     <p>The investor deck was the test of whether Indigo Ink was a system or a dashboard skin: twelve slides in the same globe, sky, indigo and Geist. I wrote the laws down as we built it.</p>
     <blockquote><p>"No two-tone or multi-color text anywhere. Text is ONE color; emphasis is carried by WEIGHT."</p></blockquote>
@@ -240,46 +271,80 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 
 <script>
 document.body.classList.remove('no-js');
+/* live embed: src set only when the hero frame nears view; reduced motion keeps the capture */
+(() => {
+  const f = document.querySelector('.hero iframe[data-src]'); if (!f) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { f.remove(); return; }
+  const go = () => { f.src = f.dataset.src; f.addEventListener('load', () => { const im = f.parentNode.querySelector('img'); if (im) im.style.visibility = 'hidden'; }, { once: true }); };
+  if ('IntersectionObserver' in window) { const o = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { o.disconnect(); go(); } }, { rootMargin: '400px 0px' }); o.observe(f); } else go();
+})();
+
 const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
 document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classList.add('in'));
 
-/* glyph globe, live recreation: NIST 800-171 IDs wrapped on a turning sphere */
+/* glyph globe, after the site's own drawing script: indigo body, bright rim, requirement IDs typed over the whole sphere,
+   lit by depth, risers past the rim with mono labels. Turns once every ~3 minutes. */
 (() => {
-  const fam = [['AC',1,22],['AT',2,3],['AU',3,9],['CM',4,9],['IA',5,11],['IR',6,3],['MA',7,6],['MP',8,9],['PS',9,2],['PE',10,6],['RA',11,3],['CA',12,4],['SC',13,16],['SI',14,7]];
-  const STREAM = fam.map(([f,n,c]) => Array.from({length:c},(_,i)=>f+'3'+n+(i+1)).join('')).join('');
+  const FAM = [['AC',1,22],['AT',2,3],['AU',3,9],['CM',4,9],['IA',5,11],['IR',6,3],['MA',7,6],['MP',8,9],['PS',9,2],['PE',10,6],['RA',11,3],['CA',12,4],['SC',13,16],['SI',14,7]];
+  const STREAM = FAM.map(([f,n,c]) => Array.from({length:c},(_,i)=>f+'3'+n+(i+1)).join('')).join('');
+  const TONES = ['#1a3270','#2f6ad8','#6fb0ff','#eef6ff','#2e3380','#5a63e8','#9aa2ff'];
+  const MARKS = [['AC.L2-3.1.1',38,-30],['SC.L2-3.13.11',12,40],['IA.L2-3.5.3',-18,150],['AU.L2-3.3.1',30,-150]];
   const cv = document.getElementById('globe'), cx = cv.getContext('2d');
   const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let W, H, R, dpr;
-  function size(){ dpr = Math.min(devicePixelRatio||1,2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W*dpr; cv.height = H*dpr; cx.setTransform(dpr,0,0,dpr,0,0); R = Math.min(W,H)*0.40; }
+  const D = Math.PI/180, tilt = -18*D, st = Math.sin(tilt), ct = Math.cos(tilt);
+  let W, H, R, dpr, ox, oy, cells = [], GC = {}, raf = 0, vis = false, ready = false;
+  let s0 = 110171; const rnd = () => (s0 = (s0*16807) % 2147483647) / 2147483647;
+  const glyph = (ch, k) => { const key = ch+k; if (GC[key]) return GC[key];
+    const c = document.createElement('canvas'); c.width = c.height = 40; const g = c.getContext('2d');
+    g.font = '600 26px "JetBrains Mono", ui-monospace, monospace'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillStyle = TONES[k]; g.fillText(ch, 20, 21); return (GC[key] = c); };
+  function build(){ cells = []; let k = 0; const step = Math.max(1.6, 340/R);
+    for (let la = -84; la <= 84; la += step){ const dl = step/Math.max(.2, Math.cos(la*D));
+      for (let lo = -180; lo < 180; lo += dl){ cells.push([la*D, lo*D, STREAM[k++ % STREAM.length], Math.pow(rnd(),1.6), rnd() < .3, rnd(), rnd() < .015]); } }
+    cells.step = step; }
+  function size(){ dpr = Math.min(devicePixelRatio||1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W*dpr; cv.height = H*dpr; cx.setTransform(dpr,0,0,dpr,0,0);
+    R = Math.min(W,H)*0.36; ox = W/2; oy = H*0.54; s0 = 110171; build(); }
   size(); addEventListener('resize', size);
-  const tones = ['#2a2d55','#353a72','#424890','#5a63e8','#7178ec','#9aa2ff','#c6cbff'];
-  const tilt = 0.38;
+  const proj = (la, lo, rot) => { const cl = Math.cos(la), x = cl*Math.sin(lo+rot), y0 = Math.sin(la), z0 = cl*Math.cos(lo+rot);
+    const y = y0*ct - z0*st, z = y0*st + z0*ct; return [ox + x*R, oy - y*R, z, x, y]; };
   function frame(t){
-    const rot = t*0.00005, ox = W/2, oy = H/2;
+    const rot = (t||0) * 0.000035;
     cx.fillStyle = '#0b0c14'; cx.fillRect(0,0,W,H);
-    const g = cx.createRadialGradient(ox,oy,R*0.6,ox,oy,R*1.12);
-    g.addColorStop(0,'#0e1030'); g.addColorStop(0.89,'#141857'); g.addColorStop(0.93,'rgba(90,99,232,.55)'); g.addColorStop(1,'rgba(90,99,232,0)');
-    cx.fillStyle = g; cx.beginPath(); cx.arc(ox,oy,R*1.12,0,7); cx.fill();
-    const fs = Math.max(8, R/22); cx.font = fs*0.9 + 'px JetBrains Mono, monospace'; cx.textAlign = 'center'; cx.textBaseline = 'middle';
-    let k = 0;
-    for (let lat = -80; lat <= 80; lat += 5){
-      const la = lat*Math.PI/180, n = Math.max(6, Math.round(72*Math.cos(la)));
-      for (let j = 0; j < n; j++, k++){
-        const lo = j/n*2*Math.PI + rot;
-        let x = Math.cos(la)*Math.sin(lo), y = Math.sin(la), z = Math.cos(la)*Math.cos(lo);
-        const y2 = y*Math.cos(tilt) - z*Math.sin(tilt), z2 = y*Math.sin(tilt) + z*Math.cos(tilt);
-        if (z2 < 0.05) continue;
-        const h = Math.sin(k*12.9898 + lat*78.233)*43758.5453; const r = h - Math.floor(h);
-        const ti = Math.min(6, Math.floor(z2*r*7.5));
-        cx.fillStyle = tones[ti]; cx.globalAlpha = 0.2 + 0.55*z2*z2;
-        cx.fillText(STREAM[k % STREAM.length], ox + x*R, oy - y2*R);
-      }
+    let g = cx.createRadialGradient(ox,oy,R*.99,ox,oy,R*1.16);
+    for (let i = 0; i <= 12; i++){ const u = i/12; g.addColorStop(u, `rgba(100,110,255,${(.34*Math.pow(1-u,3)).toFixed(4)})`); }
+    cx.fillStyle = g; cx.beginPath(); cx.arc(ox,oy,R*1.16,0,7); cx.fill();
+    g = cx.createRadialGradient(ox,oy,R*.55,ox,oy,R);
+    g.addColorStop(0,'rgba(4,8,24,1)'); g.addColorStop(.75,'rgba(10,16,52,1)'); g.addColorStop(.93,'rgba(22,30,110,1)'); g.addColorStop(1,'rgba(90,99,232,1)');
+    cx.fillStyle = g; cx.beginPath(); cx.arc(ox,oy,R,0,7); cx.fill();
+    const cell = R*cells.step*D*1.05;
+    for (const [la, lo, ch, b, ind, r2, spk] of cells){
+      const q = proj(la, lo, rot); if (q[2] <= .03) continue;
+      const lit = Math.max(0, q[3]*.18 + q[4]*.12 + q[2]*.97), edge = Math.pow(q[2], .5), sz = cell*(.55 + .45*edge)*1.5;
+      const lv = Math.min(1.2, b*.45 + r2*.55 + (spk?1.1:0)), I = Math.max(lit*lit, .6)*(.25 + .9*lv);
+      const tone = spk ? 3 : ind ? (I > .55 ? 6 : I > .22 ? 5 : 4) : (I > .7 ? 3 : I > .42 ? 2 : I > .16 ? 1 : 0);
+      const al = Math.min(1, (.08 + 1.15*I)*edge); if (al < .04) continue;
+      cx.globalAlpha = al*.8; cx.drawImage(glyph(ch, tone), q[0]-sz/2, q[1]-sz/2, sz, sz);
     }
     cx.globalAlpha = 1;
-    if (!still) requestAnimationFrame(frame);
+    cx.strokeStyle = 'rgba(154,162,255,.75)'; cx.lineWidth = 1.2; cx.beginPath(); cx.arc(ox,oy,R,0,7); cx.stroke();
+    cx.font = '11px "JetBrains Mono", ui-monospace, monospace'; cx.textAlign = 'center'; cx.textBaseline = 'bottom';
+    for (const [name, la, lo] of MARKS){
+      const q = proj(la*D, lo*D, rot); if (q[2] <= .2) continue; const [x, y] = q, a = Math.min(1, (q[2]-.2)*3);
+      const dx = x - ox, rim = oy - Math.sqrt(Math.max(0, R*R - dx*dx)), top = Math.min(y - 24, rim - 28);
+      cx.globalAlpha = a; cx.strokeStyle = 'rgba(199,204,255,.7)'; cx.lineWidth = 1; cx.beginPath(); cx.moveTo(x+.5, y-5); cx.lineTo(x+.5, top); cx.stroke();
+      cx.strokeStyle = 'rgba(238,238,244,.95)'; cx.lineWidth = 1.3; cx.beginPath(); cx.arc(x, y, 4.5, 0, 7); cx.stroke();
+      cx.fillStyle = '#fff'; cx.beginPath(); cx.arc(x, y, 1.8, 0, 7); cx.fill();
+      cx.fillStyle = '#9b9eb8'; cx.fillText(name.split('').join(String.fromCharCode(8202)), x, top - 4);
+    }
+    cx.globalAlpha = 1;
+    raf = (!still && vis) ? requestAnimationFrame(frame) : 0;
   }
-  requestAnimationFrame(frame);
+  /* the globe runs only while it is on screen */
+  const go = () => { if (vis && ready && !raf) raf = requestAnimationFrame(frame); };
+  new IntersectionObserver(es => es.forEach(e => { vis = e.isIntersecting; go(); })).observe(cv);
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => { GC = {}; ready = true; go(); });
 })();
 </script>
+<script src="../case-chrome.js" data-notebook="../../index.html#work-index" data-prev="../find-funding/index.html" data-prev-name="find funding" data-next="../winged-web/index.html" data-next-name="winged web"></script>
 </body>
 </html>
