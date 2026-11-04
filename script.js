@@ -78,6 +78,7 @@ function showWorkProject(index,instant){
 }
 function enterPainting(trigger){
   modalTrigger=trigger;
+  if(typeof window.openWorkIndex==='function'){window.openWorkIndex();return;}
   var stage=document.querySelector('.stage');
   if(!paintingJourney||!stage||window.matchMedia('(prefers-reduced-motion: reduce)').matches){showWorkProject(0,true);openM('work');return;}
   cancelPaintingJourney();
