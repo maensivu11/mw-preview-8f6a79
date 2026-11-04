@@ -340,3 +340,7 @@ body{display:grid;min-height:100svh;place-items:center;overflow-x:hidden;backgro
 
 /* Work index dive-in: paper-tone wash at full zoom (script.js diveInto) */
 .wi-wash{position:fixed;inset:0;z-index:20;background:#f6f0e0;opacity:0;pointer-events:none}
+
+/* Work index shares the journal's desk-canvas backdrop so the approach reads identically */
+#m-workindex{align-items:center;overflow:hidden;background:#e80756 url("assets/source-painting/plain_canvas.png") center top/cover no-repeat;backdrop-filter:none;-webkit-backdrop-filter:none}
+@media(max-width:600px){#m-workindex{padding:0;align-items:flex-start}}

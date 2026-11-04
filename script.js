@@ -54,7 +54,7 @@ function finishThoughtsClose(){
   if(sceneBook){sceneBook.style.zIndex='8';bookReturn=sceneBook.animate([{transform:'translate3d(0,24%,0) rotate(2deg) scale(1.025)'},{transform:getComputedStyle(sceneBook).transform}],{duration:motion,easing:'cubic-bezier(0.77,0,0.175,1)',fill:'forwards'});}
   cover.finished.then(function(){covers.forEach(function(a){a.cancel();});if(bookReturn)bookReturn.cancel();noteStack.forEach(function(layer){layer.style.transform='';layer.style.zIndex='';});blendLayers.forEach(function(l){l.style.mixBlendMode='';});if(sceneBook&&typeof window.resetLayeredBook==='function')window.resetLayeredBook();}).catch(function(){});
 }
-function closeAll(){var wiModal=document.getElementById('m-workindex');if(wiModal&&wiModal.classList.contains('open')&&typeof window.closeWorkIndex==='function'){window.closeWorkIndex(finishCloseAll);return;}var thoughts=document.getElementById('m-thoughts');if(thoughts&&thoughts.classList.contains('open')&&typeof closeRealBook==='function'){closeRealBook(finishThoughtsClose);return;}if(phoneModal&&phoneModal.classList.contains('open')){closePhone();return;}if(resumeModal&&resumeModal.classList.contains('open')){closeResume();return;}finishCloseAll();}
+function closeAll(){var wiModal=document.getElementById('m-workindex');if(wiModal&&wiModal.classList.contains('open')&&typeof window.closeWorkIndex==='function'){window.closeWorkIndex(finishThoughtsClose);return;}var thoughts=document.getElementById('m-thoughts');if(thoughts&&thoughts.classList.contains('open')&&typeof closeRealBook==='function'){closeRealBook(finishThoughtsClose);return;}if(phoneModal&&phoneModal.classList.contains('open')){closePhone();return;}if(resumeModal&&resumeModal.classList.contains('open')){closeResume();return;}finishCloseAll();}
 
 var workProjects=Array.from(document.querySelectorAll('[data-project]'));
 var workIndex=0;
@@ -86,7 +86,13 @@ function spinWorkFlower(trigger){
 }
 function enterPainting(trigger){
   modalTrigger=trigger;
-  if(typeof window.openWorkIndex==='function'){spinWorkFlower(trigger);window.openWorkIndex();return;}
+  if(typeof window.openWorkIndex==='function'){
+    spinWorkFlower(trigger);
+    // Same approach as clicking the composition book; only the destination differs.
+    if(typeof window.liftAndOpenBook==='function'){window.__bookDestination=function(){window.openWorkIndex();};window.liftAndOpenBook();}
+    else window.openWorkIndex();
+    return;
+  }
   var stage=document.querySelector('.stage');
   if(!paintingJourney||!stage||window.matchMedia('(prefers-reduced-motion: reduce)').matches){showWorkProject(0,true);openM('work');return;}
   cancelPaintingJourney();
@@ -278,12 +284,15 @@ if(layeredStage&&layeredBook){
     layeredLiftAnimation.finished.then(function(){resetLayeredBook();}).catch(function(){});
   }
   window.returnLayeredBook=returnLayeredBook;
+  // The approach (flower hides, the note slides away, the composition book is bared) is shared by every
+  // entry that opens a book. By default it ends in the journal; the work-index diverts only the destination.
+  function openBookDestination(){var d=window.__bookDestination;window.__bookDestination=null;if(d)d();else openM('thoughts');}
   function liftAndOpenBook(){
     if(layeredBook.dataset.lifting==='true')return;
     layeredBook.dataset.lifting='true';
     var deskFlower=document.querySelector('.work-flower-entry');if(deskFlower)deskFlower.classList.add('is-desk-hidden');
     var noteStack=Array.from(layeredStage.querySelectorAll('.layer-note,.action-highlights,.note-reactions,.body-hotspots,.hotspot-layer'));
-    if(layeredReduce){noteStack.forEach(function(layer){layer.style.transform='translate3d(0,108%,0)';});openM('thoughts');return;}
+    if(layeredReduce){noteStack.forEach(function(layer){layer.style.transform='translate3d(0,108%,0)';});openBookDestination();return;}
     noteStack.forEach(function(layer){layer.style.zIndex='9';});
     layeredBook.style.zIndex='3';
     var noteFrames=[
@@ -294,8 +303,9 @@ if(layeredStage&&layeredBook){
     ];
     var noteMoves=noteStack.map(function(layer){return layer.animate(noteFrames,{duration:560,easing:'steps(4,end)',fill:'forwards'});});
     layeredLiftAnimation=noteMoves[0];
-    layeredLiftAnimation.finished.then(function(){noteMoves.forEach(function(a){a.cancel();});noteStack.forEach(function(layer){layer.style.transform='translate3d(0,108%,0)';layer.style.zIndex='9';});modalTrigger=layeredBook;openM('thoughts');}).catch(function(){});
+    layeredLiftAnimation.finished.then(function(){noteMoves.forEach(function(a){a.cancel();});noteStack.forEach(function(layer){layer.style.transform='translate3d(0,108%,0)';layer.style.zIndex='9';});modalTrigger=layeredBook;openBookDestination();}).catch(function(){});
   }
+  window.liftAndOpenBook=liftAndOpenBook;
   layeredBook.addEventListener('transitionend',function(e){
     if(e.propertyName==='transform'&&layeredBook.classList.contains('is-moved'))layeredApply(layeredRest());
   });
