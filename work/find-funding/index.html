@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>find funding · mikaela maensivu</title>
+<meta name="description" content="Find Funding: a funding product that reads your business for you. Case study by Mikaela Maensivu, cofounder and CPO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* container system: the template for every case page */
+:root{
+  --bg:#FAFAF7; --ink:#1A1A18; --muted:#8A8A82; --line:#E5E5DF;
+  --violet:#7668FF; --lime:#dbf570;
+  --sans:'Instrument Sans',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gap:120px; --prose:720px; --pad:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:28px;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.prose{max-width:var(--prose);margin:0 auto;padding:0 var(--pad)}
+.wide{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section,section.wide,section.prose{margin-top:var(--gap)}
+h1{font-size:44px;line-height:1.1;font-weight:600;letter-spacing:-.02em}
+h2{font-size:13px;line-height:20px;font-family:var(--mono);font-weight:400;color:var(--muted);text-transform:lowercase;margin-bottom:20px}
+.intro{font-size:22px;line-height:32px}
+p+p{margin-top:20px}
+.mono{font-family:var(--mono);font-size:13px;line-height:20px}
+.cap{font-family:var(--mono);font-size:13px;line-height:20px;color:var(--muted);margin-top:14px}
+.frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 24px 48px rgba(0,0,0,.06)}
+.v{color:var(--violet)}
+/* her-voice placeholders: visibly hers to write */
+.hers{font-size:17px;line-height:28px;color:var(--ink);margin-top:28px;padding-left:22px;border-left:2px solid var(--line);font-style:italic}
+/* motion: artifacts only, fade + rise 12px, 240ms ease-out */
+.art{opacity:0;transform:translateY(12px);transition:opacity 240ms ease-out,transform 240ms ease-out}
+.art.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.art{opacity:1;transform:none;transition:none}}
+.no-js .art{opacity:1;transform:none}
+
+/* 1 hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;padding:40px var(--pad) 40px}
+.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:32px}
+.hero-head .claim{font-size:22px;line-height:32px;margin-top:12px;max-width:none;white-space:nowrap}
+@media (max-width:900px){.hero-head .claim{white-space:normal}}
+.hero-head .dates{margin-top:14px;color:var(--muted)}
+.live{font-family:var(--mono);font-size:13px;line-height:20px;white-space:nowrap;padding-top:14px}
+.hero .frame{flex:1;min-height:0;display:flex}
+.hero .frame img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.hero .cap{margin-top:12px}
+
+/* 3 design system strip */
+.ds{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:80px 0}
+.sw{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:8px}
+.sw>div>div{height:96px;border-radius:12px;border:1px solid var(--line)}
+.sw p{font-family:var(--mono);font-size:13px;line-height:20px;color:var(--muted);margin-top:8px}
+.ds-intro{max-width:var(--prose);margin-bottom:48px}
+.why{font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted);margin-top:4px}
+.hv{border:1.5px dotted var(--muted);border-radius:6px;padding:1px 6px}
+.spec{margin-top:56px;display:grid;grid-template-columns:120px auto 1fr;column-gap:32px;row-gap:14px;align-items:baseline;color:#1c1c1c}
+.spec .why{margin-top:0}
+.spec .mono{color:var(--muted)}
+.cards{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.fc{background:#f5f4f0;border-radius:12px;padding:20px;font-size:14px;line-height:20px;color:#1c1c1c}
+.fc .t{font-size:16px;line-height:22px;font-weight:600}
+.fc .m{color:#6b6b66;margin-top:4px}
+.fc .s{margin-top:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fc .pill{display:inline-block;margin-top:12px;font-size:12px;line-height:18px;padding:2px 10px;border-radius:999px;background:var(--lime)}
+.fc .pill.u{background:none;border:1px dashed #9a9a92}
+.fc .why-box{margin-top:14px;padding-top:14px;border-top:1px solid #e3e2dc}
+.fc .why-box b{font-weight:600}
+.fc ul{list-style:none;margin-top:8px}
+.fc li{display:flex;justify-content:space-between;gap:12px;padding:4px 0}
+
+/* 4 agentic blocks */
+.blk{display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:start}
+.blk+.blk{margin-top:96px}
+.blk .note p:first-child{font-weight:600}
+.slot{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+
+/* 5 recovery */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+blockquote{border-left:2px solid var(--violet);padding-left:20px;margin-top:24px}
+.evidence{margin-top:64px}
+.evidence img{width:100%}
+
+/* 6 hard call */
+.call p{font-size:19px;line-height:30px}
+
+/* 7 footer */
+footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64px}
+.built{color:var(--muted)}
+.built span{color:var(--ink)}
+.nav{display:flex;justify-content:space-between;margin-top:48px}
+
+@media (max-width:760px){
+  :root{--gap:64px;--pad:20px}
+  h1{font-size:36px}
+  .intro,.hero-head .claim{font-size:19px;line-height:28px}
+  .hero{min-height:auto}
+  .hero-head{flex-direction:column}
+  .live{padding-top:0}
+  .hero .frame{flex:none}
+  .hero .frame img{height:auto}
+  .sw{grid-template-columns:repeat(2,1fr)}
+  .spec{grid-template-columns:96px 1fr}
+  .spec .why{grid-column:2;margin-bottom:6px}
+  .cards,.blk,.pair{grid-template-columns:1fr}
+  .blk{gap:24px}
+  .blk+.blk{margin-top:64px}
+  .ds{padding:56px 0}
+  .call p{font-size:18px;line-height:28px}
+}
+
+/* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
+@font-face{font-family:'B-McE';src:url('../../assets/fonts/B-McE.ttf') format('truetype');font-display:swap}
+.hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#3d3a8c;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
+.hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
+.hand.after{margin:14px 0 0}
+/* the logic, stated: one plain sentence in her voice where a decision showed no reason */
+.logic{color:var(--ink)}
+@media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+</style>
+</head>
+<body class="no-js">
+
+<!-- 1. hero -->
+<header class="hero">
+  <div class="hero-head">
+    <div>
+      <h1>find funding</h1>
+      <p class="claim">i'm cofounder &amp; cpo. i designed the product and made it agentic.</p>
+    </div>
+    <a class="live" href="https://findfunding.ai" rel="noopener">visit live ↗ findfunding.ai</a>
+  </div>
+  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live findfunding.ai landing page: Funding shouldn't depend on who you know." width="2880" height="1800"></div>
+  <p class="cap">live product, findfunding.ai landing page</p>
+</header>
+
+<!-- 2. the problem -->
+<section class="prose">
+  <h2>the problem</h2>
+  <p class="intro">There's public money set aside for small businesses. Grants, SBA loans, state programs. Most owners never see it, and the ones who do usually find it through someone they know. The line on the homepage says it plainly: <span class="v">"Funding shouldn't depend on who you know."</span> The product reads the documents you already have into a business profile, then pairs real opportunities to it, ranked by how many of each program's published rules you already meet.</p>
+  <div class="hers">the owner i kept picturing runs a real business — a machine shop, a bakery — with a tax return, a p&amp;l, and no spare time. they've heard grants exist. they've never met anyone who actually got one. the product had to work for the person about to close the tab.</div>
+</section>
+
+<!-- 3. design system strip: every token carries its why -->
+<section class="ds">
+  <div class="wide">
+    <h2>the system</h2>
+    <div class="ds-intro">
+      <p class="intro">I wrote the system down as a few decisions that carry the whole product. Size carries hierarchy, colour has one job per surface, and an unknown always stays unknown. The canon says it in one line:</p>
+      <blockquote><p>"At rest a card or row holds: title (16/600), one sentence-case meta line, a summary clamped to two lines, and at most one status element plus the fixed metrics."</p></blockquote>
+      <div class="hers">the feeling i designed for, in one sentence: you should feel capable here, not audited.</div>
+    </div>
+    <span class="hand r2">one job per colour, per surface</span>
+    <div class="sw">
+      <div><div style="background:#7668FF"></div><p>violet #7668FF</p><p class="why">the working accent and the logo pixel: one filled accent per surface keeps it calm</p></div>
+      <div><div style="background:#dbf570"></div><p>lime #dbf570</p><p class="why">brand energy, violet's partner; it also marks Known, so it means something</p></div>
+      <div><div style="background:#f5f4f0"></div><p>canvas #f5f4f0</p><p class="why">warm neutrals: a money product that feels approachable, not bank-cold</p></div>
+      <div><div style="background:#ffffff"></div><p>surface #ffffff</p><p class="why">cards sit one step up from the canvas; no shadows needed to separate them</p></div>
+      <div><div style="background:#1c1c1c"></div><p>ink #1c1c1c</p><p class="why">near-black, never pure; "no yellow, blue, mint or lilac" anywhere else</p></div>
+    </div>
+    <span class="hand r3 after">size does the shouting, not weight</span>
+    <div class="spec">
+      <span class="mono">28 · title</span><span style="font-size:28px;line-height:34px">Funding that could fit</span><span class="why">size carries hierarchy, not weight or decoration</span>
+      <span class="mono">16 · body</span><span style="font-size:16px;line-height:24px">Ranked by the published rules you already meet.</span><span class="why">one reading size for everything a person decides on</span>
+      <span class="mono">14 · label</span><span style="font-size:14px;line-height:20px">Legal name</span><span class="why">labels and helpers, quieter than what they label</span>
+      <span class="mono">12 · caption</span><span style="font-size:12px;line-height:18px">Read from page 2 of your 2025 tax return</span><span class="why">provenance: small, but always there</span>
+      <span class="mono">family</span><span style="font-size:16px;line-height:24px">Instrument Sans, and only Instrument Sans</span><span class="why">one typeface, used with conviction. the warmth lives in the letterforms, so the interface never has to perform friendliness.</span>
+    </div>
+    <div class="cards">
+      <div>
+        <div class="fc"><div class="t">Small Business Innovation Grant</div><div class="m">Ohio Development Services · grant · up to $50,000</div><div class="s">Supports small manufacturers buying equipment that raises output. Applications reviewed quarterly against published criteria.</div><span class="pill">Known · eligible state</span></div>
+        <p class="cap">resting card · design mock, sample data</p>
+        <p class="why">compact at rest: density without noise</p>
+      </div>
+      <div>
+        <span class="hand r1">unknown stays unknown. never rounded up.</span>
+        <div class="fc"><div class="t">Small Business Innovation Grant</div><div class="m">Ohio Development Services · grant · up to $50,000</div><div class="s">Supports small manufacturers buying equipment that raises output. Applications reviewed quarterly against published criteria.</div>
+          <div class="why-box"><b>Why this is on your list</b><ul><li>Located in Ohio <span class="pill" style="margin:0">Known</span></li><li>Under 500 staff <span class="pill u" style="margin:0">Unknown</span></li></ul></div></div>
+        <p class="cap">expanded · design mock, sample data</p>
+        <p class="why">detail on demand; unknown stays dashed, never rounded up to a pass</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. making it agentic: the spine of the page -->
+<section class="wide">
+  <div class="prose" style="padding:0;margin:0 0 56px;max-width:var(--prose)">
+    <h2>making it agentic</h2>
+    <p class="intro">The usual shape of a funding tool is forms and lists. You type your business into thirty fields, then scroll a catalog. I wanted the opposite: the product does the reading, and you do the deciding.</p>
+    <div class="hers">the forms-and-lists version asked owners to retype what their own documents already said. that was the moment: the product should do the reading. i took a product and made it agentic.</div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame"><img src="assets/02-upload-drop.png" alt="The document drop screen: drop your files here, with the list of documents already given" loading="lazy"></div><p class="cap">signed-in product, sample data</p></div>
+    <div class="note"><span class="hand r2">your documents already said it</span><p>Drop documents, don't retype them.</p><p>Onboarding starts with an upload. You drop what you already have, a tax return, a P&amp;L, a business plan, and readers propose facts from it: legal name, structure, revenue, team size. The owner's job changes from typing to checking.</p></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame"><img src="assets/03-fact-review.png" alt="The fact review screen: each proposed fact with its page, verbatim excerpt, editable value and Confirm control" loading="lazy"></div><p class="cap">signed-in product, sample data</p></div>
+    <div class="note"><span class="hand r4">a person looked. that's the point.</span><p>Confirm, never accept-all.</p><p>Each proposed fact shows what we read, where we read it, with the page and the verbatim excerpt, and an editable box, because the owner's correction is what lands, not the machine's reading. Nothing is pre-selected. The comment at the top of that component says it in one line: "The whole point of this screen is that a person looked."</p>
+      <div class="hers">an accept-all button would have made the demo smoother and the profile wrong. this is financial data — one wrongly accepted fact poisons every match downstream. you confirm each fact once, and from then on your word beats my extraction, always.</div></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame"><img src="assets/13-profile-redesign.png" alt="The redesigned business profile" loading="lazy"></div><p class="cap">profile redesign, design mock in the real frontend</p></div>
+    <div class="note"><span class="hand r1">your word always wins</span><p>Your saved value always wins.</p><p>The profile isn't a form you fill once. It's where everything the product learned about you lives, with provenance shown inside the field you're editing, and suggestions waiting in their own tab instead of silently overwriting what you saved. A projected revenue number from a business plan goes into Projections, never into actual revenue.</p><p class="logic">i kept projections out of actual revenue because a plan is a hope, and a program's rules are checked against what you actually earned.</p></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame"><img src="assets/08-dashboard-overview-1440.png" alt="Opportunities overview at 1440" loading="lazy"></div><p class="cap">dashboard composition, design mock, sample data</p></div>
+    <div class="note"><span class="hand r3">ranked by rules met. no paid spots.</span><p>Matching is a plan, not a catalog.</p><p>The page after sign-in is Opportunities: funding that could fit, your next step, your drafts. Grants, Loans and All funding are filters on one page, not separate catalogs. Ranking is by rules met. An unconfirmed rule never counts as met, and there's no paid placement.</p><p class="logic">i made grants and loans filters on one page because the owner's question is "what fits me", not "what kind of money is this".</p>
+      <div class="hers">agentic means the product does the work — reads, extracts, matches, plans. it never asserts a fact about your business you haven't confirmed, and it never submits anything. it does the work; you keep the say.</div></div>
+  </div>
+</section>
+
+<!-- 5. the hard call: one slim closing beat -->
+<section class="prose call">
+  <h2>the hard call</h2>
+  <span class="hand r2">never approve your own work</span>
+  <p>My profile redesign collided with newer work that was already live. The deploy gate flagged it, and it was right to. Mine had a real case: it shows a failed load where the live one hides it. But it was my own work, and I'm the worst person to approve it. So I shipped the system, tokens, cards, onboarding, login, dashboard, and parked my profile for proper design review, both versions side by side.</p>
+  <div class="hers">i shipped everything uncontested the same day and parked my own redesign for review. it stung. but i'd just built a whole product on the rule that your saved word beats the machine's suggestion — approving my own replacement of live work would have broken that same rule.</div>
+</section>
+
+<!-- 7. footer -->
+<footer class="wide">
+  <div class="built mono">
+    <p>built by hand</p>
+    <p><span>live</span> · <a href="https://findfunding.ai" rel="noopener">findfunding.ai</a></p>
+    <p><span>evidence</span> · shipped to findfunding.ai</p>
+    <p><span>tests</span> · ProfileWorkspace.test.tsx, 387 lines</p>
+  </div>
+  <nav class="nav mono"><a href="#prev">← previous case</a><a href="#next">next case →</a></nav>
+</footer>
+
+<script>
+document.body.classList.remove('no-js');
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
+document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+</script>
+</body>
+</html>

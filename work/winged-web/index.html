@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>winged web · mikaela maensivu</title>
+<meta name="description" content="Winged Web: an agent, your double, texts and calls to set up your dates. Design-led case study by Mikaela Maensivu, founder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* container system: same as every case page */
+:root{
+  --bg:#FAFAF7; --ink:#1A1A18; --muted:#8A8A82; --line:#E5E5DF;
+  --iris:#9B71E8; --sky:#70D4F5; --magenta:#FF75CA;
+  --cool:linear-gradient(135deg,var(--iris),var(--sky));
+  --warm:linear-gradient(135deg,var(--iris),var(--magenta));
+  --sans:'Instrument Sans',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gap:120px; --prose:720px; --pad:40px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:28px;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.prose{max-width:var(--prose);margin:0 auto;padding:0 var(--pad)}
+.wide{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+section,section.wide,section.prose{margin-top:var(--gap)}
+h1{font-size:44px;line-height:1.1;font-weight:600;letter-spacing:-.02em}
+h2{font-size:13px;line-height:20px;font-family:var(--mono);font-weight:400;color:var(--muted);text-transform:lowercase;margin-bottom:20px}
+.intro{font-size:22px;line-height:32px}
+p+p{margin-top:20px}
+.mono{font-family:var(--mono);font-size:13px;line-height:20px}
+.cap{font-family:var(--mono);font-size:13px;line-height:20px;color:var(--muted);margin-top:14px}
+.frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 24px 48px rgba(0,0,0,.06)}
+/* first-person notes: plain italic prose */
+.hers{font-size:17px;line-height:28px;color:var(--ink);margin-top:28px;padding-left:22px;border-left:2px solid var(--line);font-style:italic}
+.art{opacity:0;transform:translateY(12px);transition:opacity 240ms ease-out,transform 240ms ease-out}
+.art.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.art{opacity:1;transform:none;transition:none}}
+.no-js .art{opacity:1;transform:none}
+
+/* winged's world: artifacts live on black inside the frame; the page stays warm */
+.night{background:#000;border-color:#000}
+.stage{display:flex;justify-content:center;align-items:flex-start;gap:32px;padding:56px 40px}
+.stage img{width:300px;border-radius:20px;border:1px solid rgba(255,255,255,.08)}
+.stage img.lift{margin-top:48px}
+
+/* 1 hero */
+.hero{padding:40px var(--pad) 0;max-width:1280px;margin:0 auto}
+.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-bottom:32px}
+.hero-head .claim{font-size:22px;line-height:32px;margin-top:12px;max-width:600px}
+.mark{width:56px;height:56px;border-radius:13px;flex:none}
+
+/* 3 system */
+.ds{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:80px 0}
+.ds-intro{max-width:var(--prose);margin-bottom:48px}
+.argue{font-family:var(--mono);font-size:13px;line-height:22px;color:var(--muted);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;}
+.argue b{font-weight:400;color:var(--ink)}
+.tok{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tok .chip{height:88px;border-radius:12px;border:1px solid #000}
+.tok p{font-family:var(--mono);font-size:13px;line-height:20px;margin-top:10px}
+.tok .why{color:var(--muted);margin-top:2px;font-size:12px;line-height:18px}
+.ladder{margin-top:48px;background:#000;border-radius:12px;padding:28px 32px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;color:#fff}
+.ladder span{display:block;font-size:22px;line-height:28px;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;letter-spacing:-.02em}
+.ladder small{display:block;font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted);margin-top:6px}
+.voices{margin-top:24px;background:#000;border-radius:12px;padding:32px;color:#fff;display:grid;grid-template-columns:140px 1fr;row-gap:18px;column-gap:24px;align-items:baseline}
+.voices .k{font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted)}
+.v-title{font-family:'Circular Std','Instrument Sans',system-ui,sans-serif;font-weight:600;font-size:28px;line-height:1.1;letter-spacing:-.03em}
+.v-body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;font-size:17px;line-height:1.5;letter-spacing:-.02em;color:rgba(255,255,255,.7)}
+.v-agent{font-family:'Space Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.v-agent .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#4ADE80;margin-right:10px;vertical-align:1px}
+
+/* 4 in motion: live recreation */
+.motion{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a1a1a}
+.reg{background:#000;padding:40px 32px 36px;display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff}
+.orb{width:168px;height:168px;border-radius:50%;position:relative;overflow:hidden}
+.orb::after{content:"";position:absolute;inset:0;opacity:.10;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+.o-cool{background:linear-gradient(135deg,#9B71E8,#70D4F5,#9B71E8);background-size:200% 200%;animation:drift 4s ease-in-out infinite alternate}
+.o-cool::before{content:"";position:absolute;inset:-2px;border-radius:50%;border:3px solid transparent;border-top-color:rgba(255,255,255,.85);animation:spin 1.4s linear infinite}
+.o-warm{background:linear-gradient(135deg,#9B71E8,#FF75CA,#9B71E8);background-size:200% 200%;animation:drift 5s ease-in-out infinite alternate,beat 2.4s ease-in-out infinite}
+.o-cele{background:linear-gradient(120deg,#70D4F5,#9B71E8,#FF75CA,#9B71E8,#70D4F5);background-size:300% 300%;animation:sweep 3s linear infinite}
+@keyframes drift{from{background-position:0% 0%}to{background-position:100% 100%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes sweep{from{background-position:0% 50%}to{background-position:300% 50%}}
+@media (prefers-reduced-motion:reduce){.orb,.orb::before{animation:none!important}}
+.reg .v-agent{margin-top:28px}
+.reg .meaning{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text',system-ui,sans-serif;font-size:17px;line-height:24px;letter-spacing:-.02em;margin-top:10px}
+.reg .stops{font-family:var(--mono);font-size:12px;line-height:18px;color:rgba(255,255,255,.4);margin-top:6px}
+
+/* 5 agent blocks */
+.blk{display:grid;grid-template-columns:3fr 2fr;gap:56px;align-items:center}
+.blk+.blk{margin-top:96px}
+.blk .note p:first-child{font-weight:600}
+.blk .stage{padding:40px}
+.blk.solo{grid-template-columns:1fr;max-width:var(--prose)}
+blockquote{border-left:2px solid var(--iris);padding-left:20px;margin-top:24px}
+
+/* 6 voice introductions: reserved frame for her figma exports */
+.slot{min-height:420px;margin:56px 40px;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px;border:1px dashed rgba(255,255,255,.18);border-radius:20px;font-family:var(--mono);font-size:13px;line-height:20px;color:rgba(255,255,255,.4)}
+@media (max-width:760px){.slot{margin:24px 12px;min-height:240px}}
+.stage.four{gap:24px}
+.stage.four img{width:240px}
+@media (max-width:760px){.stage.four{gap:8px}.stage.four img{width:calc(25% - 6px);border-radius:8px}.stage.four img.lift{margin-top:16px}}
+
+
+/* live embeds: the real app in a phone frame; stills stay as the fallback */
+.live-stage{padding:40px}
+.live{position:relative;width:min(390px,100%);margin:0 auto}
+.live .fb{display:flex;gap:12px;justify-content:center}
+.live .fb img{width:calc(50% - 6px);max-width:300px;border-radius:20px;border:1px solid rgba(255,255,255,.08)}
+.live .fb img.lift{margin-top:24px}
+.live.on .fb{display:none}
+.live .phone{position:relative;width:100%;aspect-ratio:390/844;border-radius:28px;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.12)}
+.live iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.live .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.live .chips button,.live .run{font:inherit;font-family:var(--mono);font-size:12px;line-height:18px;color:rgba(255,255,255,.7);background:transparent;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;cursor:pointer}
+.live .chips button[aria-pressed=true]{color:#000;background:#fff;border-color:#fff}
+.live .run{display:block;margin:20px auto 0}
+.stage.four.live-stage{display:block}
+@media (max-width:760px){.live-stage{padding:20px 12px}.live .fb img{width:calc(50% - 6px)}.stage.four .live .fb img{width:calc(25% - 6px)}}
+
+/* footer */
+footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64px}
+.built{color:var(--muted)}
+.built span{color:var(--ink)}
+.nav{display:flex;justify-content:space-between;margin-top:48px}
+
+@media (max-width:760px){
+  :root{--gap:64px;--pad:20px}
+  h1{font-size:36px}
+  .intro,.hero-head .claim{font-size:19px;line-height:28px}
+  .hero-head{flex-direction:column-reverse}
+  .stage{gap:12px;padding:24px 12px}
+  .stage img{width:calc(33.3% - 8px);border-radius:10px}
+  .stage img.lift{margin-top:24px}
+  .blk .stage{padding:24px}
+  .blk .stage img{width:calc(50% - 6px)}
+  .tok{grid-template-columns:1fr}
+  .ladder{grid-template-columns:1fr 1fr;padding:20px}
+  .ladder span{font-size:17px;line-height:24px}
+  .voices{grid-template-columns:1fr;row-gap:6px;padding:24px}
+  .voices .k{margin-top:12px}
+  .motion{grid-template-columns:1fr}
+  .orb{width:128px;height:128px}
+  .blk{grid-template-columns:1fr;gap:24px}
+  .blk+.blk{margin-top:64px}
+  .ds{padding:56px 0}
+}
+
+/* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
+@font-face{font-family:'B-McE';src:url('../../assets/fonts/B-McE.ttf') format('truetype');font-display:swap}
+.hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#3d3a8c;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
+.hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
+.hand.after{margin:14px 0 0}
+/* the logic, stated: one plain sentence in her voice where a decision showed no reason */
+.logic{color:var(--ink)}
+@media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+</style>
+</head>
+<body class="no-js">
+
+<!-- 1. hero -->
+<header class="hero">
+  <div class="hero-head">
+    <div>
+      <h1>winged web</h1>
+      <p class="claim">i'm the founder. an agent, your "double", texts and calls to set up your dates. this is the surface where its visual world got finished.</p>
+    </div>
+    <img class="mark" src="assets/00-ios-appicon.png" alt="Winged app icon: a winged W on the iris-to-sky gradient" width="56" height="56">
+  </div>
+  <div class="frame night art">
+    <div class="stage">
+      <img src="assets/figma-voice-selection.png" alt="Pick how your double will introduce you, in your own voice: three voice takes on the warm gradient" width="393" height="852">
+      <img class="lift" src="assets/figma-double-live.png" alt="Your double is live. I'll text you when I find someone worth your time" width="393" height="852">
+      <img src="assets/figma-intro-card.png" alt="Match card with the Introduction pill: Mikaela, 32, a played voice introduction and 84% compatible" width="500" height="800">
+    </div>
+  </div>
+  <p class="cap">voice pick, the double going live, and the introduction card · design, v2</p>
+</header>
+
+<!-- 2. the problem -->
+<section class="prose">
+  <h2>the problem</h2>
+  <p class="intro">Dating apps turned into a second job. You swipe, you match, and then the real work starts: texting for days, staying interesting, finding a night you're both free, picking a place. Most matches die right there.</p>
+  <p>The people who drown in that part are often the ones who'd be great on an actual date. Warm in person, bad at the typing. So I built the opposite. You tell Winged who you are and who you're looking for, and your double does the texting and the calling. You just show up.</p>
+  <div class="hers">the apps reward whoever is best at the chat, and that's a different skill from being good company. the people who lose out are warm in person and bad at the typing. i built winged for them.</div>
+</section>
+
+<!-- 3. the system: every token argued -->
+<section class="ds">
+  <div class="wide">
+    <h2>the system</h2>
+    <div class="ds-intro">
+      <p class="intro">One dark room, three kinds of light. Every screen sits on pure black, text steps down a fixed brightness ladder, and that calm base is what lets colour mean something. Each gradient has exactly one job, so the colour tells you whether the machine is talking or a person is.</p>
+      <blockquote><p>"Governing rule: cool = the system thinking, warm = humans connecting — never mixed arbitrarily per screen."</p></blockquote>
+      <p class="cap">from winged.tokens.json, the single source of truth</p>
+    </div>
+    <p class="argue"><b>#000</b> ground: one room, so light reads as meaning · <b>100/70/55/50/40</b> text steps: brightness is hierarchy, no pile of greys · <b>iris→sky</b> = the machine · <b>iris→magenta</b> = people · <b>sky→iris→magenta</b> = date confirmed, the only place they meet · <b>iris</b> as shared anchor: so both registers read as one brand · <b>grain 0.10</b>: light, not a fill · <b>circular</b> titles · <b>SF</b> reading · <b>space mono caps</b> = the agent's voice · <b>-0.02em</b> tracking: intimate, close-set · <b>pure black</b>, not dark grey: the calm base is what lets the colour mean something</p>
+
+    <span class="hand r1 after">one gradient, one job</span>
+    <div class="tok">
+      <div><div class="chip" style="background:var(--cool)"></div><p>cool · iris #9B71E8 → sky #70D4F5</p><p class="why">intelligence: the agent working, scoring, the compatibility ring</p></div>
+      <div><div class="chip" style="background:var(--warm)"></div><p>warm · iris #9B71E8 → magenta #FF75CA</p><p class="why">connection: matches, people, romance</p></div>
+      <div><div class="chip" style="background:linear-gradient(120deg,#70D4F5,#9B71E8,#FF75CA)"></div><p>celebration · sky → iris → magenta</p><p class="why">a date is confirmed; animated, reserved for the one peak</p></div>
+    </div>
+
+    <span class="hand r3 after">brightness is the hierarchy</span>
+    <div class="ladder" aria-label="text brightness ladder on black">
+      <div><span style="color:#fff">Alex</span><small>100 · names, titles</small></div>
+      <div><span style="color:rgba(255,255,255,.7)">A little about me</span><small>70 · what you read</small></div>
+      <div><span style="color:rgba(255,255,255,.55)">Exceptional fit</span><small>55 · the agent's aside</small></div>
+      <div><span style="color:rgba(255,255,255,.5)">Brooklyn</span><small>50 · meta</small></div>
+      <div><span style="color:rgba(255,255,255,.4)">Select intro</span><small>40 · not yet available</small></div>
+    </div>
+    <p class="cap">text ladder, live css from the tokens</p>
+
+    <div class="voices">
+      <span class="k">title · circular</span><span class="v-title">A little introduction. All about you.</span>
+      <span class="k">reading · SF</span><span class="v-body">Pick how your double will introduce you, in your own voice.</span>
+      <span class="k">agent · space mono</span><span class="v-agent"><span class="dot"></span>Active · watching for the right fit</span>
+    </div>
+    <p class="cap">type trio, live css · Circular is licensed and falls back to Instrument Sans here; SF renders on Apple devices</p>
+    <div class="hers" style="max-width:var(--prose)">i wanted the room calm and a little private. pure black, light only where it means something. the colour tells you whether the machine is talking or a person is, and i like that rule more than any single screen.</div>
+  </div>
+</section>
+
+<!-- 4. in motion: the three gradients, live -->
+<section class="wide">
+  <div style="max-width:var(--prose);margin-bottom:40px">
+    <h2>in motion</h2>
+    <p>In the product the gradients aren't fills. They move, under a film grain, so the colour feels like light. Here are the three registers running side by side, each named by what it tells you.</p>
+  </div>
+  <span class="hand r2">violet + sky = the agent is working</span>
+  <div class="frame night art">
+    <div class="motion">
+      <div class="reg"><div class="orb o-cool" role="img" aria-label="cool gradient, spinning"></div><span class="v-agent">cool · the agent is working</span><p class="meaning">Your double is looking.</p><p class="stops">iris → sky</p></div>
+      <div class="reg"><div class="orb o-warm" role="img" aria-label="warm gradient, slow pulse"></div><span class="v-agent">warm · a person</span><p class="meaning">Someone to meet.</p><p class="stops">iris → magenta</p></div>
+      <div class="reg"><div class="orb o-cele" role="img" aria-label="celebration gradient, sweeping"></div><span class="v-agent">celebration · it's happening</span><p class="meaning">Your date is confirmed.</p><p class="stops">sky → iris → magenta</p></div>
+    </div>
+  </div>
+  <p class="cap">live recreation in css, not a capture · grain at the token's 0.10 · the spin, pulse and sweep are my recreation of the motion</p>
+</section>
+
+<!-- 5. the agent experience: the real app, running -->
+<section class="wide">
+  <div style="max-width:var(--prose);margin-bottom:56px">
+    <h2>the agent experience</h2>
+    <p class="intro">An agent that texts strangers for you is a lot of trust to ask for. Most of the design work was earning it, screen by screen. Everything below is the real web app, running in the frame, with sample people and no backend. Tap through it.</p>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "what it learned", "hash": "/onboard/demo"}, {"label": "pick the voice", "hash": "/embed/intro"}]'><div class="fb"><img src="assets/figma-onboard-learned.png" alt="Here is what I learned about you: the double reads its draft back on the warm gradient, Continue" loading="lazy" width="393" height="852"><img src="assets/figma-voice-selection.png" alt="Three voice takes on the warm gradient: pick how your double will introduce you, in your own voice" loading="lazy" width="393" height="852"></div></div></div></div>
+    <div class="note"><span class="hand r4">draft first. hear it first.</span><p>Onboarding, and setting up the profile.</p><p>A short voice call trains your double. Then it reads back what it learned about you, on the warm gradient, because this part is about you. Nothing goes public until you accept it, and you hear your own introduction before anyone else does.</p></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "invite friends", "hash": "/vouch-collection"}, {"label": "a friend&#39;s invite", "hash": "/vouch/vt1"}]'><div class="fb"><img src="assets/embeds/poster-vouch.png" alt="Vouching: the people who know you help your person find you, five slots to invite friends" loading="lazy" width="390" height="844"></div></div></div></div>
+    <div class="note"><span class="hand r1">someone else speaking for you</span><p>Vouching.</p><p>The people who know you help your person find you. You invite friends by name, they give two minutes of voice, no app needed, and you approve each vouch before it shows on your profile.</p><p class="logic">i made approval the step before showing, not a delete button after, because a vouch is words about you that you didn't write.</p><div class="hers">a vouch is somebody else speaking for you, so it gets the same rule as everything else: it stays yours to approve.</div></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "the match card", "hash": "/matches/demo"}]'><div class="fb"><img src="assets/figma-match-compatibility.png" alt="Compatibility screen: ring on the cool gradient, alignment across personality and lifestyle, Propose match" loading="lazy" width="401" height="852"><img src="assets/figma-match-profile.png" alt="Match profile: photos, voice introductions to play, Propose match" loading="lazy" width="401" height="852"></div></div></div></div>
+    <div class="note"><span class="hand r2">the machine is quieter than the person</span><p>Seeing a match, and looking at their profile.</p><p>The person&rsquo;s words sit in a card at reading brightness. The agent&rsquo;s judgment sits outside it, quieter: the alignment, then the percent in mono caps. The card&rsquo;s edge and the Introduction pill are warm, because this is a person.</p><p class="logic">i kept the agent's judgment dimmer than the person's own words, so you read who they are first and the score second.</p></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "before", "hash": "/date/d1?stage=before"}, {"label": "during", "hash": "/date/d1?stage=during"}, {"label": "after", "hash": "/date/d1?stage=after"}]'><div class="fb"><img src="assets/embeds/poster-date.png" alt="The date card: venue, what to bring up, and a direct chat that opens an hour before" loading="lazy" width="390" height="844"></div></div></div></div>
+    <div class="note"><span class="hand r3">it sets it up. you take it from there.</span><p>The date: before, during, after.</p><p>Before: the venue, what to bring up, a card to draw a question from. During: the date chat opens an hour before, so the agent sets it up and the two humans take it from there. After: your double asks how it went, and you can talk it through or leave a note. Switch stages under the phone.</p><div class="hers">the trust call was where the agent stops. it sets the date up, and the two people take it from there.</div></div>
+  </div>
+  <div class="blk">
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "settings", "hash": "/match/demo"}]'><div class="fb"><img src="assets/embeds/poster-settings.png" alt="The match hub with Discover and Settings tabs" loading="lazy" width="390" height="844"></div></div></div></div>
+    <div class="note"><p>Settings, and the wheel.</p><p>You can always take the wheel: pause your double, change the places and times, manage your vouches. Tap Settings at the top.</p><p class="logic">i kept pause one tap away because an agent you can't stop quickly is one you won't let start.</p></div>
+  </div>
+</section>
+
+<!-- 6. voice introductions -->
+<section class="wide">
+  <div style="max-width:var(--prose);margin-bottom:40px">
+    <h2>voice introductions</h2>
+    <p class="intro">Voice was the cornerstone of everything we had. Your double didn't just text, it spoke, and the introduction it made was in your own voice.</p>
+    <p>It started in onboarding: a short voice call trained your double on how you actually talk. Then it came back with three voice takes of your introduction. "Pick how your double will introduce you, in your own voice." You played each one back, chose the take that sounded like you, and that became the introduction your double carried to matches: the Introduction pill on the match card is this feature arriving on the other side.</p>
+    <p>And the same draft-then-approve rule held here. You heard it before anyone else did, and you could change your pick later, on plain black, the same three takes numbered 01 02 03.</p>
+  </div>
+  <div class="frame night art">
+    <div class="stage four live-stage"><div class="live" data-stages='[{"label": "voice picker", "hash": "/embed/intro"}]'><div class="fb"><img src="assets/figma-training-call.png" alt="You are training your double: the voice call in progress, the orb listening, mic and hang-up controls" loading="lazy" width="375" height="812"><img class="lift" src="assets/figma-voice-selection.png" alt="Pick how your double will introduce you, in your own voice: three voice takes on the warm gradient, Select intro" loading="lazy" width="393" height="852"><img src="assets/figma-intro-play.png" alt="Pick your introduction: take 01 playing, waveform moving, Save introduction" loading="lazy" width="393" height="852"><img class="lift" src="assets/figma-change-intro.png" alt="Pick your introduction in settings: three takes 01 02 03 on black" loading="lazy" width="393" height="852"></div></div></div>
+  </div>
+  <p class="cap">the voice picker, live: play a take and watch the waveform · the three takes are synthetic tones, not real voices</p>
+  <div style="max-width:var(--prose)"><div class="hers">voice was the cornerstone of everything we had. an introduction in your own voice is a different thing from a bio. you hear yourself before anyone else does, and only then does it speak for you.</div></div>
+</section>
+
+<!-- 7. shipped -->
+<section class="prose">
+  <h2>shipped</h2>
+  <p>Winged came out of Antler Nordics and launched in San Francisco and Helsinki.</p>
+  <div class="hers">winged web is the surface people opened from the links their double texted them. the voice pick, the draft review, the match card and the report sheet on this page are that product, live.</div>
+</section>
+
+<!-- 8. what it taught me -->
+<section class="prose">
+  <h2>what it taught me</h2>
+  <p><b style="font-weight:600">Give each colour a job.</b> Three registers, one meaning each, became how I think about colour in any product.</p>
+  <p><b style="font-weight:600">Draft, then approve.</b> "Not yet public until you accept" is the pattern I carried into the next products I built.</p>
+  <p><b style="font-weight:600">Write the system down or it drifts.</b> Winged Web ended with one tokens file that absorbed six drifting greys into one ramp. Next time I'd start with that file.</p>
+  <div class="hers">i'd keep all three. if i can't say what a colour is for, it comes out. if something speaks for a person, it comes back as a draft first. and the tokens file comes first, not last.</div>
+</section>
+
+<footer class="wide">
+  <div class="built mono">
+    <p>built by hand</p>
+    <p><span>source</span> · winged.tokens.json, the live web app</p>
+    <p><span>screens</span> · the real app running, sample people only</p>
+  </div>
+  <nav class="nav mono"><a href="#prev">← previous case</a><a href="#next">next case →</a></nav>
+</footer>
+
+<script>
+document.body.classList.remove('no-js');
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
+document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+/* live embeds: load only while on screen, stills stay for reduced motion and no-js */
+(function(){
+  var calm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var APP = 'assets/embeds/app/index.html';
+  document.querySelectorAll('.live').forEach(function(box){
+    var stages = JSON.parse(box.getAttribute('data-stages')), cur = 0, phone, frame;
+    function src(i){ return APP + '#' + stages[i].hash; }
+    function mount(){
+      if (frame) return;
+      box.classList.add('on');
+      phone = document.createElement('div'); phone.className = 'phone';
+      frame = document.createElement('iframe');
+      frame.title = 'Winged web, the real app running with sample data';
+      frame.setAttribute('sandbox','allow-scripts allow-same-origin');
+      frame.setAttribute('allow','autoplay');
+      frame.src = src(cur);
+      phone.appendChild(frame); box.appendChild(phone);
+      if (chips) box.appendChild(chips);
+    }
+    function unmount(){ if (!frame) return; phone.remove(); frame = null; box.classList.remove('on'); if (chips) chips.remove(); }
+    var chips = null;
+    if (stages.length > 1) {
+      chips = document.createElement('div'); chips.className = 'chips';
+      stages.forEach(function(st,i){
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = st.label; b.setAttribute('aria-pressed', i===cur);
+        b.onclick = function(){ cur = i; chips.querySelectorAll('button').forEach(function(x,j){ x.setAttribute('aria-pressed', j===i); }); if (frame) { frame.src = src(i); if (frame.contentWindow) { try { frame.contentWindow.location.reload(); } catch(e){} } } };
+        chips.appendChild(b);
+      });
+    }
+    if (calm) {
+      var r = document.createElement('button'); r.type = 'button'; r.className = 'run'; r.textContent = 'run the live app (it animates)';
+      r.onclick = function(){ r.remove(); mount(); };
+      box.appendChild(r); return;
+    }
+    if (!('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting ? mount() : unmount(); }); }, { rootMargin: '200px 0px' }).observe(box);
+  });
+})();
+</script>
+</body>
+</html>
