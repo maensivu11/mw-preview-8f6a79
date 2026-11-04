@@ -697,7 +697,7 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
       timer=setTimeout(function(){
         if(mine!==run||!modal.classList.contains('open'))return;
         stage.classList.add('is-open');
-        var first=stage.querySelector('a.wi-entry');if(first)first.focus({preventScroll:true});
+        if(!stage.hasAttribute('tabindex'))stage.setAttribute('tabindex','-1');stage.style.outline='none';stage.focus({preventScroll:true});
       },reduce?0:80);
     }
     Promise.all(frames.map(function(src){var img=new Image();img.src=src;return (img.decode?img.decode():Promise.resolve()).catch(function(){});})).then(show);
