@@ -117,7 +117,7 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   pre{font-size:11.5px;line-height:18px;padding:16px}
 }
 
-/* her hand: margin notes in B-McE, her own handwriting font */
+/* her hand: margin notes in B-McE, an adopted font close to her hand; her real handwriting is in the note, journal and notebook images */
 @font-face{font-family:'B-McE';src:url('../../assets/fonts/B-McE.ttf') format('truetype');font-display:swap}
 .hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#3d3a8c;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
 .hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
@@ -154,6 +154,15 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 .hero-head{margin-bottom:var(--s3)}
 .hero .cap{margin-top:var(--s6)}
 .ds+footer,.ds+footer.wide{border-top:0}
+/* editorial grid: label left 1/3, reading column right 2/3, one edge with the 1280 container */
+section.prose{max-width:1280px;margin-left:auto;margin-right:auto}
+section.prose,.ed{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:var(--s3);align-items:start}
+.ds-intro.ed{max-width:none}
+section.prose>*,.ed>*{grid-column:2;max-width:700px;min-width:0}
+section.prose>h2,.ed>h2{grid-column:1;grid-row:1;margin-top:0}
+section.prose>h2+.hand,.ed>h2+.hand{grid-column:1;grid-row:2/span 30;margin:0}
+section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-child{margin-top:0}
+@media (max-width:900px){section.prose,.ed{display:block}section.prose>h2+.hand,.ed>h2+.hand{margin:0 0 12px}}
 </style>
 </head>
 <body class="no-js">
@@ -187,14 +196,14 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <p>what can't be generated is the part before the pixels. taste is knowing which of a hundred correct options is mine. authorship is my name on the decisions, including the ones i got wrong. and time is the hours it takes to photograph a notebook frame by frame until it opens the way a real one does.</p>
   <div class="hers">i'd rather it look like me than look right.</div>
   <p>so no template, no site builder, no framework. index.html, styles.css and script.js, written by hand, line by line. i'm not avoiding tools to make a point. i use them every day. but if i say i care about craft, the site is where you check, and view-source is part of the portfolio.</p>
-  <p>the handwriting is mine too. b-mce isn't a font i found. it's my own hand turned into a typeface, and it's what you see in the margins of every page here. the note on top is my hand today. the composition book under it is my hand as a kid, same name on the cover, only younger. the yellow highlights were traced over my own ink, stroke by stroke. there's even a voice agent on the site that speaks in my voice, because if i'm going to say "this is me," it should be all the way.</p>
+  <p>the margins are set in b-mce, a font close enough to my hand that i adopted it as mine. the handwriting in the note, the journal and the notebook is actually mine. the note on top is my hand today. the composition book under it is my hand as a kid, same name on the cover, only younger. the yellow highlights were traced over my own ink, stroke by stroke. there's even a voice agent on the site that speaks in my voice, because if i'm going to say "this is me," it should be all the way.</p>
   <p>i wanted it to feel human and authentic, like someone took their time. because someone did. you can't fake that with a prompt. you can only spend it.</p>
   <div class="hers">this is just me, as organically and honestly as i could make it.</div>
 </section>
 
 <!-- 3. how it's made -->
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
+  <div class="ed" style="margin:0 0 var(--s3)">
     <h2>how it's made</h2>
     <p class="intro">three pieces of mechanics. each one is small, each one is real, and each one only works because i did it by hand.</p>
   </div>
@@ -263,13 +272,12 @@ Promise.all(frames.map(<span class="k">function</span>(src){<span class="k">var<
 <!-- 4. the system strip -->
 <section class="ds">
   <div class="wide">
-    <h2>the system</h2>
-    <p class="intro" style="max-width:var(--prose);margin-bottom:var(--s3)">four materials, and every one of them is something you could hold.</p>
+    <div class="ed" style="margin-bottom:var(--s3)"><h2>the system</h2><p class="intro">four materials, and every one of them is something you could hold.</p></div>
     <span class="hand r2">paper, ink, my hand</span>
     <div class="sw">
       <div><div class="chip" style="background:#FBF6EA"></div><p>paper #FBF6EA</p><p class="why">warm, not white. the color of a page that's been kept, not printed</p></div>
       <div><div class="chip" style="background:#22303a"></div><p>ink #22303a</p><p class="why">blue-black ballpoint, never pure black, because no pen is</p></div>
-      <div><div class="chip" style="background:#FBF6EA;font-family:'B-McE',cursive;font-size:34px;color:#22303a">mikaela</div><p>b-mce ("mikaela")</p><p class="why">my own handwriting as a typeface. the margins speak in my hand</p></div>
+      <div><div class="chip" style="background:#FBF6EA;font-family:'B-McE',cursive;font-size:34px;color:#22303a">mikaela</div><p>b-mce ("mikaela")</p><p class="why">an adopted hand, close to mine</p></div>
       <div><div class="chip" style="background:#FBF6EA;font-family:'Caveat',cursive;font-weight:500;font-size:30px;color:#22303a">open me</div><p>caveat ("open me")</p><p class="why">the quick hand for small ui hints, so the margins stay mine</p></div>
     </div>
   </div>

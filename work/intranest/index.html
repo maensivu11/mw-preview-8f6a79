@@ -102,7 +102,7 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
   .motion .frame{aspect-ratio:4/3}
 }
 
-/* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
+/* her hand: margin notes in B-McE, an adopted hand, close to hers (her real handwriting is in the images). reasons only, never body prose */
 @font-face{font-family:'B-McE';src:url('../../assets/fonts/B-McE.ttf') format('truetype');font-display:swap}
 .hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#3a3f9e;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
 .hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
@@ -142,6 +142,15 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 .note .logic,p+.logic{margin-top:var(--s5)}
 .ds+footer,.ds+footer.wide{border-top:0}
 .call p+p{margin-top:var(--s5)}
+/* editorial grid: label left 1/3, reading column right 2/3, one edge with the 1280 container */
+section.prose{max-width:1280px;margin-left:auto;margin-right:auto}
+section.prose,.ed{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:var(--s3);align-items:start}
+.ds-intro.ed{max-width:none}
+section.prose>*,.ed>*{grid-column:2;max-width:700px;min-width:0}
+section.prose>h2,.ed>h2{grid-column:1;grid-row:1;margin-top:0}
+section.prose>h2+.hand,.ed>h2+.hand{grid-column:1;grid-row:2/span 30;margin:0}
+section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-child{margin-top:0}
+@media (max-width:900px){section.prose,.ed{display:block}section.prose>h2+.hand,.ed>h2+.hand{margin:0 0 12px}}
 </style>
 </head>
 <body class="no-js">
@@ -170,8 +179,8 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 
 <section class="ds">
   <div class="wide">
+    <div class="ds-intro ed">
     <h2>the system</h2>
-    <div class="ds-intro">
       <p class="intro">compliance software usually looks like government software: gray tables, traffic-light badges, forty buttons on one screen. it looks like a penalty because nobody designed it for the person serving it. i built the system first. it's called indigo ink, and it's binding for everything we make: the app, the landing page, the deck.</p>
       <div class="hers">dana didn't choose this job. the least the product can do is not look like a penalty. a calm screen is a way of respecting the person doing the work, so i made the product look like a modern one that happens to do compliance.</div>
     </div>
@@ -199,7 +208,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 </section>
 
 <section class="wide motion">
-  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
+  <div class="ed" style="margin:0 0 var(--s3)">
     <h2>in motion</h2>
     <p>the landing page's signature is the glyph globe. the land isn't painted, it's typed: the character stream is the 110 requirement ids strung together, ac311 through si3147, with the defense hubs labeled on it.</p>
     <span class="hand r3 after">the texture is the work</span>
@@ -211,7 +220,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 </section>
 
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
+  <div class="ed" style="margin:0 0 var(--s3)">
     <h2>agent-first</h2>
     <p class="intro">the first dashboards were normal dashboards: charts, a score, an ask box tucked in the corner. i rejected them. the trouble with that shape is that it still asks dana to drive. she has to know which page to open, which row matters, what to ask. a chatbot in the corner doesn't fix that, it just adds a ninth place to be lost in.</p>
     <p>so my ruling was that the full agentic product is the mvp, not a later stage. the agent reads her documents, matches evidence to requirements, and drafts. the fifteen pages become the thing the agent works through, and review surfaces she opens when she wants to check something herself. a person confirms every decision someone has to answer for. that ruling cost us: it meant building the agent loop and the approval gate before polishing a single page. i'd make the same call again, because the other version ships faster and doesn't work.</p>
@@ -250,7 +259,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 </section>
 
 <section class="wide">
-  <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
+  <div class="ed" style="margin:0 0 var(--s3)">
     <h2>the deck, as proof of the system</h2>
     <p>the investor deck was the test of whether indigo ink was a system or a dashboard skin: twelve slides in the same globe, sky, indigo and geist. a screenshot proves a screen looks good. a deck in a different medium, with different content and a different reader, proves the rules hold when nobody's looking at the app. i wrote the laws down as we built it.</p>
     <blockquote><p>"no two-tone or multi-color text anywhere. text is one color; emphasis is carried by weight."</p></blockquote>
@@ -259,7 +268,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
     <div><div class="frame"><img src="assets/01-hero-deck-title.png" alt="Deck title slide: wordmark over the glyph globe" loading="lazy"></div><p class="cap">deck title slide · pitch deck export</p></div>
     <div><div class="frame"><img src="assets/12-deck-agent.png" alt="Deck slide: the agent does the work first, a person confirms" loading="lazy"></div><p class="cap">deck slide, the agent · pitch deck export</p></div>
   </div>
-  <div class="prose" style="padding:0;margin:0;max-width:var(--prose)"><div class="hers">the deck is the proof. the same globe, the same sky, the same indigo and geist, in a different medium, and nothing had to be translated. that's when indigo ink stopped being a dashboard skin and became a system.</div></div>
+  <div class="ed"><div class="hers">the deck is the proof. the same globe, the same sky, the same indigo and geist, in a different medium, and nothing had to be translated. that's when indigo ink stopped being a dashboard skin and became a system.</div></div>
 </section>
 
 <section class="prose call">

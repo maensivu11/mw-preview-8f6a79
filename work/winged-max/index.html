@@ -157,7 +157,7 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
   .ds{padding:48px 0}
 }
 
-/* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
+/* her hand: margin notes in B-McE, an adopted hand, close to hers (her real handwriting is in the images). reasons only, never body prose */
 @font-face{font-family:'B-McE';src:url('../../assets/fonts/B-McE.ttf') format('truetype');font-display:swap}
 .hand{display:block;width:fit-content;max-width:100%;font-family:'B-McE',cursive;text-transform:lowercase;font-size:23px;line-height:26px;font-weight:400;font-style:normal;color:#1A1A18;transform:rotate(-1.5deg);transform-origin:left center;margin:0 0 12px}
 .hand.r1{transform:rotate(-2deg)}.hand.r2{transform:rotate(-.8deg)}.hand.r3{transform:rotate(.6deg)}.hand.r4{transform:rotate(1deg)}
@@ -194,6 +194,15 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 .curve{margin-top:var(--s3)}
 .hers+.hers{margin-top:var(--s5)}
 .ds+footer,.ds+footer.wide{border-top:0}
+/* editorial grid: label left 1/3, reading column right 2/3, one edge with the 1280 container */
+section.prose{max-width:1280px;margin-left:auto;margin-right:auto}
+section.prose,.ed{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:var(--s3);align-items:start}
+.ds-intro.ed{max-width:none}
+section.prose>*,.ed>*{grid-column:2;max-width:700px;min-width:0}
+section.prose>h2,.ed>h2{grid-column:1;grid-row:1;margin-top:0}
+section.prose>h2+.hand,.ed>h2+.hand{grid-column:1;grid-row:2/span 30;margin:0}
+section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-child{margin-top:0}
+@media (max-width:900px){section.prose,.ed{display:block}section.prose>h2+.hand,.ed>h2+.hand{margin:0 0 12px}}
 </style>
 </head>
 <body class="no-js">
@@ -239,8 +248,8 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <!-- 3. the system: the numbers that carry the product -->
 <section class="ds">
   <div class="wide">
+    <div class="ds-intro ed">
     <h2>the system</h2>
-    <div class="ds-intro">
       <p class="intro">winged max doesn't have a finished visual system yet. its real design system is a handful of numbers, each one a decision about how much the agent may do on your behalf.</p>
     </div>
     <span class="hand r1">every number is a permission</span>
@@ -278,7 +287,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 
 <!-- 4. how the agent works: the spine of the page -->
 <section class="wide">
-  <div style="max-width:var(--prose);margin:0 0 var(--s3)">
+  <div class="ed" style="margin:0 0 var(--s3)">
     <h2>how the agent works</h2>
     <p class="intro">an agent that sees who you find attractive and writes as you has to earn trust mechanically, not with copy. three rules, each enforced in code: the human confirms anything consequential, autonomy is earned and revocable, and your taste stays yours.</p>
   </div>
@@ -382,7 +391,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 
 <!-- 5. the audit: the instrument -->
 <section class="wide">
-  <div style="max-width:var(--prose)">
+  <div class="ed">
     <h2>the audit</h2>
     <p class="intro">i traced every training input end to end, from the screen to the decision. sixteen inputs, each followed until i could say exactly what it changes in what the agent does.</p>
   </div>
@@ -395,7 +404,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
     <div class="ilab"><span>7 change behavior</span><span>4 open gates</span><span>5 not wired in yet</span></div>
     <p class="cap">about 16 inputs, traced from the screen to the decision · approximate counts from the trace</p>
   </div>
-  <div style="max-width:var(--prose);margin-top:var(--s3)">
+  <div class="ed" style="margin-top:var(--s3)">
     <p>the trace paid for itself fast. it showed that the mandatory "why" on all 50 ratings is stored and waiting for a reader, and that the inspect-and-correct strip, the one screen where you can see what the model learned about you and correct it, is already in the code and never renders. human-in-the-loop training isn't collecting input. it's showing people what the machine concluded and letting them argue with it. that surface is the loop, and now i know exactly where it plugs in.</p>
     <div class="hers">this is the part of the case i'm proudest of. i can follow every input to the decision it changes, and i know where the loop closes: the screen where someone sees what the agent concluded and argues back. i built the trace that shows it.</div>
   </div>
@@ -437,7 +446,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
     </div>
     <p class="cap">the 62 tasks by area, one scale</p>
   </div>
-  <div style="max-width:var(--prose);margin-top:var(--s3)">
+  <div class="ed" style="margin-top:var(--s3)">
     <p>three code auditors ran in parallel, each in its own lane: onboarding and connection, agent logic, and a simplicity sweep against my own style guide. a fourth went under the ui into the mirroring layer. every finding needed a file and line. anything only provable on a live phone was labeled a hypothesis. a second round caught the app screenshotting and calling paid inference every 5 seconds on a static screen, about 720 calls an hour.</p>
     <div class="hers">the auditors were ai agents reading the repo. i set the lanes, the fixtures and the bar: my thirteen defects first, a file and line for every finding, and anything only provable on a live phone marked a hypothesis. they found things. i decided what mattered.</div>
     <ul class="disc" style="margin-top:var(--s4)">
