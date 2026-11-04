@@ -23,7 +23,7 @@ html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:28px;font-weight:400;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 img{display:block;max-width:100%;height:auto}
-.prose{max-width:var(--prose);margin:0 auto;padding:0 var(--pad)}
+.prose{max-width:var(--prose);margin:0 auto 0 max(0px,calc((100% - 1280px) / 2));padding:0 var(--pad)}
 .wide{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
 section,section.wide,section.prose{margin-top:var(--gap)}
 h1{font-size:44px;line-height:1.1;font-weight:600;letter-spacing:-.02em}
@@ -354,7 +354,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
     <p class="intro">an agent that texts strangers for you is a lot of trust to ask for. most of the design work was earning it, one screen at a time: show what it learned, let you hear it before anyone else does, never publish without your yes, and keep the off switch one tap away. everything below is the real web app, running in the frame, with sample people and no backend. tap through it.</p>
   </div>
   <div class="blk">
-    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "your voice introduction", "hash": "/embed/intro"}, {"label": "what it learned", "hash": "/onboard/demo"}]'><div class="fb"><img src="assets/figma-voice-selection.png" alt="Three voice takes on the warm gradient: pick how your double will introduce you, in your own voice" loading="lazy" width="393" height="852"><img src="assets/figma-onboard-learned.png" alt="Here is what I learned about you: the double reads its draft back on the warm gradient, Continue" loading="lazy" width="393" height="852"></div></div></div></div>
+    <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "what it learned", "hash": "/onboard/demo"}, {"label": "your voice introduction", "hash": "/embed/intro"}]'><div class="fb"><img src="assets/figma-onboard-learned.png" alt="Here is what I learned about you: the double reads its draft back on the warm gradient, Continue" loading="lazy" width="393" height="852"><img src="assets/figma-voice-selection.png" alt="Three voice takes on the warm gradient: pick how your double will introduce you, in your own voice" loading="lazy" width="393" height="852"></div></div></div></div>
     <div class="note"><span class="hand r4">draft first. hear it first.</span><p>onboarding, and setting up the profile.</p><p>winged calls you. a short phone call is how your double learns how you actually talk, so there's no form to fill in and no bio to write. then it reads back what it learned about you, on the warm gradient, because this part is about you. then it plays three takes of your introduction in your own voice and you pick one. nothing goes public until you accept it. you can ask for one rewording, the facts stay the same, and only "accept and continue" publishes.</p><p class="logic">the double speaks for you. so the first thing it ever says is to you, and you get to say no.</p></div>
   </div>
   <div class="blk">
