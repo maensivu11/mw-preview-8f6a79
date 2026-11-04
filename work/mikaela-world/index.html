@@ -50,6 +50,18 @@ p+p{margin-top:20px}
 .hero-pair{display:flex;justify-content:center;gap:var(--s4);flex-wrap:wrap}
 .hero-pair figure{width:min(100%,420px)}
 .hero-pair .frame{width:100%}
+/* hero stack, as the homepage layers it: painting, then book, then note */
+/* landscape stage so the book's name label and the note both read: book left, note overlapping its right edge */
+.hero-art{width:min(100%,640px);margin:0}
+.hero-stage{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,.06)}
+.hero-stage img{display:block;width:100%;height:100%}
+.hero-painting{position:absolute;inset:0;object-fit:cover}
+.hero-journal,.hero-page{position:absolute;top:0;width:56.25%;height:100%}
+.hero-journal{left:2%;transform:rotate(-3deg)}
+.hero-page{left:41%;transform:rotate(4deg)}
+.hero-journal img{filter:drop-shadow(0 5px 4px rgba(34,15,5,.34)) drop-shadow(0 18px 14px rgba(34,15,5,.38))}
+.hero-page img{filter:drop-shadow(0 4px 3px rgba(34,15,5,.34)) drop-shadow(0 20px 16px rgba(34,15,5,.4))}
+.hero .hero-art .cap{text-align:left}
 .framing{max-width:560px;margin:32px auto 0;font-size:19px;line-height:31px;text-align:center}
 
 /* 2 manifesto */
@@ -155,12 +167,14 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
     </div>
     <a class="live" href="https://mikaela.world" rel="noopener">visit live ↗ mikaela.world</a>
   </div>
-  <div class="hero-pair">
-    <figure class="art"><div class="frame"><img src="assets/08-note-on-journal.jpg" alt="Her handwritten note, hi!!! i'm mikaela, on grid paper, sitting on her black and white composition book over her flower painting" width="1000" height="1333"></div>
-      <figcaption class="cap">the note the site opens on. my hand, my words, no font</figcaption></figure>
-    <figure class="art"><div class="frame"><img src="assets/00-journal-cover.jpg" alt="A black and white composition book. The label reads Composition Book, name: Mikaela Maensivu, written in a child's hand, and Journal underneath." width="1200" height="1600"></div>
-      <figcaption class="cap">what's under the note. my composition book, name written by me as a kid</figcaption></figure>
-  </div>
+  <figure class="art hero-art">
+    <div class="hero-stage">
+      <img class="hero-painting" src="assets/00-hero-painting.jpg" alt="Her painting, a hot-pink field of hand-painted flowers" width="1000" height="1333">
+      <picture class="hero-journal"><source srcset="assets/00-hero-journal.webp" type="image/webp"><img src="assets/00-hero-journal.png" alt="Her black and white composition book, her name written on the label as a kid, sitting on the painting" width="1000" height="1333"></picture>
+      <picture class="hero-page"><source srcset="assets/00-hero-page.webp" type="image/webp"><img src="assets/00-hero-page.png" alt="Her handwritten note, hi!!! i'm mikaela, on grid paper, on top of the book" width="1000" height="1333"></picture>
+    </div>
+    <figcaption class="cap">the note the site opens on. my hand, my words, no font<br>my real painting, my real childhood journal</figcaption>
+  </figure>
   <p class="framing">the first thing you see is a note i wrote by hand, to you. under it is the journal i kept as a kid, drawings and all. the painting in the back is mine, the video inside the book i designed, and the handwriting across the whole site is my own. nothing here was picked from a list.</p>
 </header>
 
