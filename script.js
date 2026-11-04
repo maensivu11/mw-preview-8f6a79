@@ -54,7 +54,7 @@ function finishThoughtsClose(){
   if(sceneBook){sceneBook.style.zIndex='8';bookReturn=sceneBook.animate([{transform:'translate3d(0,24%,0) rotate(2deg) scale(1.025)'},{transform:getComputedStyle(sceneBook).transform}],{duration:motion,easing:'cubic-bezier(0.77,0,0.175,1)',fill:'forwards'});}
   cover.finished.then(function(){covers.forEach(function(a){a.cancel();});if(bookReturn)bookReturn.cancel();noteStack.forEach(function(layer){layer.style.transform='';layer.style.zIndex='';});blendLayers.forEach(function(l){l.style.mixBlendMode='';});if(sceneBook&&typeof window.resetLayeredBook==='function')window.resetLayeredBook();}).catch(function(){});
 }
-function closeAll(){var thoughts=document.getElementById('m-thoughts');if(thoughts&&thoughts.classList.contains('open')&&typeof closeRealBook==='function'){closeRealBook(finishThoughtsClose);return;}if(phoneModal&&phoneModal.classList.contains('open')){closePhone();return;}if(resumeModal&&resumeModal.classList.contains('open')){closeResume();return;}finishCloseAll();}
+function closeAll(){var wiModal=document.getElementById('m-workindex');if(wiModal&&wiModal.classList.contains('open')&&typeof window.closeWorkIndex==='function'){window.closeWorkIndex(finishCloseAll);return;}var thoughts=document.getElementById('m-thoughts');if(thoughts&&thoughts.classList.contains('open')&&typeof closeRealBook==='function'){closeRealBook(finishThoughtsClose);return;}if(phoneModal&&phoneModal.classList.contains('open')){closePhone();return;}if(resumeModal&&resumeModal.classList.contains('open')){closeResume();return;}finishCloseAll();}
 
 var workProjects=Array.from(document.querySelectorAll('[data-project]'));
 var workIndex=0;
@@ -76,9 +76,17 @@ function showWorkProject(index,instant){
     setTimeout(function(){workChanging=false;},360);
   },280);
 }
+function spinWorkFlower(trigger){
+  // The daisy makes one full gentle turn as the notebook opens (skipped for reduced motion).
+  if(!trigger||!trigger.querySelectorAll||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var parts=trigger.querySelectorAll('.focus-flower-lift,.work-flower-stroke,.work-flower-bloom');
+  Array.prototype.forEach.call(parts,function(part){
+    part.animate([{rotate:'0deg'},{rotate:'360deg'}],{duration:640,easing:'cubic-bezier(0.23, 1, 0.32, 1)'});
+  });
+}
 function enterPainting(trigger){
   modalTrigger=trigger;
-  if(typeof window.openWorkIndex==='function'){window.openWorkIndex();return;}
+  if(typeof window.openWorkIndex==='function'){spinWorkFlower(trigger);window.openWorkIndex();return;}
   var stage=document.querySelector('.stage');
   if(!paintingJourney||!stage||window.matchMedia('(prefers-reduced-motion: reduce)').matches){showWorkProject(0,true);openM('work');return;}
   cancelPaintingJourney();
@@ -669,7 +677,7 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
     var spread='assets/tabletop/open-comp-blank.png';
     var frames=reduce?[spread]:[root+'book-closed.png',root+'book-slightly-open.png',root+'book-half-open.png',spread];
     var mine=++run,step=0;
-    clearTimeout(timer);
+    clearTimeout(timer);closing=false;frame.style.transform='';
     stage.classList.remove('is-open','is-leaving');
     openM('workindex');
     function show(){
@@ -684,6 +692,26 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
     }
     Promise.all(frames.map(function(src){var img=new Image();img.src=src;return (img.decode?img.decode():Promise.resolve()).catch(function(){});})).then(show);
   }
+  var closing=false;
+  // Mirrors closeRealBook(): same frames, same timings, same frame jitter, then back to the page.
+  function closeWorkIndex(done){
+    if(closing)return;
+    closing=true;run+=1;clearTimeout(timer);
+    stage.classList.remove('is-open','is-leaving');
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mobile=window.matchMedia('(max-width:600px)').matches;
+    var root=mobile?'assets/tabletop/mobile/':'assets/tabletop/';
+    var seq=reduce?[root+'book-closed.png']:[root+'book-half-open.png',root+'book-slightly-open.png',root+'book-closed.png'];
+    var step=0;
+    function next(){
+      frame.src=seq[step++];
+      frame.style.transform=step%2?'translate3d(-2px,1px,0) rotate(-.18deg)':'translate3d(1px,-1px,0) rotate(.12deg)';
+      if(step<seq.length){timer=setTimeout(next,reduce?0:(mobile?95:130));return;}
+      timer=setTimeout(function(){frame.style.transform='';closing=false;if(done)done();},reduce?0:(mobile?60:80));
+    }
+    next();
+  }
+  window.closeWorkIndex=closeWorkIndex;
   window.openWorkIndex=openWorkIndex;
   var diving=false;
   var DIVE_MS=740;
