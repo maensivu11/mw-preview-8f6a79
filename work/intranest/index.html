@@ -146,7 +146,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="hero-head">
     <div>
       <h1>intranest</h1>
-      <p class="premise">IntraNest turns the paperwork of CMMC certification for defense contractors into a guided, agentic experience: the agent reads and drafts, a person confirms.</p>
+      <p class="premise">intranest turns the paperwork of cmmc certification for defense contractors into a guided, agentic experience: the agent reads and drafts, a person confirms.</p>
       <p class="claim">i'm the design engineer, cpo &amp; co-founder. i designed the entire product and made it agentic: 110 requirements, one calm screen.</p>
     </div>
     <a class="live" href="https://intranest.ai" rel="noopener">visit live ↗ intranest.ai</a>
@@ -157,9 +157,10 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 
 <section class="prose">
   <h2>the problem</h2>
-  <p class="intro">There's a ball bearing shop in Wisconsin with 40 people. It makes parts that end up in things the Department of Defense buys. Lockheed has a security team. The bearing shop does not.</p>
-  <p>Since CMMC landed in defense contracts, that shop has to prove it meets NIST 800-171: 110 security requirements, each with its own evidence, policies and a written System Security Plan. The DoD's own rule counts about 221,000 companies in this position. Most of them are small. Today they hire a consultant for somewhere between $50k and $150k. If they fail the assessment, the contract is gone.</p>
-  <p>The people doing this work are usually not security people. In our sample data she's called Dana. She runs operations, she got handed the binder, and she knows almost nothing about CMMC. That was the person I designed for, every screen.</p>
+  <p class="intro">there's a ball bearing shop in wisconsin with 40 people. it makes parts that end up in things the department of defense buys. lockheed has a security team. the bearing shop does not.</p>
+  <p>since cmmc landed in defense contracts, that shop has to prove it meets nist 800-171: 110 security requirements, each with its own evidence, policies and a written system security plan. the dod's own rule counts about 221,000 companies in this position. most are small. today they hire a consultant for somewhere between $50k and $150k. fail the assessment and the contract is gone.</p>
+  <p>the person doing this work is almost never a security person. in our sample data she's dana. she runs operations. the prime sent a letter, the owner forwarded it, and now there's a binder on her desk with 110 rows in it and a deadline. she doesn't know what an ssp is. she does know that if the assessor says no, 40 people lose their biggest customer. that's who i designed for, every screen.</p>
+  <p>one more thing shapes everything: the evidence she collects is itself controlled information. she can't paste it into a public chatbot. so the obvious shortcut is off the table for her, and the product has to do the reading inside her own boundary.</p>
   <div class="hers">the rule was written for companies with a security team, and the people it lands on don't have one. a shop of 40, a binder, a contract on the line. that gap is the product. dana is who i held in my head on every screen.</div>
 </section>
 
@@ -167,68 +168,71 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="wide">
     <h2>the system</h2>
     <div class="ds-intro">
-      <p class="intro">Compliance software usually looks like government software: gray tables, traffic-light badges, forty buttons on one screen. I built the system first. It's called Indigo Ink, and it's binding for everything we make.</p>
+      <p class="intro">compliance software usually looks like government software: gray tables, traffic-light badges, forty buttons on one screen. it looks like a penalty because nobody designed it for the person serving it. i built the system first. it's called indigo ink, and it's binding for everything we make: the app, the landing page, the deck.</p>
       <div class="hers">dana didn't choose this job. the least the product can do is not look like a penalty. a calm screen is a way of respecting the person doing the work, so i made the product look like a modern one that happens to do compliance.</div>
     </div>
     <span class="hand r2">depth, not borders. one fill.</span>
-    <div class="tok"><div class="chip" style="background:#0b0c14;border:1px solid var(--line)"></div><span class="name">ground #0b0c14</span><span class="why">indigo-tinted near-black, not gray: a navy night the whole product, deck and site share</span></div>
-    <div class="tok"><div class="chip" style="background:#14151f"></div><span class="name">surface #14151f · #1d1f2c</span><span class="why">three steps of depth instead of strokes: cards never get a border</span></div>
-    <div class="tok"><div class="chip" style="background:#5a63e8"></div><span class="name">accent #5a63e8</span><span class="why">the only fill: a primary action stands out by being the only filled one, not by being big</span></div>
+    <div class="tok"><div class="chip" style="background:#0b0c14;border:1px solid var(--line)"></div><span class="name">ground #0b0c14</span><span class="why">indigo-tinted near-black, not gray. gray reads as a form. a navy night reads as a place, and the whole product, deck and site share it.</span></div>
+    <div class="tok"><div class="chip" style="background:#14151f"></div><span class="name">surface #14151f · #1d1f2c</span><span class="why">three steps of depth instead of strokes. a border is a box drawn around a thing to say "this is a thing." tone says it without the line, and the screen stays quiet.</span></div>
+    <div class="tok"><div class="chip" style="background:#5a63e8"></div><span class="name">accent #5a63e8</span><span class="why">the only fill. a primary action stands out by being the only filled thing on the screen, not by being big. if two things are filled, neither is primary.</span></div>
     <span class="hand r1 inrow">red and green shout</span>
-    <div class="tok"><div class="chip" style="background:#191b36"></div><span class="name">status = indigo depth</span><span class="why">never red/green: they shout, and compliance people are shouted at enough</span></div>
-    <div class="tok"><div class="chip" style="background:#d583c2"></div><span class="name">plum #d583c2</span><span class="why">the one non-indigo hue, reserved for expired or blocked, so it is never ignored</span></div>
-    <div class="tok"><div class="chip" style="background:#14151f">Aa</div><span class="name">Geist, 11 → 48</span><span class="why">one family, one scale: size carries the hierarchy, not a second typeface · mono only for hashes and control IDs</span></div>
-    <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:10px">AC311</div><span class="name">glyph globe</span><span class="why">land typed from the 110 requirement IDs: a planet from far, the actual work up close</span></div>
-    <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:11px">150</div><span class="name">motion 150/200/350/700</span><span class="why">each motion shows one fact changing; nothing moves only for show</span></div>
-    <div class="tok"><div class="chip" style="background:#14151f;font-size:13px">no “we”</div><span class="name">voice</span><span class="why">plain and calm; never "certified" or "guaranteed": a tool can't promise an assessment</span></div>
+    <div class="tok"><div class="chip" style="background:#191b36"></div><span class="name">status is indigo depth</span><span class="why">never red/green. solid means it needs you, accent means done, wash means in progress. traffic lights were made for people walking past a dashboard. dana isn't walking past. she's sitting in it all week, and red on 22 rows is just noise she learns to ignore.</span></div>
+    <div class="tok"><div class="chip" style="background:#d583c2"></div><span class="name">plum #d583c2</span><span class="why">the one non-indigo hue, kept for expired or blocked only. because it's the only other color, it can't be ignored. that's the whole point of rationing it.</span></div>
+    <div class="tok"><div class="chip" style="background:#14151f">Aa</div><span class="name">geist, 11 → 48</span><span class="why">one family, one scale. size carries the hierarchy, not a second typeface. mono only for hashes and control ids, because those are the things she'll copy and compare character by character.</span></div>
+    <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:10px">AC311</div><span class="name">glyph globe</span><span class="why">land typed from the 110 requirement ids. a planet from far, the actual work up close.</span></div>
+    <div class="tok"><div class="chip" style="background:#14151f;font-family:var(--mono);font-size:11px">150</div><span class="name">motion 150/200/350/700</span><span class="why">each motion shows one fact changing. nothing moves to decorate.</span></div>
+    <div class="tok"><div class="chip" style="background:#14151f;font-size:13px">no “we”</div><span class="name">voice</span><span class="why">no "we." plain and calm, second person. never "certified," "compliant" or "guaranteed." a tool can't promise an assessment result, and a sentence that implies it is a liability dressed as encouragement.</span></div>
     <div class="status" aria-label="Status chips rendered in Indigo Ink tokens">
-      <span style="background:#5a63e8">Needs you</span>
-      <span style="background:#191b36;color:#9aa2ff">In progress</span>
-      <span style="background:transparent;color:#9aa2ff;box-shadow:inset 0 0 0 1px #3e4260">Done</span>
-      <span style="background:transparent;color:#d583c2;box-shadow:inset 0 0 0 1px #d583c2">Expired</span>
+      <span style="background:#5a63e8">needs you</span>
+      <span style="background:#191b36;color:#9aa2ff">in progress</span>
+      <span style="background:transparent;color:#9aa2ff;box-shadow:inset 0 0 0 1px #3e4260">done</span>
+      <span style="background:transparent;color:#d583c2;box-shadow:inset 0 0 0 1px #d583c2">expired</span>
     </div>
     <p class="cap">status chips · rebuilt from the indigo ink tokens</p>
-    <blockquote><p>A reject-on-sight list every screen gets checked against: no strokes around cards, no little dots or icon chips, no two-tone text, no eyebrow labels, no huge buttons.</p></blockquote>
+    <p style="margin-top:var(--s4)">a reject-on-sight list that every screen gets checked against: no strokes around cards, no little dots or icon chips, no two-tone text, no eyebrow labels, no huge buttons. each item on that list is a way a screen tries to look busy or important. together they protect one thing: that the page carries one claim and the rest stays quiet. the list exists because "it looks vibe-coded" is a real failure and you need a test for it that doesn't depend on taste in the room.</p>
+    <p class="logic">one rule under all of it: every glyph or number in decoration must be real. the land on the globe is the requirement ids at their true proportions. the only digits allowed in texture are 1, 3 and 5, the sprs weights. if it's on the screen, it's true.</p>
   </div>
 </section>
 
 <section class="wide motion">
   <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>in motion</h2>
-    <p>The landing page's signature is the glyph globe. The land isn't painted, it's typed: the character stream is the 110 requirement IDs strung together, AC311 through SI3147.</p>
+    <p>the landing page's signature is the glyph globe. the land isn't painted, it's typed: the character stream is the 110 requirement ids strung together, ac311 through si3147, with the defense hubs labeled on it.</p>
     <span class="hand r3 after">the texture is the work</span>
+    <p>a defense buyer should feel two things in the first second: this is serious, and this is calm. not a startup gradient, not a government form. dana should feel something simpler: someone made this for her. so the texture couldn't be arbitrary. it had to be the work itself.</p>
     <div class="hers">the texture had to be the work itself, so the requirement ids became the land. from far away it's a planet with an indigo rim. up close it's the actual job, 110 lines of it.</div>
   </div>
-  <div class="art"><div class="frame"><canvas id="globe" aria-label="A dark sphere turning slowly, its surface written in CMMC requirement IDs"></canvas><div class="hud"><span class="pulse"></span>next step · AC311</div></div>
+  <div class="art"><div class="frame"><canvas id="globe" aria-label="A dark sphere turning slowly, its surface written in CMMC requirement IDs"></canvas><div class="hud"><span class="pulse"></span>next step · ac311</div></div>
   <p class="cap">live recreation, canvas · drawn after the site's own globe script; the id stream wraps the whole sphere</p></div>
 </section>
 
 <section class="wide">
   <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>agent-first</h2>
-    <p class="intro">The first dashboards were normal dashboards: charts, a score, an ask box tucked in the corner. I rejected them. My ruling was that the full agentic product is the MVP. The agent reads and drafts; a person confirms every decision someone has to answer for.</p>
+    <p class="intro">the first dashboards were normal dashboards: charts, a score, an ask box tucked in the corner. i rejected them. the trouble with that shape is that it still asks dana to drive. she has to know which page to open, which row matters, what to ask. a chatbot in the corner doesn't fix that, it just adds a ninth place to be lost in.</p>
+    <p>so my ruling was that the full agentic product is the mvp, not a later stage. the agent reads her documents, matches evidence to requirements, and drafts. the fifteen pages become the thing the agent works through, and review surfaces she opens when she wants to check something herself. a person confirms every decision someone has to answer for. that ruling cost us: it meant building the agent loop and the approval gate before polishing a single page. i'd make the same call again, because the other version ships faster and doesn't work.</p>
     <div class="hers">a dashboard with a chatbot in the corner is still a human-driven product, and that's the one i didn't want to build. so the call was: the full agent is the mvp, not a later stage. it does the reading and the drafting. the person keeps every decision somebody has to answer for.</div>
   </div>
   <div class="blk">
-    <div class="art"><div class="pair"><div><div class="frame"><img src="assets/03-home-v3-direction-a.png" alt="Home v3 direction A, composer first" loading="lazy"></div></div><div><div class="frame"><img src="assets/04-home-v3-direction-b.png" alt="Home v3 direction B, agent thread" loading="lazy"></div></div></div><p class="cap">home v3, directions a and b · design mocks, sample data</p></div>
-    <div class="note"><span class="hand r4">the agent speaks first</span><p>Home as a briefing.</p><p>Pure chat fails a novice: a blank box asks her to know the question. A pure dashboard fails her too: numbers with no voice. Home went through six rounds to find the middle. v4 was flat and I said so: the agent should send the first message, not wait for one.</p>
+    <div class="art"><div class="pair"><div><div class="frame"><img src="assets/03-home-v3-direction-a.png" alt="Home v3 direction A, composer first" loading="lazy"></div></div><div><div class="frame"><img src="assets/04-home-v3-direction-b.png" alt="Home v3 direction B, agent thread" loading="lazy"></div></div></div><p class="cap">home v3, directions a and b · design mocks, sample data · both rejected</p></div>
+    <div class="note"><span class="hand r4">the agent speaks first</span><p>home as a briefing.</p><p>pure chat fails a novice: a blank box asks her to know the question. a pure dashboard fails her too: numbers with no voice. home went through six rounds to find the middle. direction a put the composer first, which is chat. direction b put an agent thread first, which is a log. v4 was flat and i said so: the agent should send the first message, not wait for one. what it did overnight, what's waiting, where to start.</p>
       <div class="hers">oura's today screen is the bar. i called it absolutely the best in class design example. it speaks first and tells you where to start, and that is what home had to do.</div></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame"><img src="assets/06-home-v5-rest.png" alt="Home v5: 88 of 110 on a true-ratio arc" loading="lazy"></div><p class="cap">home v5 at rest · design mock, sample data</p></div>
-    <div class="note"><span class="hand r1">true ratio. no flattering arcs.</span><p>88 + 19 + 3 = 110.</p><p>One big number on a soft arc: 88 of 110 met. "Almost there." One sentence: IntraNest is on 19 of the 22 left; the other 3 need you. The arc is drawn at the true ratio, so approving 3 items moves it a small step, because that's what happened. A chart that exaggerates progress is lying to someone about to be audited.</p></div>
+    <div class="note"><span class="hand r1">true ratio. no flattering arcs.</span><p>88 + 19 + 3 = 110.</p><p>one big number on a soft arc: 88 of 110 met. "almost there." one sentence: intranest is on 19 of the 22 left; the other 3 need you. the arc is drawn at the true ratio, so approving 3 items moves it a small step, because that's what happened. the pull to flatten it is real; progress bars that lie feel good. but dana is about to sit across from an assessor who will count. a chart that exaggerates progress is lying to someone about to be audited, and she'd find out the one day it matters most.</p><p class="logic">the same rule runs through the whole product: no number she sees is computed to make her feel better. a connector that found nothing says it found nothing. an empty result is a finding, not a pass.</p></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame"><img src="assets/07-home-v5-review-all.png" alt="Review all: three items with evidence" loading="lazy"></div><p class="cap">review all, the needs-you stack · design mock, sample data</p></div>
-    <div class="note"><span class="hand r2">one yes. the rest stays quiet.</span><p>One filled button for yes.</p><p>Every surface uses the same grammar: the agent has done the work, one filled button for the human's yes, and the manual path is a quiet text button, "Do it myself". Needs-you items fold into one place and can be approved together. The agent never marks a requirement met or signs on its own.</p><p class="logic">i made the manual path a quiet text button, not a hidden one, because taking over has to stay possible without becoming the default.</p></div>
+    <div class="note"><span class="hand r2">one yes. the rest stays quiet.</span><p>one filled button for yes.</p><p>every surface uses the same grammar: the agent has done the work, one filled button for the human's yes, and the manual path is a quiet text button, "do it myself." needs-you items fold into one place and can be approved together. the agent never marks a requirement met or signs on its own. it proposes; the proposal is single-use and expires; she confirms. that gate is enforced in the tool registry, not in a prompt.</p><p class="logic">i made the manual path a quiet text button, not a hidden one, because taking over has to stay possible without becoming the default. if both buttons were filled she'd have to choose every time, and choosing every time is the job we're removing. if it were hidden she'd stop trusting the product the first time the agent got something wrong.</p></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame"><img src="assets/08-library-needs-you.png" alt="Library row open: good proof next to not enough" loading="lazy"></div><p class="cap">library, a needs-you row open · design mock, sample data</p></div>
-    <div class="note"><p>A library of what the assessor will ask.</p><p>Small shops get rejected mostly for undated or cropped screenshots. So the Library isn't a file browser: it's the list of requests, in plain words. A row that needs you opens with one good example beside one "not enough", and one action.</p><p class="logic">i put a good example beside a "not enough" one because people learn the bar faster from seeing it than from reading a rule.</p></div>
+    <div class="note"><p>a library of what the assessor will ask.</p><p>small shops get rejected mostly for undated or cropped screenshots. so the library isn't a file browser: it's the list of requests, in plain words. drop a file anywhere and intranest matches it to a request. a row that needs you opens with one good example beside one "not enough," and one action, usually "pull a new report."</p><p class="logic">i put a good example beside a "not enough" one because people learn the bar faster from seeing it than from reading a rule. dana will never read nist 800-171. she will look at two screenshots and know which one hers looks like.</p></div>
   </div>
   <div class="blk">
     <div class="art"><div class="pair"><div><div class="frame"><img src="assets/09-library-empty.png" alt="Library empty state for a new org" loading="lazy"></div></div><div><div class="frame"><img src="assets/10-home-failed.png" alt="Home failure state" loading="lazy"></div></div></div><p class="cap">empty and failure states · design mocks, sample data</p></div>
-    <div class="note"><span class="hand r3">never a dead end</span><p>Honest when there's nothing, honest when it breaks.</p><p>A new org at 0 of 110 lands on a guided first step, not a dead page. Every failure says what's safe, the last good value, and the one thing to do next.</p>
+    <div class="note"><span class="hand r3">never a dead end</span><p>honest when there's nothing, honest when it breaks.</p><p>a new org at 0 of 110 lands on a guided first step, not a dead page. every failure says what's safe, the last good value, and the one thing to do next. the agent follows the same rule in its own words: if grounding is unavailable, if a connector has never run, if a count is partial, it says so in the same turn, unprompted.</p>
       <div class="hers">this is the decision i'd defend first. an empty page or a vague error makes a tired person feel stuck. so every empty state gets one action, and every failure says what's safe and what to do next. we drew at least one of each for home, controls, library and package.</div></div>
   </div>
 </section>
@@ -236,16 +240,16 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide">
   <div class="blk">
     <div class="art"><div class="frame"><img src="assets/11-motion-approve.gif" alt="Approve motion: card folds, arc fills, count ticks 88 to 89" loading="lazy"></div><p class="cap">approve motion · recorded from an html mock, sample data</p></div>
-    <div class="note"><p>Designing in code.</p><p>The design lives in code: mocks are HTML on the real tokens, rendered dark and light, desktop and mobile, with real timings. Approve is a 280ms fold, the arc fills, the score ticks 88 to 89. Each motion shows one fact changing.</p>
-      <div class="hers">i don't hand off a figma file and wait. the mock is html on the real tokens, so what i approve is what gets built, in react, vite and tailwind for layout. and an approved mock isn't done until i've checked it live at real width.</div></div>
+    <div class="note"><p>designing in code.</p><p>the design lives in code: mocks are html on the real tokens, rendered dark and light, desktop and mobile, with real timings. approve is a 280ms fold, the arc fills, the score ticks 88 to 89. each motion shows one fact changing, and the timing is the real timing, so what i approve is what ships.</p>
+      <div class="hers">i don't hand off a figma file and wait. the mock is html on the real tokens, so what i approve is what gets built, in react, vite and tailwind for layout. and an approved mock isn't done until i've checked it live at real width, both themes, every link.</div></div>
   </div>
 </section>
 
 <section class="wide">
   <div class="prose" style="padding:0;margin:0 0 var(--s3);max-width:var(--prose)">
     <h2>the deck, as proof of the system</h2>
-    <p>The investor deck was the test of whether Indigo Ink was a system or a dashboard skin: twelve slides in the same globe, sky, indigo and Geist. I wrote the laws down as we built it.</p>
-    <blockquote><p>"No two-tone or multi-color text anywhere. Text is ONE color; emphasis is carried by WEIGHT."</p></blockquote>
+    <p>the investor deck was the test of whether indigo ink was a system or a dashboard skin: twelve slides in the same globe, sky, indigo and geist. a screenshot proves a screen looks good. a deck in a different medium, with different content and a different reader, proves the rules hold when nobody's looking at the app. i wrote the laws down as we built it.</p>
+    <blockquote><p>"no two-tone or multi-color text anywhere. text is one color; emphasis is carried by weight."</p></blockquote>
   </div>
   <div class="pair art">
     <div><div class="frame"><img src="assets/01-hero-deck-title.png" alt="Deck title slide: wordmark over the glyph globe" loading="lazy"></div><p class="cap">deck title slide · pitch deck export</p></div>
@@ -256,7 +260,8 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 
 <section class="prose call">
   <h2>where it stands</h2>
-  <p>IntraNest is live at intranest.ai: the landing page with the globe, a free SPRS score calculator for all 110 requirements, and the app behind login, with full SSP generation end to end, Microsoft connectors in production, and agent drafting, human-confirmed. The pre-seed raise is in motion.</p>
+  <p>intranest is live at intranest.ai: the landing page with the globe, a free sprs score calculator for all 110 requirements, and the app behind login, with full ssp generation end to end, microsoft connectors in production, and agent drafting, human-confirmed. the pre-seed raise is in motion.</p>
+  <p>what the agent may never do is written down and enforced: it never signs, affirms or submits for anyone, because an affirmation is a senior official's name with legal weight. it never records a requirement as met without her word on it, for that requirement, in that session. it never says certified, compliant or guaranteed. and it never does the arithmetic in its head when the product has the number.</p>
   <div class="hers">the people who use this didn't choose to be in the room. so the product stays plain and calm, never says certified or guaranteed, and the agent never signs for anyone. that's what i took from it: if somebody got handed the binder, design for them.</div>
 </section>
 
@@ -264,7 +269,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="built mono">
     <p>built by hand</p>
     <p><span>live</span> · <a href="https://intranest.ai" rel="noopener">intranest.ai</a></p>
-    <p><span>note</span> · product screens are design mocks; Dana Ruiz and Acme Machining are fictional</p>
+    <p><span>note</span> · product screens are design mocks; dana ruiz and acme machining are fictional</p>
   </div>
   <nav class="nav mono"><a href="../find-funding/index.html">← find funding</a><a href="../../index.html#work-index">↑ the notebook</a><a href="../winged-web/index.html">next · winged web →</a></nav>
 </footer>

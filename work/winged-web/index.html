@@ -268,8 +268,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="hero-head">
     <div>
       <h1>winged web</h1>
-      <p class="claim">i'm the design engineer &amp; founder. an agent, your "double", texts and calls to set up your dates. this is the surface where its visual world got finished.</p>
-      <p class="premise">Winged is a dating service where an agent — your double — does the texting and the calling to set up your dates. You just show up.</p>
+      <p class="claim">i'm the design engineer &amp; founder. winged is an agent, your double, that texts and calls to set up your dates. you train it on one phone call, it finds people, talks to their doubles, and handles the scheduling. this is the surface where its visual world got finished.</p>
     </div>
     <span class="mark-word" title="the Winged wordmark: Advercase, from the repo's own tokens file">Winged</span>
   </div>
@@ -286,9 +285,9 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <!-- 2. the problem -->
 <section class="prose">
   <h2>the problem</h2>
-  <p class="intro">Dating apps turned into a second job. You swipe, you match, and then the real work starts: texting for days, staying interesting, finding a night you're both free, picking a place. Most matches die right there.</p>
-  <p>The people who drown in that part are often the ones who'd be great on an actual date. Warm in person, bad at the typing. So I built the opposite. You tell Winged who you are and who you're looking for, and your double does the texting and the calling. You just show up.</p>
-  <div class="hers">the apps reward whoever is best at the chat, and that's a different skill from being good company. the people who lose out are warm in person and bad at the typing. i built winged for them.</div>
+  <p class="intro">dating apps turned into a second job. you match, and then the real work starts: texting for days, staying interesting, finding a night you're both free, picking a place. most matches die right there, not because the two people wouldn't get along, but because one of them got tired of typing.</p>
+  <p>the apps reward whoever is best at the chat. that's a different skill from being good company. the people who lose are warm in person and bad at the typing, and they're often the ones you'd actually want to meet. so i built the opposite. you tell winged who you are and who you're looking for, on a call, in your own words. your double does the texting and the calling. you just show up.</p>
+  <div class="hers">the apps select for people who are good at the chat. i built winged for the people who are good in the room.</div>
 </section>
 
 <!-- 3. the system: every token argued -->
@@ -296,16 +295,17 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="wide">
     <h2>the system</h2>
     <div class="ds-intro">
-      <p class="intro">One dark room, three kinds of light. Every screen sits on pure black, text steps down a fixed brightness ladder, and that calm base is what lets color mean something. Each gradient has exactly one job, so the color tells you whether the machine is talking or a person is.</p>
-      <blockquote><p>"Governing rule: cool = the system thinking, warm = humans connecting — never mixed arbitrarily per screen."</p></blockquote>
+      <p class="intro">one dark room, three kinds of light. every screen sits on pure black. text steps down a fixed brightness ladder instead of picking from a pile of grays. that calm base is what lets color mean something, because when almost nothing is lit, the thing that is lit is the message.</p>
+      <p>each gradient has exactly one job. cool is the machine thinking. warm is people connecting. celebration is the one place they meet, and it only appears when a date is confirmed. so the color tells you who is talking before you read a word.</p>
+      <blockquote><p>"governing rule: cool = the system thinking, warm = humans connecting — never mixed arbitrarily per screen."</p></blockquote>
       <p class="cap">from winged.tokens.json, the single source of truth</p>
     </div>
-    <p class="argue"><b>#000</b> ground: one room, so light reads as meaning · <b>100/70/55/50/40</b> text steps: brightness is hierarchy, no pile of greys · <b>iris→sky</b> = the machine · <b>iris→magenta</b> = people · <b>sky→iris→magenta</b> = date confirmed, the only place they meet · <b>iris</b> as shared anchor: so both registers read as one brand · <b>grain 0.10</b>: light, not a fill · <b>circular</b> titles · <b>SF</b> reading · <b>space mono caps</b> = the agent's voice · <b>-0.02em</b> tracking: intimate, close-set · <b>pure black</b>, not dark grey: the calm base is what lets the color mean something</p>
+    <p class="argue"><b>#000</b> ground: one room, so light reads as meaning · <b>100/70/55/50/40</b> text steps: brightness is hierarchy, not a pile of grays · <b>iris→sky</b> = the machine · <b>iris→magenta</b> = people · <b>sky→iris→magenta</b> = date confirmed, the only place they meet · <b>iris</b> as the shared anchor: two registers, one brand · <b>grain 0.10</b>: light, not a fill · <b>circular</b> for titles · <b>SF</b> for reading · <b>space mono caps</b> for the agent's voice · <b>-0.02em</b> tracking: close-set, intimate · <b>pure black</b>, not dark grey: the calm base is what lets color mean something</p>
 
     <div class="tok-set"><span class="hand r1 after">one gradient, one job</span>
     <div class="tok">
       <div><div class="chip" style="background:var(--cool)"></div><p>cool · iris #9B71E8 → sky #70D4F5</p><p class="why">intelligence: the agent working, scoring, the compatibility ring</p></div>
-      <div><div class="chip" style="background:var(--warm)"></div><p>warm · iris #9B71E8 → magenta #FF75CA</p><p class="why">connection: matches, people, romance</p></div>
+      <div><div class="chip" style="background:var(--warm)"></div><p>warm · iris #9B71E8 → magenta #FF75CA</p><p class="why">connection: matches, people, the introduction</p></div>
       <div><div class="chip" style="background:linear-gradient(120deg,#70D4F5,#9B71E8,#FF75CA)"></div><p>celebration · sky → iris → magenta</p><p class="why">a date is confirmed; animated, reserved for the one peak</p></div>
     </div></div>
 
@@ -324,8 +324,8 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       <span class="k">reading · SF</span><span class="v-body">Pick how your double will introduce you, in your own voice.</span>
       <span class="k">agent · space mono</span><span class="v-agent"><span class="dot"></span>Active · watching for the right fit</span>
     </div>
-    <p class="cap">type trio, live css · Circular is licensed and falls back to Instrument Sans here; SF renders on Apple devices</p>
-    <div class="hers">i wanted the room calm and a little private. pure black, light only where it means something. the color tells you whether the machine is talking or a person is, and i like that rule more than any single screen.</div>
+    <p class="cap">type trio, live css · circular is licensed and falls back to instrument sans here; SF renders on apple devices</p>
+    <div class="hers">i wanted the room calm and a little private. pure black, light only where it means something. if i can't say what a color is for, it doesn't get to be on the screen.</div>
   </div>
 </section>
 
@@ -333,7 +333,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide">
   <div style="max-width:var(--prose);margin-bottom:var(--s3)">
     <h2>in motion</h2>
-    <p>In the product the gradients aren't fills. They move, under a film grain, so the color feels like light. Here are the three registers running side by side, each named by what it tells you.</p>
+    <p>in the product the gradients aren't fills. they move, under a film grain, so the color feels like light coming from somewhere. the orb on the vouch call is the same idea in motion. here are the three registers side by side, each named by what it tells you.</p>
   </div>
   <span class="hand r2">violet + sky = the agent is working</span>
   <div class="frame night art">
@@ -350,27 +350,27 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide">
   <div style="margin-bottom:var(--s3)">
     <h2>the agent experience</h2>
-    <p class="intro">An agent that texts strangers for you is a lot of trust to ask for. Most of the design work was earning it, screen by screen. Everything below is the real web app, running in the frame, with sample people and no backend. Every phone on this page is live — tap through it.</p>
+    <p class="intro">an agent that texts strangers for you is a lot of trust to ask for. most of the design work was earning it, one screen at a time: show what it learned, let you hear it before anyone else does, never publish without your yes, and keep the off switch one tap away. everything below is the real web app, running in the frame, with sample people and no backend. tap through it.</p>
   </div>
   <div class="blk">
     <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "your voice introduction", "hash": "/embed/intro"}, {"label": "what it learned", "hash": "/onboard/demo"}]'><div class="fb"><img src="assets/figma-voice-selection.png" alt="Three voice takes on the warm gradient: pick how your double will introduce you, in your own voice" loading="lazy" width="393" height="852"><img src="assets/figma-onboard-learned.png" alt="Here is what I learned about you: the double reads its draft back on the warm gradient, Continue" loading="lazy" width="393" height="852"></div></div></div></div>
-    <div class="note"><span class="hand r4">draft first. hear it first.</span><p>Onboarding, and setting up the profile.</p><p>A short voice call trains your double. Then it reads back what it learned about you, on the warm gradient, because this part is about you. Nothing goes public until you accept it, and you hear your own introduction before anyone else does.</p></div>
+    <div class="note"><span class="hand r4">draft first. hear it first.</span><p>onboarding, and setting up the profile.</p><p>winged calls you. a short phone call is how your double learns how you actually talk, so there's no form to fill in and no bio to write. then it reads back what it learned about you, on the warm gradient, because this part is about you. then it plays three takes of your introduction in your own voice and you pick one. nothing goes public until you accept it. you can ask for one rewording, the facts stay the same, and only "accept and continue" publishes.</p><p class="logic">the double speaks for you. so the first thing it ever says is to you, and you get to say no.</p></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "invite friends", "hash": "/vouch-collection"}, {"label": "a friend&#39;s invite", "hash": "/vouch/vt1"}]'><div class="fb"><img src="assets/embeds/poster-vouch.png" alt="Vouching: the people who know you help your person find you, five slots to invite friends" loading="lazy" width="390" height="844"></div></div></div></div>
-    <div class="note"><span class="hand r1">someone else speaking for you</span><p>Vouching.</p><p>The people who know you help your person find you. You invite friends by name, they give two minutes of voice, no app needed, and you approve each vouch before it shows on your profile.</p><p class="logic">i made approval the step before showing, not a delete button after, because a vouch is words about you that you didn't write.</p><div class="hers">a vouch is somebody else speaking for you, so it gets the same rule as everything else: it stays yours to approve.</div></div>
+    <div class="note"><span class="hand r1">someone else speaking for you</span><p>vouching.</p><p>the people who know you help your person find you. you invite friends by name, they get a link, they give two minutes of voice on the orb, no app needed, and you approve each vouch before it shows on your profile.</p><p class="logic">i made approval the step before showing, not a delete button after. a vouch is words about you that you didn't write, and the first person to hear them should be you.</p><div class="hers">same rule as the introduction. if it speaks for a person, it comes back to that person as a draft first.</div></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "the match card", "hash": "/matches/demo"}]'><div class="fb"><img src="assets/figma-match-compatibility.png" alt="Compatibility screen: ring on the cool gradient, alignment across personality and lifestyle, Propose match" loading="lazy" width="401" height="852"><img src="assets/figma-match-profile.png" alt="Match profile: photos, voice introductions to play, Propose match" loading="lazy" width="401" height="852"></div></div></div></div>
-    <div class="note"><span class="hand r2">the machine is quieter than the person</span><p>Seeing a match, and looking at their profile.</p><p>The person&rsquo;s words sit in a card at reading brightness. The agent&rsquo;s judgment sits outside it, quieter: the alignment, then the percent in mono caps. The card&rsquo;s edge and the Introduction pill are warm, because this is a person.</p><p class="logic">i kept the agent's judgment dimmer than the person's own words, so you read who they are first and the score second.</p></div>
+    <div class="note"><span class="hand r2">the machine is quieter than the person</span><p>seeing a match, and looking at their profile.</p><p>the person's words sit in a card at reading brightness, with their voice introduction on a warm pill. the agent's judgment sits outside the card, quieter: the alignment first, then the percent in mono caps. the edge of the card is warm because this is a person. the ring is cool because that part is the machine.</p><p class="logic">i kept the agent's judgment dimmer than the person's own words on purpose. you read who they are first and the score second. the number is an aside, not a verdict.</p></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "before", "hash": "/date/d1?stage=before"}, {"label": "during", "hash": "/date/d1?stage=during"}, {"label": "after", "hash": "/date/d1?stage=after"}]'><div class="fb"><img src="assets/embeds/poster-date.png" alt="The date card: venue, what to bring up, and a direct chat that opens an hour before" loading="lazy" width="390" height="844"></div></div></div></div>
-    <div class="note"><span class="hand r3">it sets it up. you take it from there.</span><p>The date: before, during, after.</p><p>Before: the venue, what to bring up, a card to draw a question from. During: the date chat opens an hour before, so the agent sets it up and the two humans take it from there. After: your double asks how it went, and you can talk it through or leave a note. Switch stages under the phone.</p><div class="hers">the trust call was where the agent stops. it sets the date up, and the two people take it from there.</div></div>
+    <div class="note"><span class="hand r3">it sets it up. you take it from there.</span><p>the date: before, during, after.</p><p>before: the venue, what to bring up, a card to draw a question from. during: the date chat opens one hour before, and for the first time the two humans text each other directly. the double is gone from the thread. after: your double asks how it went, and you can talk it through or leave a note. switch stages under the phone.</p><div class="hers">the trust call was where the agent stops. it texts, it calls, it finds the night and locks the place. then it hands the two people to each other and gets out of the way. an agent that stays in the conversation on the date isn't a double anymore, it's a chaperone.</div></div>
   </div>
   <div class="blk">
     <div class="art"><div class="frame night stage live-stage"><div class="live" data-stages='[{"label": "settings", "hash": "/match/demo"}]'><div class="fb"><img src="assets/embeds/poster-settings.png" alt="The match hub with Discover and Settings tabs" loading="lazy" width="390" height="844"></div></div></div></div>
-    <div class="note"><p>Settings, and the wheel.</p><p>You can always take the wheel: pause your double, change the places and times, manage your vouches. Tap Settings at the top.</p><p class="logic">i kept pause one tap away because an agent you can't stop quickly is one you won't let start.</p></div>
+    <div class="note"><p>settings, and the wheel.</p><p>you can always take the wheel: pause your double, change your introduction, your location, your hours, manage your vouches. tap settings at the top.</p><p class="logic">pause is one tap away because an agent you can't stop quickly is one you won't let start.</p></div>
   </div>
 </section>
 
@@ -378,15 +378,16 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide">
   <div style="max-width:var(--prose);margin-bottom:var(--s3)">
     <h2>voice introductions</h2>
-    <p class="intro">Voice is the cornerstone of everything here. Your double doesn't just text, it speaks, and the introduction it makes is in your own voice.</p>
-    <p>It starts in onboarding: a short voice call trains your double on how you actually talk. Then it comes back with three voice takes of your introduction. "Pick how your double will introduce you, in your own voice." You play each one back, choose the take that sounds like you, and that becomes the introduction your double carries to matches: the Introduction pill on the match card is this feature arriving on the other side.</p>
-    <p>And the same draft-then-approve rule holds here. You hear it before anyone else does, and you can change your pick later, on plain black, the same three takes numbered 01 02 03.</p>
+    <p class="intro">voice was the cornerstone of everything we had. your double didn't just text. it spoke, and the introduction it made was in your own voice.</p>
+    <p>it started on the phone: winged called you, and that call trained your double on how you actually talk, not how you write when you're trying. then it came back with three voice takes of your introduction. "pick how your double will introduce you, in your own voice." you played each one back, chose the take that sounded like you, and that became the introduction your double carried to matches. the introduction pill on the match card is this feature arriving on the other side.</p>
+    <p>the same draft-then-approve rule held. you heard it before anyone else did, and you could change your pick later, on plain black, the same three takes numbered 01 02 03.</p>
   </div>
   <div class="frame night art">
-    <div class="stage four live-stage"><div class="live" data-stages='[{"label": "voice picker", "hash": "/embed/intro"}]'><div class="fb"><img src="assets/figma-training-call.png" alt="You are training your double: the voice call in progress, the orb listening, mic and hang-up controls" loading="lazy" width="375" height="812"><img class="lift" src="assets/figma-voice-selection.png" alt="Pick how your double will introduce you, in your own voice: three voice takes on the warm gradient, Select intro" loading="lazy" width="393" height="852"><img src="assets/figma-intro-play.png" alt="Pick your introduction: take 01 playing, waveform moving, Save introduction" loading="lazy" width="393" height="852"><img class="lift" src="assets/figma-change-intro.png" alt="Pick your introduction in settings: three takes 01 02 03 on black" loading="lazy" width="393" height="852"></div></div></div>
+    <div class="stage four"><img src="assets/figma-onboard-learned.png" alt="Here is what I learned about you: the double reads its draft back on the warm gradient, Continue" loading="lazy" width="393" height="852"><img class="lift" src="assets/figma-voice-selection.png" alt="Pick how your double will introduce you, in your own voice: three voice takes on the warm gradient, Select intro" loading="lazy" width="393" height="852"><img src="assets/figma-match-profile.png" alt="Match profile: photos, voice introductions to play, Propose match" loading="lazy" width="401" height="852"><img class="lift" src="assets/figma-intro-play.png" alt="Pick your introduction: take 01 playing, waveform moving, Save introduction" loading="lazy" width="393" height="852"></div>
+    <div class="stage live-stage"><div class="live" data-stages='[{"label": "voice picker", "hash": "/embed/intro"}]'><div class="fb"><img src="assets/figma-voice-selection.png" alt="Pick how your double will introduce you, in your own voice: three voice takes on the warm gradient, Select intro" loading="lazy" width="393" height="852"><img class="lift" src="assets/figma-intro-play.png" alt="Pick your introduction: take 01 playing, waveform moving, Save introduction" loading="lazy" width="393" height="852"></div></div></div>
   </div>
   <p class="cap">the voice picker, live: play a take and watch the waveform · the three takes are synthetic tones, not real voices</p>
-  <div style="max-width:var(--prose)"><div class="hers">voice is the cornerstone of everything here. an introduction in your own voice is a different thing from a bio. you hear yourself before anyone else does, and only then does it speak for you.</div></div>
+  <div style="max-width:var(--prose)"><div class="hers">a bio is written for strangers. a voice is how the people who like you already know you. so the double introduces you the way a friend would, in your voice, and you hear it before anyone else does.</div></div>
 </section>
 
 
@@ -394,7 +395,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide" id="how-a-text-arrives">
   <div style="max-width:var(--prose);margin:0 0 var(--s3)">
     <h2>how a text actually arrives</h2>
-    <p class="intro">The screens above are the destinations. The agent itself works through plain SMS, and every text it sends has a real path: a carrier, a provider, a webhook, a model that picks one action and writes one reply, and a delivery receipt. Here is that path, from the Winged backend repo.</p>
+    <p class="intro">the screens sit on top of infrastructure i built too. every text your double sends has a real path, from your phone through the carrier and a webhook to the agent and back out, and this is that path, from the winged backend repo.</p>
   </div>
 
   <div class="art">
@@ -455,68 +456,6 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     </div>
   </div>
 
-  <div class="mech">
-    <div class="art">
-      <div class="code">
-        <div class="path">src/features/agents/pre-onboarding-agent.service.js</div>
-<pre><span class="c">// One model call. The model must pick a tool, so it cannot ramble.</span>
-<span class="k">const</span> TOOLS = [ call_now, schedule_call, respond_only ];<span class="mk">1</span>
-
-<span class="k">const</span> completion = <span class="k">await</span> openai.chat.completions.create({
-  model: <span class="n">'gpt-4o'</span>,
-  messages: [
-    { role: <span class="n">'system'</span>, content: <span class="n">`You are the Winged onboarding assistant...
-      Max 320 characters. One to two sentences.`</span> },<span class="mk">2</span>
-    ...cleanHistory,                       <span class="c">// last 10 turns</span>
-    { role: <span class="n">'user'</span>, content: messageBody }
-  ],
-  tools: TOOLS,
-  tool_choice: <span class="n">'required'</span>,<span class="mk">3</span>
-  temperature: <span class="n">0.7</span>
-});
-<span class="k">const</span> toolCall = completion.choices[<span class="n">0</span>].message.tool_calls[<span class="n">0</span>];
-<span class="k">return</span> { toolName: toolCall.function.name,
-         args: JSON.parse(toolCall.function.arguments) };<span class="mk">4</span></pre>
-      </div>
-      <p class="cap"><span class="mk-l">1</span>three possible actions &nbsp; <span class="mk-l">2</span>the voice rules live in the prompt &nbsp; <span class="mk-l">3</span>plain text is not allowed &nbsp; <span class="mk-l">4</span>the reply is an argument of the action · excerpt, prompt shortened</p>
-    </div>
-    <div class="note">
-      <p>The agent decides and composes in the same breath.</p>
-      <p>A deterministic router first picks which of five agents owns you (concierge holding, pre-onboarding, profile setup, active, inactive) from database state, with no model involved. Then that agent makes one call: choose an action, and write the reply as part of choosing it. There is no second pass to drift.</p>
-      <p>The code, not the model, does the scheduling arithmetic, and the conversation lives in the database: history is loaded, the new turn appended, and the last 40 saved back.</p><p class="logic">why tool_choice is required: a model allowed to answer in plain text can skip the decision. making the reply an argument of the action ties every message to something the system actually does.</p>
-    </div>
-  </div>
-
-  <div class="mech">
-    <div class="art">
-      <div class="code">
-        <div class="path">src/shared/utils/sms.js</div>
-<pre><span class="k">const</span> sendSms = <span class="k">async</span> (to, body, fromNumber, attempt = <span class="n">1</span>, context = {}) =&gt; {
-  fromNumber = getFromNumber(to);<span class="mk">1</span>
-  <span class="k">if</span> (!SMS_FLOW_ENABLED()) <span class="k">return</span> logSms({ status: <span class="n">'suppressed'</span>, ... });<span class="mk">2</span>
-  <span class="k">if</span> (attempt === <span class="n">1</span> &amp;&amp; <span class="k">await</span> isOptedOut(to)) <span class="k">return</span> ...;
-
-  <span class="k">try</span> {
-    <span class="k">const</span> createOpts = { to, from, body };
-    <span class="k">if</span> (cb) createOpts.statusCallback = cb;<span class="mk">3</span>
-    <span class="k">const</span> message = <span class="k">await</span> client.messages.create(createOpts);
-    logSms({ twilioMessageSid: message.sid, status: <span class="n">'sent'</span>, ... });<span class="mk">4</span>
-} <span class="k">catch</span> (err) {
-  <span class="k">if</span> (TWILIO_NON_RETRYABLE.has(err.code)) <span class="k">return</span> logSms({ status: <span class="n">'failed'</span>, ... });
-  <span class="k">if</span> (attempt &lt; <span class="n">3</span>) { <span class="k">await</span> wait(attempt * <span class="n">2000</span>); <span class="k">return</span> sendSms(..., attempt + <span class="n">1</span>); }<span class="mk">5</span>
-}
-
-<span class="c">// the status callback, later:</span>
-.update({ delivery_status: MessageStatus }).eq(<span class="n">'twilio_message_sid'</span>, MessageSid)<span class="mk">6</span></pre>
-      </div>
-      <p class="cap"><span class="mk-l">1</span>+1 gets the US number, everything else the EU one &nbsp; <span class="mk-l">2</span>kill switch and opt-out checked first &nbsp; <span class="mk-l">3</span>asks Twilio to report back &nbsp; <span class="mk-l">4</span>every send is logged with its message id &nbsp; <span class="mk-l">5</span>three tries, 2s then 4s, except for errors that retrying cannot fix &nbsp; <span class="mk-l">6</span>receipts matched by id · excerpt, body shortened, the retry wait is a plain timer</p>
-    </div>
-    <div class="note">
-      <p>Sending is a short list of refusals, then one call.</p>
-      <p>Before a text leaves, the code checks a global kill switch, the recipient's opt-out and whether the account was disabled. After it leaves, Twilio reports queued, sending, sent, delivered, or undelivered and failed with an error code, and the status endpoint writes that onto the same log row. It always answers 200 so the provider never retries a receipt.</p>
-      <p>Two doors out, one number rule. The in-conversation reply calls Twilio directly from the webhook handler; date relays, cron nudges and notifications go through <span class="mono">sendSms</span>, which adds the checks, the retries and the receipt. Both pick the sender from the recipient's own number.</p><p class="logic">why refusals first: the cheapest text to take back is the one that never left. and retries skip errors that retrying can't fix, because resending to a bad number just repeats the mistake.</p>
-    </div>
-  </div>
 </section>
 
 <script>
@@ -571,16 +510,16 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
 <!-- 7. shipped -->
 <section class="prose">
   <h2>shipped</h2>
-  <p>Winged came out of Antler Nordics and launched in San Francisco and Helsinki.</p>
-  <div class="hers">winged web is the surface people opened from the links their double texted them. the voice pick, the draft review, the match card and the report sheet on this page are that product, live.</div>
+  <p>winged came out of antler nordics and launched in san francisco and helsinki.</p>
+  <div class="hers">winged web is the surface people opened from the links their double texted them. the voice pick, the draft review, the match card and the date chat on this page are that product, live.</div>
 </section>
 
 <!-- 8. what it taught me -->
 <section class="prose">
   <h2>what it taught me</h2>
-  <p><b style="font-weight:600">Give each color a job.</b> Three registers, one meaning each, became how I think about color in any product.</p>
-  <p><b style="font-weight:600">Draft, then approve.</b> "Not yet public until you accept" is the pattern I carried into the next products I built.</p>
-  <p><b style="font-weight:600">Write the system down or it drifts.</b> Winged Web ended with one tokens file that absorbed six drifting greys into one ramp. Next time I'd start with that file.</p>
+  <p><b style="font-weight:600">give each color a job.</b> three registers, one meaning each, became how i think about color in any product.</p>
+  <p><b style="font-weight:600">draft, then approve.</b> "not yet public until you accept" is the pattern i carried into every agentic product i built after this one.</p>
+  <p><b style="font-weight:600">write the system down or it drifts.</b> winged web ended with one tokens file that absorbed six drifting grays into one ramp. next time i'd start with that file.</p>
   <div class="hers">i'd keep all three. if i can't say what a color is for, it comes out. if something speaks for a person, it comes back as a draft first. and the tokens file comes first, not last.</div>
 </section>
 

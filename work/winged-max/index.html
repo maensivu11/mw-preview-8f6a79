@@ -122,32 +122,6 @@ p+p{margin-top:20px}
 .disc li{padding-left:20px;position:relative}
 .disc li::before{content:"–";position:absolute;left:0;color:var(--muted)}
 
-/* how a text actually arrives */
-.journey{padding:28px}
-.hops{position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-.hop{border:1px solid var(--line);border-radius:8px;padding:12px 10px;min-height:132px;background:#fff;transition:background 240ms ease-out,border-color 240ms ease-out,color 240ms ease-out}
-.hop .t{font-size:14px;line-height:20px;font-weight:600}
-.hop .r{font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted);margin-top:6px;overflow-wrap:anywhere}
-.hop .n{font-family:var(--mono);font-size:11px;color:var(--muted);display:block;margin-bottom:4px}
-.hop.on{background:var(--ink);border-color:var(--ink);color:#fff}
-.hop.on .r,.hop.on .n{color:#BDBBB3}
-.track{position:relative;height:18px;margin:0 0 14px}
-.track::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--line)}
-.dot{position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--violet);transform:translateX(0);transition:transform 900ms ease-in-out}
-.say{margin-top:18px;font-family:var(--mono);font-size:13px;line-height:20px;display:grid;grid-template-columns:120px 1fr;gap:6px 16px}
-.say span:nth-child(odd){color:var(--muted)}
-.states{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:22px;font-family:var(--mono);font-size:13px;line-height:20px}
-.states b{font-weight:400;border:1px solid var(--line);border-radius:999px;padding:2px 12px;transition:background 240ms ease-out,color 240ms ease-out}
-.states b.on{background:var(--ink);border-color:var(--ink);color:#fff}
-.states b.bad{border-style:dashed}
-.states .arr,.states .lab{color:var(--muted)}
-.states .lab{flex-basis:100%}
-.jctl{margin-top:16px}
-.jctl button{font-family:var(--mono);font-size:13px;line-height:20px;background:none;border:1px solid var(--line);border-radius:999px;padding:4px 14px;cursor:pointer;color:var(--ink)}
-.no-motion .track,.no-motion .jctl{display:none}
-.no-motion .say{display:none}
-@media (prefers-reduced-motion:reduce){.track,.jctl{display:none}.say{display:none}.dot{transition:none}}
-
 /* 6 lessons */
 .lessons p b{font-weight:600}
 
@@ -181,13 +155,6 @@ footer{margin-top:var(--gap);border-top:1px solid var(--line);padding:48px 0 64p
   .funnel{gap:24px}
   .funnel b{font-size:32px}
   .ds{padding:48px 0}
-  .journey{padding:16px}
-  .hops{grid-template-columns:1fr;gap:6px}
-  .hop{min-height:0;display:grid;grid-template-columns:18px 92px 1fr;gap:10px;padding:10px 12px}
-  .hop .r{margin-top:0}
-  .hop .n{margin-bottom:0}
-  .track{display:none}
-  .say{grid-template-columns:96px 1fr}
 }
 
 /* her hand: margin notes in B-McE, her own handwriting font. reasons only, never body prose */
@@ -234,7 +201,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="hero-head">
     <div>
       <h1>winged max</h1>
-      <p class="claim">Winged Max is the agent running entirely on your own Mac. It watches, learns your taste, and acts on your behalf locally.</p>
+      <p class="claim">winged max is the agent running entirely on your own mac. it mirrors your iphone, learns your taste, and acts on your behalf locally.</p>
       <p class="claim">i'm the design engineer &amp; founder. i designed it and built it by hand.</p>
       <p class="stage">stage: working build, unfinished interface. this page shows how it works, not how it looks.</p>
     </div>
@@ -254,17 +221,17 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 }</pre>
   </div>
   <p class="cap"><span class="mk-l">1</span>taste is 80% of every autonomous decision &nbsp; <span class="mk-l">2</span>no data stays "no data", never a fake middle score · excerpt from the repo, comments shortened</p>
-  <p class="logic">why it's built this way: what you actually swipe on is evidence, what you write in a brief is a guess about yourself. and a fake 0.5 would let the agent act on nothing.</p>
+  <p class="logic">what you actually swipe on is evidence. what you write in a brief is a guess about yourself. and a fake 0.5 would let the agent act on nothing and call it a decision.</p>
 </header>
 
 <!-- 2. the idea -->
 <section class="prose">
   <h2>the idea</h2>
-  <p class="intro">Dating apps are a second job. The deciding part takes seconds; the swiping, reading, opening lines and finding a Thursday that works take hours. So the pitch was short: an agent that does the labor, while you stay the one who decides.</p>
-  <p>Winged Max is a macOS app that mirrors your iPhone on your Mac and operates the dating apps inside that window. No scraping, no fake account. It's your Hinge, on your phone, under your account, driven by something that learned what you like, where you can watch it work.</p>
+  <p class="intro">dating apps are a second job. the deciding part takes seconds. the swiping, the reading, the opening lines and finding a thursday that works take hours. so the pitch was short: an agent that does the labor, while you stay the one who decides.</p>
+  <p>winged max is a macos app that mirrors your iphone on your mac and operates the dating apps inside that window. no scraping, no fake account. it's your hinge, on your phone, under your account, driven by something that learned what you like, where you can watch it work.</p>
   <div class="hers">the deciding part takes seconds. the rest takes hours. max is built around that gap, and the decision stays on your side of it.</div>
-  <div class="hers">before max, winged was the agent that texts and calls to set up your dates. max takes the same split into your own phone screen: the agent does the labor, you decide.</div>
-  <div class="hers">the interface isn't finished and i'm not going to dress it up. the part that has to be right first is the mechanism: what the agent may do, when it earns more, and what it can never do. so that's what this page shows.</div>
+  <div class="hers">before max, winged was the agent that texts and calls to set up your dates. max takes the same split into your own phone screen. the agent does the labor, you decide.</div>
+  <div class="hers">the interface isn't finished and i'm not going to dress it up. the part that has to be right first is the mechanism: what the agent may do, when it earns more, and what it can never do. a pretty screen on top of a wrong permission is the worst version of this product. so this page shows the permissions.</div>
 </section>
 
 <!-- 3. the system: the numbers that carry the product -->
@@ -272,18 +239,18 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
   <div class="wide">
     <h2>the system</h2>
     <div class="ds-intro">
-      <p class="intro">Winged Max doesn't have a finished visual system yet. Its real design system is a handful of numbers, each one a decision about how much the agent may do on your behalf.</p>
+      <p class="intro">winged max doesn't have a finished visual system yet. its real design system is a handful of numbers, each one a decision about how much the agent may do on your behalf.</p>
     </div>
     <span class="hand r1">every number is a permission</span>
     <div class="knobs">
       <div class="knob"><b>0.8 / 0.2</b><p class="what">taste vs. stated preferences</p><p class="why">what you chose outweighs what you said you'd choose</p></div>
       <div class="knob"><b>120 days</b><p class="what">rating half-life</p><p class="why">taste moves; the model tracks who you are now</p></div>
       <div class="knob"><b>×3</b><p class="what">weight of a correction</p><p class="why">overruling the agent is the most informative thing you do</p></div>
-      <div class="knob"><b>50 · AUC &gt; 0.6</b><p class="what">to unlock autopilot</p><p class="why">it has to predict ratings it never saw, beyond a coin flip</p></div>
+      <div class="knob"><b>50 · AUC &gt; 0.6</b><p class="what">to unlock autopilot</p><p class="why">it has to predict ratings it never saw, better than a coin flip</p></div>
       <div class="knob"><b>25 a day</b><p class="what">unattended actions, default</p><p class="why">a bad night stays small</p></div>
       <div class="knob"><b>≥ 0.72 · ≤ 0.35</b><p class="what">auto-like · auto-pass</p><p class="why">the agent acts only when it's sure; the middle stays yours</p></div>
       <div class="knob"><b>0</b><p class="what">messages sent without you</p><p class="why">a wrong like costs nothing; a wrong message costs trust</p></div>
-      <div class="knob"><b>on the Mac</b><p class="what">ratings, reasons, taste model</p><p class="why">your taste stays yours: it never leaves the machine</p></div>
+      <div class="knob"><b>on the mac</b><p class="what">ratings, reasons, taste model</p><p class="why">your taste stays yours: it never leaves the machine</p></div>
     </div>
     <div class="curve">
       <div>
@@ -301,7 +268,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       </div>
       <div>
         <p class="why" style="font-size:13px;line-height:20px">weight = max(0.5<sup>age/120</sup>, 0.15) × (corrected ? 3 : 1)</p>
-        <p class="why">Old ratings fade but never vanish: the early corpus is the only evidence of long-standing taste. Drawn from RatingWeightPolicy.swift, axis from zero.</p>
+        <p class="why">old ratings fade but never vanish: the early corpus is the only evidence of long-standing taste. drawn from RatingWeightPolicy.swift, axis from zero.</p>
       </div>
     </div>
   </div>
@@ -311,7 +278,7 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
 <section class="wide">
   <div style="max-width:var(--prose);margin:0 0 var(--s3)">
     <h2>how the agent works</h2>
-    <p class="intro">An agent that sees who you find attractive and writes as you has to earn trust mechanically, not with copy. Three rules, each one enforced in code: the human confirms anything consequential, autonomy is earned and revocable, and your taste stays yours.</p>
+    <p class="intro">an agent that sees who you find attractive and writes as you has to earn trust mechanically, not with copy. three rules, each enforced in code: the human confirms anything consequential, autonomy is earned and revocable, and your taste stays yours.</p>
   </div>
 
   <div class="mech">
@@ -330,9 +297,9 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       <p class="cap">one profile through the agent · the profile is the synthetic test fixture, not a real person</p>
     </div>
     <div class="note">
-      <span class="hand r3">you can watch it work</span><p>It works inside your real app, where you can watch.</p>
-      <p>Winged Max drives Apple's iPhone Mirroring, so the agent sees and taps the same window you would. That was a product choice as much as a technical one. Only one step leaves the Mac: reading facts off a profile screenshot. I documented exactly what leaves and what doesn't.</p>
-      <p>Mirroring needs macOS 15 and isn't available in the EU, so availability, not capture, was the real constraint.</p>
+      <span class="hand r3">you can watch it work</span><p>it works inside your real app, where you can watch.</p>
+      <p>winged max drives apple's iphone mirroring, so the agent sees and taps the same window you would. that was a product choice as much as a technical one: an agent you can watch is one you can trust with your account. only one step leaves the mac, reading facts off a profile screenshot. i documented exactly what leaves and what doesn't.</p>
+      <p>mirroring needs macos 15 and isn't available in the eu, so availability, not capture, was the real constraint.</p>
     </div>
   </div>
 
@@ -356,12 +323,12 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       <p class="cap">live recreation of the autonomy ladder · states and thresholds from the repo, values illustrative</p>
     </div>
     <div class="note">
-      <span class="hand r4">earned, and taken back</span><p>Autonomy is a ladder, not a toggle.</p>
-      <p>The agent starts with no permission at all. After enough ratings a small model is fitted on the Mac, and it only unlocks auto-like and auto-pass if it predicts choices it was never shown better than chance. Even then it acts only at the confident ends, under a daily cap. If the model goes invalid, autopilot is taken away.</p>
+      <span class="hand r4">earned, and taken back</span><p>autonomy is a ladder, not a toggle.</p>
+      <p>the agent starts with no permission at all. after enough ratings a small model is fitted on the mac, and it only unlocks auto-like and auto-pass if it predicts choices it was never shown better than chance. even then it acts only at the confident ends, under a daily cap. if the model goes invalid, autopilot is taken away and the app says so.</p>
       <div class="code" style="margin-top:20px"><pre><span class="k">public var</span> unlocksAgent: Bool {
     validationCount >= <span class="n">50</span> &amp;&amp; auc > <span class="n">0.6</span>
 }</pre></div>
-      <p class="cap">AttractionClassifier.swift · every rating contributes one prediction from a model that never saw it</p><p class="logic">why out-of-fold: a model graded on profiles it trained on can pass by memorizing you. grading it only on ones it never saw is the honest test, and a toggle would skip the test entirely.</p>
+      <p class="cap">AttractionClassifier.swift · every rating contributes one prediction from a model that never saw it</p><p class="logic">a model graded on profiles it trained on can pass by memorizing you. grading it only on ones it never saw is the honest test. a toggle would skip the test entirely, and an agent that can be switched on can't be earned.</p>
     </div>
   </div>
 
@@ -382,9 +349,9 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       <p class="cap"><span class="mk-l">1</span>120-day half-life &nbsp; <span class="mk-l">2</span>floor 0.15 &nbsp; <span class="mk-l">3</span>a correction counts three times</p>
     </div>
     <div class="note">
-      <span class="hand r1">corrections count triple</span><p>Training refits on every rating, and listens hardest to corrections.</p>
-      <p>Watch mode ("Learn while I browse") turns a habit you already have into training. You browse Hinge as usual; Winged captures each profile as you scroll and asks three short questions: your visual reaction, like or pass, and a reason.</p>
-      <p>I separated "not my type" from "wrong life plans", so passing on someone who doesn't want kids never teaches the model you don't find them attractive.</p><p class="logic">why a half-life with a floor, not a cutoff: a hard window would forget your long-standing taste the day it turned old. the floor keeps the early ratings as a quiet vote.</p>
+      <span class="hand r1">corrections count triple</span><p>training refits on every rating, and listens hardest to corrections.</p>
+      <p>watch mode ("learn while i browse") turns a habit you already have into training. you browse hinge as usual. winged captures each profile as you scroll and asks three short questions: your visual reaction, like or pass, and a reason.</p>
+      <p>i separated "not my type" from "wrong life plans", so passing on someone who doesn't want kids never teaches the model you don't find them attractive.</p><p class="logic">a half-life with a floor, not a cutoff: a hard window would forget your long-standing taste the day it turned old. the floor keeps the early ratings as a quiet vote. and a correction counts triple because the moment you overrule the agent is the only moment it learns it was wrong.</p>
     </div>
   </div>
 
@@ -404,196 +371,18 @@ footer.wide{padding-left:var(--pad);padding-right:var(--pad)}
       <p class="cap"><span class="mk-l">1</span>until delivery can be proved, "send" is an error, not an action · excerpt, body shortened</p>
     </div>
     <div class="note">
-      <span class="hand r2">approve is not send</span><p>Drafts are review-first. Sending fails closed.</p>
-      <p>The agent writes in your voice. Three style answers (emoji, formality, reply length) are enforced on every draft, and writing samples or a consent-gated scan of your own past messages teach the rest. But in the build I audited, no message could leave the machine: approving a draft is not sending it, and the code refuses to pretend otherwise.</p><p class="logic">why it fails closed: until delivery can be proved, an agent that says "sent" might be lying to you. an error is honest; a fake success isn't.</p>
-      <div class="hers">this is the call i'd defend to anyone. no message leaves without you. a wrong like costs nothing, a wrong message costs trust. approving a draft is not sending it, and i won't let the code pretend it is.</div>
+      <span class="hand r2">approve is not send</span><p>drafts are review-first. sending fails closed.</p>
+      <p>the agent writes in your voice. three style answers (emoji, formality, reply length) are enforced on every draft, and writing samples or a consent-gated scan of your own past messages teach the rest. but in the build i audited, no message could leave the machine. approving a draft is not sending it, and the code refuses to pretend otherwise.</p><p class="logic">until delivery can be proved, an agent that says "sent" might be lying to you. an error is honest. a fake success isn't.</p>
+      <div class="hers">this is the call i'd defend to anyone. no message leaves without you. a wrong like costs nothing. a wrong message costs trust, in your name, to a real person. approving a draft is not sending it, and i won't let the code pretend it is.</div>
     </div>
   </div>
 </section>
-
-<!-- how a text actually arrives: the SMS pipeline behind the original Winged agent -->
-<section class="wide" id="how-a-text-arrives">
-  <div style="max-width:var(--prose);margin:0 0 var(--s3)">
-    <h2>how a text actually arrives</h2>
-    <p class="intro">Winged Max itself runs entirely on your Mac, so there is no Twilio hop and no carrier in its path. This is the texting infrastructure it descends from: Winged, the agent that works through plain SMS. Every text has a real path: a carrier, a provider, a webhook, a model that picks one action and writes one reply, and a delivery receipt. Here is that path, from the Winged backend repo.</p>
-  </div>
-
-  <div class="art">
-    <div class="frame journey" id="journey" aria-label="A text message travelling from a user's phone through the carrier, Twilio, the webhook and the agent, and back out to a phone">
-      <div class="track" id="j-track"><i class="dot" id="j-dot"></i></div>
-      <div class="hops" id="j-hops">
-        <div class="hop"><span class="n">1</span><p class="t">your phone</p><p class="r">you text the Winged number: "call me now"</p></div>
-        <div class="hop"><span class="n">2</span><p class="t">carrier</p><p class="r">plain SMS to a US or an EU long number, picked by +1 prefix</p></div>
-        <div class="hop"><span class="n">3</span><p class="t">Twilio</p><p class="r">the provider; turns the SMS into an HTTP POST</p></div>
-        <div class="hop"><span class="n">4</span><p class="t">webhook</p><p class="r">signature checked, STOP caught, date relay tried first</p></div>
-        <div class="hop"><span class="n">5</span><p class="t">the agent</p><p class="r">routes to one of five agents; GPT-4o picks a tool and writes the reply</p></div>
-        <div class="hop"><span class="n">6</span><p class="t">outbound</p><p class="r">messages.create, from the number matched to the recipient</p></div>
-        <div class="hop"><span class="n">7</span><p class="t">their phone</p><p class="r">the reply lands; on a date, the other person's phone</p></div>
-      </div>
-      <div class="say" id="j-say">
-        <span>hop</span><span id="j-hop">1 of 7</span>
-        <span>what happens</span><span id="j-what">you press send. nothing of Winged exists yet.</span>
-      </div>
-      <div class="states" id="j-states">
-        <span class="lab">delivery state for sends through sendSms (relays, nudges, notifications), written back to sms_log by the status callback</span>
-        <b>queued</b><span class="arr">&rarr;</span><b>sending</b><span class="arr">&rarr;</span><b>sent</b><span class="arr">&rarr;</span><b>delivered</b>
-        <span class="arr">or</span><b class="bad">undelivered</b><span class="arr">/</span><b class="bad">failed</b>
-      </div>
-      <div class="jctl"><button type="button" id="j-pause">pause</button></div>
-    </div>
-    <p class="cap">one text through the real Winged pipeline · endpoints, function names and states from the repo · no numbers or keys shown</p>
-  </div>
-
-  <div class="mech" style="margin-top:var(--s2)">
-    <div class="art">
-      <div class="code">
-        <div class="path">src/features/pre-onboarding/pre-onboarding.routes.js · .controller.js</div>
-<pre><span class="c">// Twilio POSTs here. Check the signature before anything else.</span>
-router.post(<span class="n">'/twilio-sms-webhook'</span>,
-  validateTwilioSignature,<span class="mk">1</span>
-  consumeWingedMaxPhoneProof,
-  inboundDispatch,
-  preOnboardingController.handleTwilioSmsWebhook);
-
-<span class="k">const</span> { From, To, Body, MessageSid } = req.body;
-<span class="k">const</span> phoneNumber = From.replace(<span class="n">/^whatsapp:/</span>, <span class="n">''</span>);<span class="mk">2</span>
-<span class="k">if</span> (!E164.test(phoneNumber)) { <span class="c">/* sender hidden: fail closed */</span> }
-
-<span class="k">if</span> (optOutAction === <span class="n">'stop'</span> || currentlyOptedOut) {<span class="mk">3</span>
-  <span class="k">await</span> setOptOutStatus(phoneNumber, optOutAction === <span class="n">'stop'</span>);
-  <span class="k">return</span> res.status(<span class="n">200</span>).send(<span class="n">'&lt;Response/&gt;'</span>);
-}
-<span class="k">const</span> routed = <span class="k">await</span> schedulingSms.routeInboundSms(phoneNumber, Body);<span class="mk">4</span>
-<span class="k">if</span> (routed) <span class="k">return</span> res.status(<span class="n">200</span>).send(<span class="n">'&lt;Response/&gt;'</span>);
-<span class="k">await</span> preOnboardingService.handleInboundSms(phoneNumber, Body, MessageSid, ...);</pre>
-      </div>
-      <p class="cap"><span class="mk-l">1</span>HMAC check against the exact public URL &nbsp; <span class="mk-l">2</span>the phone number is the user's identity &nbsp; <span class="mk-l">3</span>STOP is mirrored, never sent to the model &nbsp; <span class="mk-l">4</span>date relay first · excerpt, body shortened</p>
-    </div>
-    <div class="note">
-      <span class="hand r3">stop never reaches the model</span><p>The webhook is a gatekeeper before it is a listener.</p>
-      <p>The agent never sees a message that failed the signature check, or one that said STOP. A sender whose number the carrier stripped (some operators swap in a word) gets a fail-closed path: no reply to an unverified sender, and no link that works as a login.</p>
-      <p>The phone number is how the system knows who you are: the user is looked up by it, and the sender number is chosen from it.</p><p class="logic">why this order: anyone can post to a public url, so the signature comes first. and an opt-out is a rule, not a conversation, so it's answered before a model could argue with it.</p>
-    </div>
-  </div>
-
-  <div class="mech">
-    <div class="art">
-      <div class="code">
-        <div class="path">src/features/agents/pre-onboarding-agent.service.js</div>
-<pre><span class="c">// One model call. The model must pick a tool, so it cannot ramble.</span>
-<span class="k">const</span> TOOLS = [ call_now, schedule_call, respond_only ];<span class="mk">1</span>
-
-<span class="k">const</span> completion = <span class="k">await</span> openai.chat.completions.create({
-  model: <span class="n">'gpt-4o'</span>,
-  messages: [
-    { role: <span class="n">'system'</span>, content: <span class="n">`You are the Winged onboarding assistant...
-      Max 320 characters. One to two sentences.`</span> },<span class="mk">2</span>
-    ...cleanHistory,                       <span class="c">// last 10 turns</span>
-    { role: <span class="n">'user'</span>, content: messageBody }
-  ],
-  tools: TOOLS,
-  tool_choice: <span class="n">'required'</span>,<span class="mk">3</span>
-  temperature: <span class="n">0.7</span>
-});
-<span class="k">const</span> toolCall = completion.choices[<span class="n">0</span>].message.tool_calls[<span class="n">0</span>];
-<span class="k">return</span> { toolName: toolCall.function.name,
-         args: JSON.parse(toolCall.function.arguments) };<span class="mk">4</span></pre>
-      </div>
-      <p class="cap"><span class="mk-l">1</span>three possible actions &nbsp; <span class="mk-l">2</span>the voice rules live in the prompt &nbsp; <span class="mk-l">3</span>plain text is not allowed &nbsp; <span class="mk-l">4</span>the reply is an argument of the action · excerpt, prompt shortened</p>
-    </div>
-    <div class="note">
-      <p>The agent decides and composes in the same breath.</p>
-      <p>A deterministic router first picks which of five agents owns you (concierge holding, pre-onboarding, profile setup, active, inactive) from database state, with no model involved. Then that agent makes one call: choose an action, and write the reply as part of choosing it. There is no second pass to drift.</p>
-      <p>The code, not the model, does the scheduling arithmetic, and the conversation lives in the database: history is loaded, the new turn appended, and the last 40 saved back.</p><p class="logic">why tool_choice is required: a model allowed to answer in plain text can skip the decision. making the reply an argument of the action ties every message to something the system actually does.</p>
-    </div>
-  </div>
-
-  <div class="mech">
-    <div class="art">
-      <div class="code">
-        <div class="path">src/shared/utils/sms.js</div>
-<pre><span class="k">const</span> sendSms = <span class="k">async</span> (to, body, fromNumber, attempt = <span class="n">1</span>, context = {}) =&gt; {
-  fromNumber = getFromNumber(to);<span class="mk">1</span>
-  <span class="k">if</span> (!SMS_FLOW_ENABLED()) <span class="k">return</span> logSms({ status: <span class="n">'suppressed'</span>, ... });<span class="mk">2</span>
-  <span class="k">if</span> (attempt === <span class="n">1</span> &amp;&amp; <span class="k">await</span> isOptedOut(to)) <span class="k">return</span> ...;
-
-  <span class="k">try</span> {
-    <span class="k">const</span> createOpts = { to, from, body };
-    <span class="k">if</span> (cb) createOpts.statusCallback = cb;<span class="mk">3</span>
-    <span class="k">const</span> message = <span class="k">await</span> client.messages.create(createOpts);
-    logSms({ twilioMessageSid: message.sid, status: <span class="n">'sent'</span>, ... });<span class="mk">4</span>
-} <span class="k">catch</span> (err) {
-  <span class="k">if</span> (TWILIO_NON_RETRYABLE.has(err.code)) <span class="k">return</span> logSms({ status: <span class="n">'failed'</span>, ... });
-  <span class="k">if</span> (attempt &lt; <span class="n">3</span>) { <span class="k">await</span> wait(attempt * <span class="n">2000</span>); <span class="k">return</span> sendSms(..., attempt + <span class="n">1</span>); }<span class="mk">5</span>
-}
-
-<span class="c">// the status callback, later:</span>
-.update({ delivery_status: MessageStatus }).eq(<span class="n">'twilio_message_sid'</span>, MessageSid)<span class="mk">6</span></pre>
-      </div>
-      <p class="cap"><span class="mk-l">1</span>+1 gets the US number, everything else the EU one &nbsp; <span class="mk-l">2</span>kill switch and opt-out checked first &nbsp; <span class="mk-l">3</span>asks Twilio to report back &nbsp; <span class="mk-l">4</span>every send is logged with its message id &nbsp; <span class="mk-l">5</span>three tries, 2s then 4s, except for errors that retrying cannot fix &nbsp; <span class="mk-l">6</span>receipts matched by id · excerpt, body shortened, the retry wait is a plain timer</p>
-    </div>
-    <div class="note">
-      <p>Sending is a short list of refusals, then one call.</p>
-      <p>Before a text leaves, the code checks a global kill switch, the recipient's opt-out and whether the account was disabled. After it leaves, Twilio reports queued, sending, sent, delivered, or undelivered and failed with an error code, and the status endpoint writes that onto the same log row. It always answers 200 so the provider never retries a receipt.</p>
-      <p>Two doors out, one number rule. The in-conversation reply calls Twilio directly from the webhook handler; date relays, cron nudges and notifications go through <span class="mono">sendSms</span>, which adds the checks, the retries and the receipt. Both pick the sender from the recipient's own number.</p><p class="logic">why refusals first: the cheapest text to take back is the one that never left. and retries skip errors that retrying can't fix, because resending to a bad number just repeats the mistake.</p>
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var hops=[].slice.call(document.querySelectorAll('#j-hops .hop'));
-  var dot=document.getElementById('j-dot'),track=document.getElementById('j-track');
-  var hopEl=document.getElementById('j-hop'),whatEl=document.getElementById('j-what');
-  var states=[].slice.call(document.querySelectorAll('#j-states b'));
-  var btn=document.getElementById('j-pause');
-  var what=[
-    'you press send. nothing of Winged exists yet.',
-    'the carrier routes it to the Winged long number, US or EU.',
-    'Twilio receives it and POSTs From, To, Body and MessageSid to the backend.',
-    'signature verified, opt-out keywords and date relay checked, then the sender is looked up by phone number.',
-    'router picks the agent from database state; GPT-4o picks one tool and writes the reply.',
-    'the sender number is picked from the recipient\'s prefix and Twilio\'s messages.create is called. state: queued.',
-    'the reply lands. For sends through sendSms, Twilio reports sending, sent, delivered back to the status endpoint.'
-  ];
-  var i=-1,timer=null,paused=false;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function place(){
-    var h=hops[Math.max(i,0)];
-    if(!h||getComputedStyle(track).display==='none')return;
-    var x=h.offsetLeft+h.offsetWidth/2-7;
-    dot.style.transform='translateX('+x+'px)';
-  }
-  function show(n){
-    i=n;
-    hops.forEach(function(h,k){h.classList.toggle('on',k===n)});
-    hopEl.textContent=(n+1)+' of 7';whatEl.textContent=what[n];
-    var lit=n<5?0:(n===5?1:4);
-    states.forEach(function(b,k){b.classList.toggle('on',k<lit)});
-    place();
-  }
-  function tick(){show((i+1)%7)}
-  var vis=false;
-  function start(){clearInterval(timer);timer=vis&&!paused?setInterval(tick,2400):null}
-  if(reduce){
-    document.getElementById('journey').classList.add('no-motion');
-    return;
-  }
-  show(0);
-  if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){vis=e.isIntersecting;if(vis)start();else{clearInterval(timer);timer=null}})}).observe(document.getElementById('journey'))}
-  btn.addEventListener('click',function(){
-    paused=!paused;btn.textContent=paused?'play':'pause';
-    if(paused){clearInterval(timer)}else{start()}
-  });
-  window.addEventListener('resize',place);
-})();
-</script>
 
 <!-- 5. the audit: the instrument -->
 <section class="wide">
   <div style="max-width:var(--prose)">
     <h2>the audit</h2>
-    <p class="intro">I traced every training input end to end, from the screen to the decision. Sixteen inputs, each followed until I could say exactly what it changes in what the agent does.</p>
+    <p class="intro">i traced every training input end to end, from the screen to the decision. sixteen inputs, each followed until i could say exactly what it changes in what the agent does.</p>
   </div>
   <div class="art" style="max-width:860px;margin-top:var(--s3)">
     <div class="inputs" aria-label="16 training inputs: 7 change behavior, 4 open gates, 5 not wired in yet">
@@ -605,7 +394,7 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     <p class="cap">about 16 inputs, traced from the screen to the decision · approximate counts from the trace</p>
   </div>
   <div style="max-width:var(--prose);margin-top:var(--s3)">
-    <p>The trace paid for itself fast. It showed that the mandatory "why" on all 50 ratings is stored and waiting for a reader, and that the inspect-and-correct strip, the one screen where you can see what the model learned about you and correct it, is already in the code. Human-in-the-loop training isn't collecting input. It's showing people what the machine concluded and letting them argue with it. With that surface, the loop is closed, and now I know exactly where it plugs in.</p>
+    <p>the trace paid for itself fast. it showed that the mandatory "why" on all 50 ratings is stored and waiting for a reader, and that the inspect-and-correct strip, the one screen where you can see what the model learned about you and correct it, is already in the code and never renders. human-in-the-loop training isn't collecting input. it's showing people what the machine concluded and letting them argue with it. that surface is the loop, and now i know exactly where it plugs in.</p>
     <div class="hers">this is the part of the case i'm proudest of. i can follow every input to the decision it changes, and i know where the loop closes: the screen where someone sees what the agent concluded and argues back. i built the trace that shows it.</div>
   </div>
 
@@ -625,9 +414,9 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
       <p class="cap"><span class="mk-l">1</span>a 48-pixel thumbnail &nbsp; <span class="mk-l">2</span>a 1% change counts as a new screen: an autoplay video or the clock ticking is enough</p>
     </div>
     <div class="note">
-      <span class="hand r2">a ticking clock is not a new profile</span><p>Start from what I felt as a user, then prove it in the code.</p>
-      <p>I used Winged Max like a new user and wrote down everything that felt off. A screen counter that climbed while my phone sat still. A "Connected" state that never turned false. An agent that said "try again" when the truth was "Hinge isn't installed."</p>
-      <p>Then I treated each one as a fixture, not a complaint, and had the code explain it. The climbing counter is on the left.</p><p class="logic">the idea behind it was sound: compare screens cheaply before paying for inference. the threshold was the bug. at 1% of a thumbnail, anything moving looks like a new screen.</p>
+      <span class="hand r2">a ticking clock is not a new profile</span><p>start from what i felt as a user, then prove it in the code.</p>
+      <p>i used winged max like a new user and wrote down everything that felt off. a screen counter that climbed while my phone sat still. a "connected" state that never turned false. an agent that said "try again" when the truth was "hinge isn't installed."</p>
+      <p>then i treated each one as a fixture, not a complaint, and had the code explain it. the climbing counter is on the left.</p><p class="logic">the idea was sound: compare screens cheaply before paying for inference. the threshold was the bug. at 1% of a thumbnail, anything moving looks like a new screen.</p>
     </div>
   </div>
 
@@ -647,7 +436,7 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
     <p class="cap">the 62 tasks by area, one scale</p>
   </div>
   <div style="max-width:var(--prose);margin-top:var(--s3)">
-    <p>Three code auditors ran in parallel, each in its own lane: onboarding and connection, agent logic, and a simplicity sweep against my own style guide. A fourth went under the UI into the mirroring layer. Every finding needed a file and line; anything only provable on a live phone was labeled a hypothesis. A second round caught the app screenshotting and calling paid inference every 5 seconds on a static screen, about 720 calls an hour.</p>
+    <p>three code auditors ran in parallel, each in its own lane: onboarding and connection, agent logic, and a simplicity sweep against my own style guide. a fourth went under the ui into the mirroring layer. every finding needed a file and line. anything only provable on a live phone was labeled a hypothesis. a second round caught the app screenshotting and calling paid inference every 5 seconds on a static screen, about 720 calls an hour.</p>
     <div class="hers">the auditors were ai agents reading the repo. i set the lanes, the fixtures and the bar: my thirteen defects first, a file and line for every finding, and anything only provable on a live phone marked a hypothesis. they found things. i decided what mattered.</div>
     <ul class="disc" style="margin-top:var(--s4)">
       <li>every claim has a receipt, every guess is labeled a guess</li>
@@ -661,18 +450,18 @@ router.post(<span class="n">'/twilio-sms-webhook'</span>,
 <!-- 6. my design laws -->
 <section class="prose lessons">
   <h2>my design laws for agentic products</h2>
-  <p>Tracing the training loop left me with these. I design by them now.</p>
-  <p><b>Show the agent's conclusions, not just its inputs.</b> If people train something, they need to see what it learned and correct it. That surface is the loop.</p>
-  <p><b>Never ask for input you won't use.</b> Fifty forced justifications that nothing reads burn exactly the goodwill training depends on.</p>
-  <p><b>Honest state beats optimistic state.</b> "Connected" has to go false when it's false. A counter has to count the thing it names.</p>
-  <p><b>Price the work up front.</b> Training is roughly an hour of careful rating before anything changes. Say so on the first screen.</p>
+  <p>tracing the training loop left me with these. i design by them now.</p>
+  <p><b>show the agent's conclusions, not just its inputs.</b> if people train something, they need to see what it learned and correct it. that surface is the loop.</p>
+  <p><b>never ask for input you won't use.</b> fifty forced justifications that nothing reads burn exactly the goodwill training depends on.</p>
+  <p><b>honest state beats optimistic state.</b> "connected" has to go false when it's false. a counter has to count the thing it names.</p>
+  <p><b>price the work up front.</b> training is roughly an hour of careful rating before anything changes. say so on the first screen.</p>
   <div class="hers">i carried these into the agentic products i built after this one. if the agent concludes something about a person, show it and let them argue with it.</div>
 </section>
 
 <footer class="wide">
   <div class="built mono">
     <p>built by hand</p>
-    <p><span>stage</span> · working macOS build, interface unfinished</p>
+    <p><span>stage</span> · working macos build, interface unfinished</p>
     <p><span>source</span> · winged-max repo (private); excerpts quoted, comments shortened</p>
     <p><span>evidence</span> · 62-task audit board, receipts per task</p>
   </div>
