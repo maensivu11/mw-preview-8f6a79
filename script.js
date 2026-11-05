@@ -1075,10 +1075,11 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
   $('.ww-bar').addEventListener('dblclick',function(e){if(!e.target.closest('button'))toggleMax();});
   Array.prototype.forEach.call(w.querySelectorAll('[data-e]'),function(h){h.addEventListener('pointerdown',function(e){grab(e,h.getAttribute('data-e'));});});
   window.addEventListener('resize',function(){if(state!=='closed')applyGeom();});
-  // keys: esc closes the window before anything else; tab stays inside it
+  // keys: esc minimizes / restores before anything else; tab stays inside it
   document.addEventListener('keydown',function(e){
+    // esc tucks the window into the taskbar like a real computer; esc again brings it back. only X closes.
+    if(e.key==='Escape'&&state!=='closed'){e.preventDefault();e.stopImmediatePropagation();if(state==='open')minimize();else restore();return;}
     if(state!=='open')return;
-    if(e.key==='Escape'){e.preventDefault();e.stopImmediatePropagation();close();return;}
     if(e.key==='Tab'){
       var f=Array.prototype.filter.call(w.querySelectorAll('button:not(:disabled),iframe'),function(el){return el.getClientRects().length;});
       if(!f.length)return;e.stopImmediatePropagation();
@@ -1090,7 +1091,7 @@ document.querySelectorAll('[data-ext-href]').forEach(function(el){
   // the case page inside the window forwards its hotkeys (esc, left, right)
   window.addEventListener('message',function(e){
     if(e.origin!==window.location.origin||!e.data||!e.data.ww||e.source!==frame.contentWindow)return;
-    if(e.data.ww==='esc')close();else if(e.data.ww==='prev')go(-1);else if(e.data.ww==='next')go(1);
+    if(e.data.ww==='esc')minimize();else if(e.data.ww==='prev')go(-1);else if(e.data.ww==='next')go(1);
   });
   // back/forward: #work/<slug> opens that case in the window, anything else closes it
   function fromHash(){
