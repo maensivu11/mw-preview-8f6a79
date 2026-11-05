@@ -3,17 +3,17 @@
   "short_name": "findfunding.ai",
   "icons": [
     {
-      "src": "/mw-preview-nukxye/work/find-funding/assets/embeds/app/android-chrome-192.png",
+      "src": "/mw-preview-8f6a79/work/find-funding/assets/embeds/app/android-chrome-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/mw-preview-nukxye/work/find-funding/assets/embeds/app/android-chrome-512.png",
+      "src": "/mw-preview-8f6a79/work/find-funding/assets/embeds/app/android-chrome-512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/mw-preview-nukxye/work/find-funding/assets/embeds/app/android-maskable-512.png",
+      "src": "/mw-preview-8f6a79/work/find-funding/assets/embeds/app/android-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
