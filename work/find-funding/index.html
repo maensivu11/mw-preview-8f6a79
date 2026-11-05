@@ -50,6 +50,9 @@ p+p{margin-top:20px}
 .hero .frame{flex:1;min-height:0;display:flex;position:relative}
 .hero .frame img{width:100%;height:100%;object-fit:cover;object-position:top left}
 .hero .frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#fff}
+/* phone visitors: every embed renders its own mobile layout at a real phone width, in a phone-shaped frame */
+.frame picture{display:contents}
+@media (max-width:600px){.hero .frame{flex:none;aspect-ratio:390/844}}
 .premise{font-size:17px;line-height:26px;color:var(--ink);margin-top:10px;max-width:640px;white-space:normal}
 .hero .cap{margin-top:12px}
 
@@ -88,6 +91,7 @@ p+p{margin-top:20px}
 .frame.live.ready img{width:100%;height:100%;object-fit:cover;object-position:top left}
 .frame.live.on img{display:none}
 .frame.live iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform-origin:0 0;background:#fff}
+@media (max-width:600px){.frame.live.ready{aspect-ratio:390/844}.frame.live iframe{width:390px;height:844px}}
 .live-tag{display:block;width:fit-content;margin:0 0 12px;font-family:var(--mono);font-size:12px;line-height:18px;letter-spacing:.04em;color:#fff;background:#000;border-radius:999px;padding:5px 14px}
 .live-tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#4ADE80;margin-right:9px;vertical-align:1px}
 .live-run{display:block;margin:12px 0 0;font:inherit;font-family:var(--mono);font-size:12px;line-height:18px;background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer}
@@ -188,7 +192,7 @@ section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-c
     </div>
     <a class="live" href="https://findfunding.ai" rel="noopener">visit live ↗ findfunding.ai</a>
   </div>
-  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live findfunding.ai landing page: Funding shouldn't depend on who you know." width="2880" height="1800"><iframe data-src="https://findfunding.ai" title="findfunding.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer"></iframe></div>
+  <div class="frame art"><picture><source media="(max-width:600px)" srcset="assets/00-live-landing-390.png"><img src="assets/00-live-landing-1440.png" alt="The live findfunding.ai landing page: Funding shouldn't depend on who you know." width="2880" height="1800"></picture><iframe data-src="https://findfunding.ai" title="findfunding.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms" referrerpolicy="no-referrer"></iframe></div>
   <p class="cap">live product, findfunding.ai, scroll inside it</p>
 </header>
 
@@ -253,20 +257,20 @@ section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-c
     <div class="hers">the forms-and-lists version asked owners to retype what their own documents already said. that was the moment. the product should do the reading. so i took a product and made it agentic: it reads, extracts, matches, and plans. it never states a fact about your business you haven't confirmed, and it never submits anything. it does the work, you keep the say.</div>
   </div>
   <div class="blk">
-    <div class="art"><div class="frame live" data-route="documents/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding document upload, the real app running with sample data"><img src="assets/02-upload-drop.png" alt="The document drop screen: drop your files here, with the list of documents already given" loading="lazy"></div><p class="cap">signed-in product, sample data</p></div>
+    <div class="art"><div class="frame live" data-route="documents/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding document upload, the real app running with sample data"><picture><source media="(max-width:600px)" srcset="assets/02-upload-drop-390.png"><img src="assets/02-upload-drop.png" alt="The document drop screen: drop your files here, with the list of documents already given" loading="lazy"></picture></div><p class="cap">signed-in product, sample data</p></div>
     <div class="note"><span class="hand r2">your documents already said it</span><p>drop documents, don't retype them.</p><p>onboarding starts with an upload. you drop what you already have, a tax return, a p&amp;l, a business plan, and readers propose facts from it: legal name, structure, revenue, team size. the owner's job changes from typing to checking. that's a smaller job, and it's the right one, because the owner knows their business better than any reader does.</p></div>
   </div>
   <div class="blk">
-    <div class="art"><div class="frame live" data-route="documents/5a3b1e00-0000-4000-8000-000000000001/?review=d1" data-title="Find Funding fact review, the real app running with sample data"><img src="assets/03-fact-review.png" alt="The fact review screen: each proposed fact with its page, verbatim excerpt, editable value and Confirm control" loading="lazy"></div><p class="cap">signed-in product, sample data</p></div>
+    <div class="art"><div class="frame live" data-route="documents/5a3b1e00-0000-4000-8000-000000000001/?review=d1" data-title="Find Funding fact review, the real app running with sample data"><picture><source media="(max-width:600px)" srcset="assets/03-fact-review-390.png"><img src="assets/03-fact-review.png" alt="The fact review screen: each proposed fact with its page, verbatim excerpt, editable value and Confirm control" loading="lazy"></picture></div><p class="cap">signed-in product, sample data</p></div>
     <div class="note"><span class="hand r4">a person looked. that's the point.</span><p>confirm, never accept-all.</p><p>each proposed fact shows what we read, where we read it, page and verbatim excerpt, what confirming it will do, and an editable box. nothing is pre-selected. there is no accept-all. the owner's correction is what lands, not the machine's reading. the comment at the top of that component says it in one line: "the whole point of this screen is that a person looked."</p>
       <div class="hers">an accept-all button would have made the demo smoother and the profile wrong. this is financial data. one wrongly accepted fact feeds a rule, the rule counts as met, and a program you can't get sits at the top of your list. so you confirm each fact once, and from then on your word beats my extraction, always.</div></div>
   </div>
   <div class="blk">
-    <div class="art"><div class="frame live" data-route="profile/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding business profile, the real app running with sample data"><img src="assets/13-profile-redesign.png" alt="The redesigned business profile" loading="lazy"></div><p class="cap">profile redesign, design mock in the real frontend</p></div>
+    <div class="art"><div class="frame live" data-route="profile/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding business profile, the real app running with sample data"><picture><source media="(max-width:600px)" srcset="assets/13-profile-redesign-390.png"><img src="assets/13-profile-redesign.png" alt="The redesigned business profile" loading="lazy"></picture></div><p class="cap">profile redesign, design mock in the real frontend</p></div>
     <div class="note"><span class="hand r1">your word always wins</span><p>your saved value always wins.</p><p>the profile isn't a form you fill once. it's where everything the product learned about you lives, with provenance shown inside the field you're editing, and suggestions waiting in their own tab instead of silently overwriting what you saved. a projected revenue number from a business plan goes into projections, never into actual revenue.</p><p class="logic">the rule came from watching it break: a suggested business name from a test upload overwrote the saved one on screen. after that, a saved value outranks anything read from a document, no exceptions. and i kept projections out of actual revenue because a plan is a hope, and a program's rules are checked against what you actually earned.</p></div>
   </div>
   <div class="blk">
-    <div class="art"><div class="frame live" data-route="opportunities/matches/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding opportunities, the real app running with sample data"><img src="assets/08-dashboard-overview-1440.png" alt="Opportunities overview at 1440" loading="lazy"></div><p class="cap">dashboard composition, design mock, sample data</p></div>
+    <div class="art"><div class="frame live" data-route="opportunities/matches/5a3b1e00-0000-4000-8000-000000000001/" data-title="Find Funding opportunities, the real app running with sample data"><picture><source media="(max-width:600px)" srcset="assets/08-opportunities-390.png"><img src="assets/08-dashboard-overview-1440.png" alt="Opportunities overview at 1440" loading="lazy"></picture></div><p class="cap">dashboard composition, design mock, sample data</p></div>
     <div class="note"><span class="hand r3">ranked by rules met. no paid spots.</span><p>matching is a plan, not a catalog.</p><p>the page after sign-in is opportunities: funding that could fit, your next step, your drafts. grants, loans and all funding are filters on one page, not separate catalogs. ranking is by rules met. an unconfirmed rule never counts as met, and there's no paid placement. expand a card and it tells you why it's on your list, rule by rule.</p><p class="logic">i made grants and loans filters on one page because the owner's question is "what fits me," not "what kind of money is this." and i kept the ranking honest because the first time a top result turns out to be ineligible, the whole list stops meaning anything.</p>
       <div class="hers">agentic means the product does the work. reads, extracts, matches, plans. it never asserts a fact about your business you haven't confirmed, and it never submits anything. the owner stays the one who decides, because it's their money and their name on the application.</div></div>
   </div>
@@ -305,7 +309,9 @@ document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classLi
     var frame = null;
     var tag = document.createElement('span'); tag.className = 'live-tag'; tag.textContent = 'live app — click through';
     box.parentNode.insertBefore(tag, box);
-    function fit(){ if (frame) frame.style.transform = 'scale(' + (box.clientWidth / 1280) + ')'; }
+    /* the app runs at a real device width and is fitted to the column: 390 (its phone layout) on a phone, 1280 on a laptop */
+    var phone = window.matchMedia('(max-width:600px)');
+    function fit(){ if (frame) frame.style.transform = 'scale(' + (box.clientWidth / (phone.matches ? 390 : 1280)) + ')'; }
     function mount(){
       if (frame) return;
       box.classList.add('on');
@@ -316,7 +322,7 @@ document.querySelectorAll('.art').forEach(el => io ? io.observe(el) : el.classLi
       box.appendChild(frame); fit();
     }
     function unmount(){ if (!frame) return; frame.remove(); frame = null; box.classList.remove('on'); }
-    window.addEventListener('resize', fit);
+    window.addEventListener('resize', fit); window.addEventListener('orientationchange', fit);
     if (!calm) box.classList.add('ready');
     if (calm) {
       var run = document.createElement('button'); run.type = 'button'; run.className = 'live-run'; run.textContent = 'run the live app';

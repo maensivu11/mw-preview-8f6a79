@@ -112,6 +112,9 @@ footer,footer.wide{margin-top:var(--gap);border-top:1px solid var(--line);paddin
 /* the logic, stated: one plain sentence in her voice where a decision showed no reason */
 .logic{color:var(--ink)}
 @media (max-width:760px){.hand{font-size:21px;line-height:24px}}
+/* phone visitors: every embed renders its own mobile layout at a real phone width, in a phone-shaped frame */
+.frame picture{display:contents}
+@media (max-width:600px){.hero .frame{flex:none;aspect-ratio:390/844}}
 /* spacing pass: one scale */
 /* desktop 160 section / 120 block / 64 group / 40 element / 24 note / 16 caption
    mobile   96 section /  80 block / 48 group / 40 element / 24 note / 16 caption */
@@ -166,7 +169,7 @@ section.prose>h2+*,.ed>h2+*,section.prose>h2+.hand+*,.ed>h2+.hand+*,.ed>:first-c
     </div>
     <a class="live" href="https://intranest.ai" rel="noopener">visit live ↗ intranest.ai</a>
   </div>
-  <div class="frame art"><img src="assets/00-live-landing-1440.png" alt="The live intranest.ai landing page: Get to CMMC Level 2 without the six-figure consultant, beside the glyph globe." width="2880" height="1800"><iframe data-src="https://intranest.ai" title="intranest.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe></div>
+  <div class="frame art"><picture><source media="(max-width:600px)" srcset="assets/00-live-landing-390.png"><img src="assets/00-live-landing-1440.png" alt="The live intranest.ai landing page: Get to CMMC Level 2 without the six-figure consultant, beside the glyph globe." width="2880" height="1800"></picture><iframe data-src="https://intranest.ai" title="intranest.ai, live" loading="lazy" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe></div>
   <p class="cap">live product, intranest.ai, scroll inside it</p>
 </header>
 
